@@ -1,23 +1,882 @@
+---
+// src/layouts/Layout.astro
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Territorium - Tecnología y naturaleza para la restauración",
+  description = "Combinamos ciencia ambiental, imágenes satelitales, análisis de datos y soluciones basadas en la naturaleza para auditar su territorio.",
+} = Astro.props;
+---
+
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+
+  <!-- Tipografía principal: Alice -->
+<!-- Tipografía para títulos: Alice -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Alice&display=swap" rel="stylesheet" />
+  </head>
+
+  <body>
+    <!-- NAVEGACIÓN GLOBAL -->
+   <nav class="site-nav">
+  <div class="nav-logo">
+    <a href="#inicio">
+      <img src="tcl.png" alt="Logotipo">
+    </a>
+  </div>
+
+  <ul class="nav-list">
+    <li><a href="#inicio" class="nav-link">Inicio</a></li>
+    <li><a href="#servicios" class="nav-link">Servicios</a></li>
+    <li><a href="#equipo" class="nav-link">Equipo</a></li>
+    <li><a href="#contacto" class="nav-link nav-link--muted">Contacto</a></li>
+  </ul>
+</nav>
+
+    <!-- CONTENIDO DE LA PÁGINA -->
+    <slot />
+
+    <!-- PIE DE PÁGINA GLOBAL -->
+    
+       <footer id="contacto" class="site-footer">
+  <div class="footer-container">
+    
+    <div class="footer-block footer-block--brand">
+      <h2 class="footer-heading">Un legado rentable</h2>
+      <p class="footer-body">
+        El suelo del mañana se gestiona hoy. En Territorium demostramos que
+        la rentabilidad económica y la regeneración ecológica no son caminos
+        opuestos, sino la única vía hacia el futuro.
+      </p>
+    </div>
+  </div>
+    <div class="footer-block footer-block--contact">
+
+      
+      <div class="contact-info">
+        <span class="contact-label">Contacto</span>
+        <a href="mailto:blanca@wildsquare.es" class="contact-link contact-link--email">
+          blanca@wildsquare.es
+        </a>
+      </div>
+
+      <div class="contact-info">
+        <span class="contact-label">WhatsApp</span>
+        <a href="https://wa.me/34646051005" target="_blank" rel="noopener noreferrer" class="contact-link">
+          +34 646 051 005
+        </a>
+      </div>
+
+      <div class="contact-info">
+        <span class="contact-label">Inversores / partners</span>
+      </div>
+    </div>
+
+  </div>
+</footer>
+        </div>
+      </slot>
+    </footer>
+  </body>
 </html>
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+<style is:global>
+  
+  /* ─── DESIGN TOKENS ─────────────────────────────────────── */
+  :root {
+    /* Paleta */
+    --color-sand:       #E6DFD3;   /* fondo base */
+    --color-sand-dark:  #D1C9BC;   /* elementos secundarios sobre arena */
+    --color-indigo:     #3B4D8F;   /* acento principal / textos de marca */
+    --color-indigo-mid: #465A9F;   /* sección ejes de trabajo */
+    --color-body:       #4A5568;   /* cuerpo de texto */
+    --color-white:      #FFFFFF;
+
+    /* Tipografía */
+    --font-base: 'Plus Jakarta Sans', sans-serif;
+
+    /* Escala tipográfica */
+    --text-xs:  0.75rem;   /* 12px */
+    --text-sm:  0.875rem;  /* 14px */
+    --text-base: 1rem;     /* 16px */
+    --text-lg:  1.125rem;  /* 18px */
+    --text-xl:  1.25rem;   /* 20px */
+    --text-2xl: 1.5rem;    /* 24px */
+    --text-3xl: 1.875rem;  /* 30px */
+    --text-4xl: 2.25rem;   /* 36px */
+    --text-5xl: 3rem;      /* 48px */
+
+    /* Espaciado base */
+    --space-1:  0.25rem;
+    --space-2:  0.5rem;
+    --space-3:  0.75rem;
+    --space-4:  1rem;
+    --space-6:  1.5rem;
+    --space-8:  2rem;
+    --space-12: 3rem;
+    --space-16: 4rem;
+    --space-20: 5rem;
+    --space-24: 6rem;
+
+    /* Radios */
+    --radius-sm:  0.25rem;
+    --radius-md:  0.5rem;
+    --radius-xl:  0.75rem;
+    --radius-2xl: 1rem;
+    --radius-top: 2rem;     /* para la sección azul con bordes superiores redondeados */
+
+    /* Contenedor */
+    --container-max: 64rem;   /* ~1024px */
+    --container-narrow: 48rem; /* ~768px */
+  }
+
+  /* ─── RESET MÍNIMO ───────────────────────────────────────── */
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* ─── BASE ───────────────────────────────────────────────── */
+  body {
+    font-family: var(--font-base);
+    background-color: var(--color-sand);
+    color: var(--color-indigo);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Contenedor principal */
+.site-nav {
+  display: flex;
+  flex-direction: column;   /* Apila el logo arriba y los links abajo */
+  align-items: center;      /* Centra horizontalmente ambos elementos */
+  justify-content: center;
+  gap: var(--space-4);      /* Espacio vertical entre el logo y los enlaces */
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding: var(--space-6) var(--space-4); /* Espaciado interno balanceado */
+}
+
+/* Controla el tamaño de tu logo */
+.nav-logo img {
+  height: 55px;             /* Ajusta este valor si quieres el logo un poco más grande o chico */
+  width: auto;   
+  display: block;
+}
+
+.nav-list {
+  display: flex;                 
+  align-items: center;
+  justify-content: center;  /* Centra los enlaces horizontalmente */
+  list-style: none;              
+  margin: 0;
+  padding: 0;
+  gap: var(--space-8);      /* Espacio horizontal entre cada enlace */
+}
+
+.nav-link {
+  text-decoration: none;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  color: var(--color-indigo);
+  transition: opacity 0.2s ease;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+}
+
+.nav-link--muted {
+  opacity: 0.6;
+}
+
+  img, video {
+    max-width: 100%;
+    display: block;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  /* ─── NAVEGACIÓN ─────────────────────────────────────────── */
+  .site-nav {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;           
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding: var(--space-4) var(--space-6); /* Reduce el grosor del navbar */
+}
+
+  .nav-list {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-12);
+  }
+
+  .nav-link {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    letter-spacing: 0.025em;
+    color: var(--color-indigo);
+    transition: opacity 0.2s ease;
+  }
+
+  .nav-link:hover {
+    text-decoration: underline;
+  }
+
+  .nav-link--muted {
+    opacity: 0.6;
+  }
+
+  /* ─── HERO ───────────────────────────────────────────────── */
+
+  /* Títulos elegantes con Alice */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Alice', serif;
+}
+
+/* Cuerpo de texto con Avenir (y sus alternativas) */
+body {
+  font-family: 'Avenir', 'Avenir Next', 'Montserrat', 'Segoe UI', sans-serif;
+}
+  .hero {
+    position: relative;
+    height: 550px;
+    background-color: #2d3748;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    padding: var(--space-6) var(--space-16);
+  }
+
+  .hero__content {
+    max-width: var(--container-narrow);
+    color: var(--color-white);
+  }
+
+  .hero__eyebrow {
+    display: block;
+    font-size: var(--text-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.9;
+    margin-bottom: var(--space-2);
+  }
+
+  .hero__title {
+    font-size: clamp(var(--text-3xl), 5vw, var(--text-5xl));
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: var(--space-4);
+  }
+
+  .hero__subtitle {
+    font-size: var(--text-sm);
+    opacity: 0.9;
+    max-width: 36rem;
+    margin-bottom: var(--space-8);
+  }
+
+  .hero__cta {
+    display: inline-block;
+    border-bottom: 2px solid var(--color-white);
+    padding-bottom: var(--space-1);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    transition: opacity 0.2s ease;
+  }
+
+  .hero__cta:hover {
+    opacity: 0.8;
+  }
+
+  /* ─── CONTENEDOR GENÉRICO ────────────────────────────────── */
+  .container {
+    max-width: var(--container-max);
+    margin-inline: auto;
+    padding-inline: var(--space-6);
+  }
+
+  .container--narrow {
+    max-width: var(--container-narrow);
+    margin-inline: auto;
+    padding-inline: var(--space-6);
+  }
+
+  /* ─── SECCIÓN INTRO / PROPÓSITO ─────────────────────────── */
+  .section-intro {
+    padding-block: var(--space-20);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-16);
+  }
+
+  .section-intro__block {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .section-intro__heading {
+    font-size: clamp(var(--text-2xl), 3.5vw, var(--text-3xl));
+    font-weight: 700;
+    max-width: 36rem;
+    margin-inline: auto;
+    line-height: 1.3;
+	color: var(--color-indigo);
+  }
+
+  .section-intro__body {
+    font-size: var(--text-sm);
+    color: var(--color-body);
+    max-width: 44rem;
+    margin-inline: auto;
+    line-height: 1.75;
+  }
+
+  .section-intro__quote {
+    font-size: var(--text-xs);
+    font-style: italic;
+    color: var(--color-body);
+    max-width: 32rem;
+    margin-inline: auto;
+    line-height: 1.75;
+    padding-top: var(--space-6);
+  }
+
+  /* ─── SECCIÓN EJES DE TRABAJO (fondo azul) ───────────────── */
+  .section-axes {
+    background-color: var(--color-indigo-mid);
+    color: var(--color-white);
+    padding-block: var(--space-16);
+    padding-inline: var(--space-6);
+    border-radius: var(--radius-top) var(--radius-top) 0 0;
+  }
+
+  .section-axes__label {
+    text-align: center;
+    font-weight: 700;
+    font-size: var(--text-xs);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: var(--space-12);
+  }
+
+  .axes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: var(--space-6);
+  }
+
+  /* ─── TARJETA DE EJE ─────────────────────────────────────── */
+/* ─── TARJETA DE EJE (CORREGIDO) ─────────────────────────── */
+.card-axis {
+  background-color: var(--color-sand);
+  color: var(--color-indigo);
+  padding: var(--space-8);
+  border-radius: var(--radius-xl);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Empuja el botón siempre al fondo de la tarjeta */
+  min-height: 320px; /* Un poco más de espacio para que quepa el botón cómodamente */
+}
+
+.card-axis__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.card-axis__brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  opacity: 0.7;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.card-axis__name {
+  font-family: 'Alice', serif;
+  font-size: var(--text-2xl);
+  font-weight: 400;
+  color: var(--color-indigo);
+  margin-block: var(--space-1) var(--space-2);
+}
+
+.card-axis__tag {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #c4a47c; /* El tono marrón/dorado elegante */
+  margin-bottom: var(--space-4);
+}
+
+.card-axis__body {
+  font-size: var(--text-sm);
+  line-height: 1.6;
+  color: var(--color-body);
+  margin-bottom: var(--space-6);
+}
+
+/* Botón específico para las tarjetas sobre fondo arena */
+.card-axis__cta {
+  display: inline-block;
+  width: fit-content;
+  border-bottom: 2px solid var(--color-indigo);
+  padding-bottom: var(--space-1);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-indigo);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.card-axis__cta:hover {
+  opacity: 0.8;
+  transform: translateX(3px); /* Pequeño desplazamiento interactivo */
+}
+
+  /* ─── SECCIÓN EQUIPO ─────────────────────────────────────── */
+  .section-team {
+    padding-block: var(--space-20);
+    text-align: center;
+  }
+
+  .section-team__heading {
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    margin-bottom: var(--space-4);
+  }
+
+  .section-team__body {
+    font-size: var(--text-sm);
+    color: var(--color-body);
+    max-width: 36rem;
+    margin-inline: auto;
+    line-height: 1.75;
+    margin-bottom: var(--space-12);
+  }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-6);
+    max-width: 48rem;
+    margin-inline: auto;
+  }
+
+  /* Placeholder de foto — sustitúyelo con <img> real */
+  .team-photo {
+    background-color: var(--color-sand-dark);
+    aspect-ratio: 1 / 1;
+    border-radius: var(--radius-sm);
+  }
+
+  /* ─── PIE DE PÁGINA ──────────────────────────────────────── */
+  .site-footer {
+    max-width: var(--container-narrow);
+    margin-inline: auto;
+    padding-inline: var(--space-6);
+    padding-bottom: var(--space-24);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-16);
+  }
+
+  .footer-block {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .footer-heading {
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    color: var(--color-indigo);
+  }
+
+  .footer-body {
+    font-size: var(--text-sm);
+    color: var(--color-body);
+    line-height: 1.75;
+  }
+
+  /* ─── UTILIDADES ─────────────────────────────────────────── */
+  .text-accent {
+    color: var(--color-indigo);
+  }
+
+  .text-muted {
+    color: var(--color-body);
+  }
+
+  .font-normal {
+    font-weight: 400;
+  }
+
+  /* ─── RESPONSIVE ─────────────────────────────────────────── */
+  @media (max-width: 768px) {
+    .nav-list {
+      gap: var(--space-8);
+    }
+
+    .hero {
+      padding-inline: var(--space-6);
+      height: auto;
+      min-height: 420px;
+      padding-block: var(--space-16);
+    }
+
+    .axes-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .team-grid {
+      grid-template-columns: 1fr;
+      max-width: 280px;
+    }
+  }
+
+  /* Centra el contenido de cada miembro */
+.team-member {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* Contenedor circular de la foto */
+.team-photo-wrapper {
+  width: 180px;         /* Ajusta este tamaño (ej. 150px o 200px) a tu gusto */
+  height: 180px;        /* Debe ser exactamente igual al ancho para que sea un círculo */
+  border-radius: 50%;   /* Esto hace que el contenedor sea redondo */
+  overflow: hidden;     /* Recorta la imagen PNG para que no se salga del círculo */
+  margin-bottom: 1.5rem;
+  background-color: #f4f4f4; /* Fondo gris claro por si el PNG tiene transparencia */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave opcional */
+}
+
+/* Estilos de la imagen dentro del círculo */
+.team-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;    /* ¡ESTO EVITA QUE SE VEA ANCHA! Recorta y adapta la foto proporcionalmente */
+  object-position: center; /* Centra la cara dentro del círculo */
+}
+
+/* Estilos de los textos (opcionales para mejorar la tipografía) */
+.team-member__name {
+  font-size: 1.25rem;
+  margin: 0.5rem 0 0.25rem 0;
+  color: #3B4D8F;
+}
+
+.team-member__role {
+  font-size: 0.95rem;
+  color: #666;
+  margin: 0;
+}
+
+/* ─── CONTENEDORES DE SECCIÓN ───────────────────────────── */
+.team-section {
+  max-width: var(--container-max);
+  margin: var(--space-16) auto;
+  padding-inline: var(--space-3);
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: 1px solid var(--color-sand-dark);
+  padding-bottom: var(--space-3);
+  margin-bottom: var(--space-8);
+}
+
+.section-title {
+  font-family: 'Alice', serif;
+  font-size: var(--text-2xl);
+  color: var(--color-indigo);
+  font-weight: 400;
+}
+
+.section-title .italic-title {
+  font-style: italic;
+  color: #c4a47c; /* Tono dorado/marrón suave de tu captura */
+}
+
+.section-subtitle {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: #a0aec0;
+}
+
+/* ─── GRIDS / CUADRÍCULAS ───────────────────────────────── */
+.team-grid {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.team-grid--main {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.team-grid--secondary {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+/* ─── TARJETAS DE INTEGRANTES ───────────────────────────── */
+.team-card {
+  background-color: transparent; /* Mantiene el fondo limpio de tu web */
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  padding: var(--space-6);
+  border-radius: var(--radius-sm);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Formato horizontal para los asesores de abajo */
+.team-card--horizontal {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: var(--space-4);
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ─── AVATARES (FOTOS CIRCULARES) ───────────────────────── */
+.avatar-wrapper {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: var(--color-sand-dark);
+  margin-bottom: var(--space-4);
+  flex-shrink: 0; /* Evita que la foto se aplaste en horizontal */
+}
+
+.team-card--horizontal .avatar-wrapper {
+  width: 70px;
+  height: 70px;
+  margin-bottom: 0;
+}
+
+.team-avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%); /* Efecto blanco y negro como tu captura */
+}
+
+/* ─── TEXTOS POR TARJETA ────────────────────────────────── */
+.team-role {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #c4a47c; /* Color del rol */
+  margin-bottom: var(--space-1);
+}
+
+.team-name {
+  font-family: 'Alice', serif;
+  font-size: var(--text-lg);
+  color: var(--color-indigo);
+  margin-bottom: var(--space-3);
+  font-weight: 400;
+}
+
+.team-bio {
+  font-size: var(--text-sm);
+  color: var(--color-body);
+  line-height: 1.5;
+}
+
+/* RESPONSIVE PARA MÓVILES */
+@media (max-width: 768px) {
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2);
+  }
+  .team-card--horizontal {
+    flex-direction: column;
+  }
+  .team-card--horizontal .avatar-wrapper {
+    margin-bottom: var(--space-4);
+  }
+}
+
+  /* ─── ACCESIBILIDAD ──────────────────────────────────────── */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    * {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+    }
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-indigo);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* Contenedor principal ajustado al diseño de la imagen */
+  .section-intro {
+    padding: 6rem 2rem; /* Espaciado generoso arriba y abajo */
+    color: #4a5568; /* Color del texto secundario */
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  .propuesta-valor {
+    max-width: 900px; /* Ancho máximo para mantener las líneas legibles */
+    margin: 0 auto;
+  }
+
+  /* Título principal en azul oscuro */
+  .propuesta-valor__titulo {
+    color: #2b4c99; /* Azul corporativo oscuro de la captura */
+    font-size: 2.25rem;
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: 2rem;
+    letter-spacing: -0.02em;
+  }
+
+  /* Bloque de párrafos */
+  .propuesta-valor__contenido {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* Separación entre los dos párrafos */
+  }
+
+  /* Párrafos descriptivos */
+  .propuesta-valor__texto {
+    font-size: 1.35rem;
+    line-height: 1.5;
+    color: #3e4d68; /* Tono gris-azul para los textos */
+    margin: 0;
+    font-weight: 400;
+  }
+
+  /* ─── SECCIÓN DE ALIADOS / PARTNERS ─────────────────────── */
+.partners-grid {
+  display: grid;
+  /* Crea una cuadrícula adaptativa: mínimo 140px, máximo 1fr */
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: var(--space-6);
+  max-width: var(--container-max);
+  margin: var(--space-12) auto;
+  padding-inline: var(--space-6);
+  align-items: center;
+}
+
+.partner-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Truco de diseño: Fondo blanco puro para encapsular el logo */
+  background-color: var(--color-white); 
+  
+  /* Dimensiones fijas para que todos los contenedores sean simétricos */
+  height: 100px; 
+  padding: var(--space-4);
+  
+  /* Estética minimalista */
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04); /* Sombra muy sutil */
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  
+  /* Transición suave para el efecto Hover */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Efecto al pasar el cursor */
+.partner-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.partner-logo {
+  max-width: 100%;
+  max-height: 100%;
+  
+  /* Crucial: Evita que el logo se deforme si las imágenes no son cuadradas */
+  object-fit: contain; 
+  
+  /* Opcional: Si el fondo original del JPEG es ligeramente gris o diferente, 
+     esto ayuda a que se fusione perfectamente con el blanco del contenedor */
+  mix-blend-mode: multiply; 
+  
+  /* Suavizado visual (por si los logos son muy coloridos y quieres armonía) */
+  filter: grayscale(10%) opacity(0.9);
+  transition: filter 0.2s ease;
+}
+
+.partner-item:hover .partner-logo {
+  filter: grayscale(0%) opacity(1); /* Recupera todo el color al hacer hover */
+}
+
+/* Ajuste responsive para pantallas pequeñas */
+@media (max-width: 480px) {
+  .partners-grid {
+    grid-template-columns: repeat(2, 1fr); /* Fuerza 2 columnas en móviles */
+    gap: var(--space-4);
+  }
+  .partner-item {
+    height: 85px;
+  }
+}
+
+  /* Ajustes adaptativos para pantallas más chicas */
+  @media (max-width: 768px) {
+    .propuesta-valor__titulo {
+      font-size: 1.75rem;
+    }
+    .propuesta-valor__texto {
+      font-size: 1.15rem;
+    }
+  }
 </style>

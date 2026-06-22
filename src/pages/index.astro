@@ -1,11 +1,408 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Territorium - Tecnología y naturaleza para la restauración">
+
+  <header class="hero" id="hero-carousel">
+    <div class="hero__content">
+      <span class="hero__eyebrow">Resiliencia y Rentabilidad</span>
+      <h1 class="hero__title fade-in" id="carousel-title">
+        Tecnología y naturaleza<br/>para la restauración
+      </h1>
+      <p class="hero__subtitle">Resultados que generan impacto positivo.</p>
+      <a href="#servicios" class="hero__cta">Ver más</a>
+    </div>
+  </header>
+
+  <main class="container--narrow section-intro reveal">
+
+    <div class="section-intro__block">
+      <h2 class="section-intro__heading">
+        Unimos la sabiduría de la tierra con la tecnología del futuro.
+      </h2>
+      <p class="section-intro__body">
+        Combinamos ciencia ambiental, imágenes satelitales, análisis de datos y
+        soluciones basadas en la naturaleza para auditar su territorio.
+      </p>
+    </div>
+
+    <div class="divider-icon" aria-hidden="true">
+      <div class="divider-icon__line"></div>
+      <svg class="divider-icon__svg" viewBox="0 0 40 40" fill="none">
+        <circle cx="20" cy="20" r="19" stroke="currentColor" stroke-width="1.2"/>
+        <line x1="20" y1="29" x2="20" y2="16" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+        <path d="M20 22 C16 20 13 16 15 12 C17 15 19 18 20 22Z" stroke="currentColor" stroke-width="1.2" fill="none"/>
+        <path d="M20 19 C24 17 27 13 25 9 C23 12 21 15 20 19Z" stroke="currentColor" stroke-width="1.2" fill="none"/>
+        <path d="M13 29 Q20 27 27 29" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" fill="none"/>
+      </svg>
+      <div class="divider-icon__line"></div>
+    </div>
+
+    <div class="metrics-row">
+      <div class="metric">
+        <span class="metric__number">17.000 ha</span>
+        <span class="metric__label">auditadas</span>
+      </div>
+      <div class="metric metric--center">
+        <span class="metric__number">+40</span>
+        <span class="metric__label">proyectos restaurados</span>
+      </div>
+      <div class="metric">
+        <span class="metric__number">3</span>
+        <span class="metric__label">países activos</span>
+      </div>
+    </div>
+
+    <div class="section-intro__block">
+      <h2 class="section-intro__heading">
+        Transformamos los datos del ecosistema en un
+        <span class="text-accent">balance financiero claro.</span>
+      </h2>
+      <p class="section-intro__body">
+        Permitiéndole tomar decisiones estratégicas basadas en el valor real de su activo.
+      </p>
+    </div>
+  </main>
+
+  <section id="servicios" class="section-axes reveal">
+    <div class="container">
+      <p class="section-axes__label">Nuestros ejes de trabajo</p>
+      <div class="axes-grid">
+
+        <div class="card-axis">
+          <div class="card-axis__content">
+            <p class="card-axis__brand">Territorium</p>
+            <h3 class="card-axis__name">Gestión</h3>
+            <p class="card-axis__tag">Gestión Territorial Avanzada</p>
+            <p class="card-axis__body">Conocer, medir y activar el valor del territorio.</p>
+          </div>
+          <a href="mailto:blanca@wildsquare.es" class="card-axis__cta">Solicitar una demo</a>
+        </div>
+
+        <div class="card-axis">
+          <div class="card-axis__content">
+            <p class="card-axis__brand">Territorium</p>
+            <h3 class="card-axis__name">Capital</h3>
+            <p class="card-axis__tag">Inteligencia Financiera Territorial</p>
+            <p class="card-axis__body">Detectar y activar oportunidades de su territorio.</p>
+          </div>
+          <a href="mailto:blanca@wildsquare.es" class="card-axis__cta">Solicitar una demo</a>
+        </div>
+
+        <div class="card-axis">
+          <div class="card-axis__content">
+            <p class="card-axis__brand">Territorium</p>
+            <h3 class="card-axis__name">Restauración</h3>
+            <p class="card-axis__tag">Ecosistema de Futuro Territorial</p>
+            <p class="card-axis__body">Restauración ecológica del ecosistema de tu territorio.</p>
+          </div>
+          <a href="mailto:blanca@wildsquare.es" class="card-axis__cta">Solicitar una demo</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="equipo" class="section-team container--narrow reveal">
+    <h2 class="section-team__heading">Nuestro equipo</h2>
+    <p class="section-team__body">
+      Territorium es una empresa de gestión integral de territorios nacida por y
+      para la tierra. Tenemos un equipo multidisciplinario.
+    </p>
+    
+    <div class="team-grid">
+      <div class="team-member">
+        <div class="team-photo-wrapper">
+          <img src="imagenes/blanca-montoro.png" alt="Foto de Blanca Montoro" class="team-photo">
+        </div>
+        <h3 class="team-member__name">Blanca Montoro</h3>
+        <p class="team-member__role">Managing Partner / CEO</p>
+        <p class="team-bio">Visión estratégica y liderazgo institucional. Experiencia en activos alternativos y desarrollo de negocio en el sector financiero. Responsable del posicionamiento, las relaciones con inversores y el desarrollo de la tesis de inversión.</p>
+      </div>
+
+      <div class="team-member">
+        <div class="team-photo-wrapper">
+          <img src="imagenes/daniel-suarez.png" alt="Foto de Daniel Suárez" class="team-photo">
+        </div>
+        <h3 class="team-member__name">Daniel Suárez</h3>
+        <p class="team-member__role">Partner / Negocio e Inversiones</p>
+        <p class="team-bio">Serial entrepreneur y especialista en IA. Cuatro exits. Ex-CIO de Havas Group y ex-Monaco Fund. Responsable de la operación, la detección de activos y el despliegue de agentes especializados sobre el territorio.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="team-section reveal">
+    <div class="section-header">
+      <h2 class="section-title">Inversión, territorios y <span class="italic-title">red técnica</span></h2>
+      <span class="section-subtitle">DEAL, FINANZAS Y OPERACIÓN SOBRE EL TERRENO</span>
+    </div>
+
+    <div class="team-grid team-grid--main">
+      <div class="team-card">
+        <div class="avatar-wrapper">
+          <img src="imagenes/carlos-otero.png" alt="Carlos Otero" class="team-avatar">
+        </div>
+        <h3 class="team-name">Carlos Otero</h3>
+        <span class="team-role">VENTURE / DEAL PARTNER</span>
+        <p class="team-bio">Territorios — originación, estructuración de operaciones y acceso a redes de family office y patrimoniales en toda España.</p>
+      </div>
+
+      <div class="team-card">
+        <div class="avatar-wrapper">
+          <img src="imagenes/rocio-luis-jara.png" alt="Rocío Luis Jara" class="team-avatar">
+        </div>
+        <h3 class="team-name">Rocío Luis Jara</h3>
+        <span class="team-role">TECHNICAL PARTNER</span>
+        <p class="team-bio">Agroforestal, ecología y agronomía sobre el terreno — líneas base de biodiversidad y ciencia territorial.</p>
+      </div>
+
+      <div class="team-card">
+        <div class="avatar-wrapper">
+          <img src="imagenes/alberto-gonzalez.png" alt="Alberto González" class="team-avatar">
+        </div>
+        <h3 class="team-name">Alberto González</h3>
+        <span class="team-role">TECHNICAL PARTNER</span>
+        <p class="team-bio">Biología, agronomía e hidrología — cartografía territorial, dinámica de ecosistemas e infraestructura de conservación.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="team-section reveal">
+    <div class="section-header">
+      <h2 class="section-title">Asesores <span class="italic-title">Estratégicos</span></h2>
+      <span class="section-subtitle">INDUSTRIA, CIENCIA, IA E INFRAESTRUCTURA CLOUD</span>
+    </div>
+
+    <div class="team-grid team-grid--secondary">
+      <div class="team-card team-card--horizontal">
+        <div class="avatar-wrapper">
+          <img src="imagenes/antonio-yuncal.png" alt="Antonio Yuncal" class="team-avatar">
+        </div>
+        <div class="card-content">
+          <h3 class="team-name">Antonio Yuncal</h3>
+          <span class="team-role">ASESOR ESTRATÉGICO</span>
+          <p class="team-bio">Actual CMO de Savills · ex Randstad, Nike, PepsiCo, OMD, Aegis, Havas. Marca y posicionamiento institucional.</p>
+        </div>
+      </div>
+
+      <div class="team-card team-card--horizontal">
+        <div class="avatar-wrapper">
+          <img src="imagenes/alicia-palacios.png" alt="Alicia Palacios" class="team-avatar">
+        </div>
+        <div class="card-content">
+          <h3 class="team-name">Alicia Palacios</h3>
+          <span class="team-role">ASESORA ESTRATÉGICA</span>
+          <p class="team-bio">Dra. Ing. Agrónoma · asesoría científica sobre agronomía, ecología y sistemas productivos territoriales.</p>
+        </div>
+      </div>
+
+      <div class="team-card team-card--horizontal">
+        <div class="avatar-wrapper">
+          <img src="imagenes/manuel-suarez.png" alt="Manuel Suárez" class="team-avatar">
+        </div>
+        <div class="card-content">
+          <h3 class="team-name">Manuel Suárez</h3>
+          <span class="team-role">ASESOR ESTRATÉGICO</span>
+          <p class="team-bio">CTO y experto en IA · cofundó Rebolt (€2M levantados, Y Combinator). Arquitectura y producto de IA.</p>
+        </div>
+      </div>
+
+      <div class="team-card team-card--horizontal">
+        <div class="avatar-wrapper">
+          <img src="imagenes/alvaro-hernandez.png" alt="Álvaro Hernández" class="team-avatar">
+        </div>
+        <div class="card-content">
+          <h3 class="team-name">Álvaro Hernández</h3>
+          <span class="team-role">ASESOR ESTRATÉGICO</span>
+          <p class="team-bio">CEO de OnGres · infraestructura de cloud computing e ingeniería de plataformas de datos a gran escala.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+      
+  <div class="partners-grid reveal">
+    <a href="https://www.upm.es" target="_blank" rel="noopener noreferrer" class="partner-item">
+      <img src="imagenes/aliado_1.jpeg" alt="Logo Universidad Politécnica de Madrid" class="partner-logo">
+    </a>
+
+    <a href="https://www.wildlife-estates.info/" target="_blank" rel="noopener noreferrer" class="partner-item">
+      <img src="imagenes/aliado_2.jpeg" alt="Logo de Empresa Aliada" class="partner-logo">
+    </a>
+  </div>
+
 </Layout>
+
+<script>
+  const slides = [
+    {
+      image: "url('/imagenes/fondo-1.jpg')",
+      title: "Tecnología y naturaleza<br/>para la restauración"
+    },
+    {
+      image: "url('/imagenes/fondo-2.jpg')",
+      title: "Tecnología y naturaleza<br/>para medir la inversión en la naturaleza"
+    },
+    {
+      image: "url('/imagenes/fondo-3.jpg')",
+      title: "Decisiones estratégicas<br/>para multiplicar el valor del territorio"
+    }
+  ];
+
+  let currentIndex = 0;
+  const heroElement = document.getElementById('hero-carousel') as HTMLElement;
+  const titleElement = document.getElementById('carousel-title') as HTMLElement;
+
+  function changeSlide() {
+    currentIndex = (currentIndex + 1) % slides.length;
+    const next = slides[currentIndex];
+
+    if (titleElement && heroElement) {
+      titleElement.classList.remove('fade-in');
+      titleElement.classList.add('fade-out');
+
+      setTimeout(() => {
+        heroElement.style.backgroundImage =
+          `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), ${next.image}`;
+        titleElement.innerHTML = next.title;
+        titleElement.classList.remove('fade-out');
+        titleElement.classList.add('fade-in');
+      }, 600);
+    }
+  }
+
+  setInterval(changeSlide, 6000);
+
+  // Observer de Scroll (Arreglado para asegurar que espere la carga del DOM)
+  document.addEventListener("DOMContentLoaded", () => {
+    const checkVisibility = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+          observer.unobserve(entry.target);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(checkVisibility, {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.1
+    });
+
+    const elementsToReveal = document.querySelectorAll(".reveal");
+    elementsToReveal.forEach(el => observer.observe(el));
+  });
+</script>
+
+<style>
+  /* ── HERO ─────────────────────────────────────────────────── */
+  .hero {
+    background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('/imagenes/fondo-1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: background-image 1.2s ease-in-out;
+    will-change: background-image;
+  }
+
+  .hero__title {
+    transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: opacity, transform;
+  }
+
+  .fade-in  { opacity: 1; transform: translateY(0); }
+  .fade-out { opacity: 0; transform: translateY(10px); }
+
+  /* ── SEPARADOR ────────────────────────────────────────────── */
+  .divider-icon {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--color-indigo);
+    opacity: 0.35;
+    margin-block: var(--space-8);
+  }
+  .divider-icon__line {
+    flex: 1;
+    height: 1px;
+    background-color: currentColor;
+  }
+  .divider-icon__svg {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+  }
+
+  /* ── MÉTRICAS ─────────────────────────────────────────────── */
+  .metrics-row {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: var(--space-6);
+    padding: var(--space-8) var(--space-6);
+    border-top: 1px solid rgba(59, 77, 143, 0.15);
+    border-bottom: 1px solid rgba(59, 77, 143, 0.15);
+    margin-block: var(--space-8);
+  }
+  .metric {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    text-align: right;
+  }
+  .metric--center {
+    text-align: center;
+    padding-inline: var(--space-6);
+    border-left:  1px solid rgba(59, 77, 143, 0.15);
+    border-right: 1px solid rgba(59, 77, 143, 0.15);
+  }
+  .metric:last-child { text-align: left; }
+
+  .metric__number {
+    font-size: clamp(var(--text-2xl), 3vw, var(--text-3xl));
+    font-weight: 800;
+    color: var(--color-indigo);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .metric__label {
+    font-size: var(--text-xs);
+    font-weight: 500;
+    color: var(--color-body);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ── CONTROL DE ANIMACIONES DE ENTRADA SCROLL ────────────── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(35px);
+    transition: opacity 1.2s cubic-bezier(0.215, 0.610, 0.355, 1), 
+                transform 1.2s cubic-bezier(0.215, 0.610, 0.355, 1);
+    will-change: opacity, transform;
+  }
+
+  .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── RESPONSIVE ───────────────────────────────────────────── */
+  @media (max-width: 600px) {
+    .metrics-row {
+      grid-template-columns: 1fr;
+    }
+    .metric,
+    .metric--center,
+    .metric:last-child {
+      text-align: center;
+      border: none;
+      padding-inline: 0;
+      padding-block: var(--space-4);
+      border-top: 1px solid rgba(59, 77, 143, 0.15);
+    }
+    .metric:first-child { border-top: none; }
+  }
+</style>
