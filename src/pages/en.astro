@@ -479,13 +479,13 @@ import Layout from '../layouts/Layout.astro';
         subtitleElement.classList.remove('fade-out');
         titleElement.classList.add('fade-in');
         subtitleElement.classList.add('fade-in');
-      }, 600);
+      }, 480);
     }
   }
 
   Promise.all(slides.map((slide) => preloadHeroImage(slide.image))).then(() => {
     if (!carouselTimer) {
-      carouselTimer = window.setInterval(changeSlide, 6000);
+      carouselTimer = window.setInterval(changeSlide, 5200);
     }
   });
 
@@ -533,7 +533,7 @@ import Layout from '../layouts/Layout.astro';
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    transition: background-image 1.2s ease-in-out;
+    transition: background-image 0.95s ease-in-out;
     will-change: background-image;
   }
 

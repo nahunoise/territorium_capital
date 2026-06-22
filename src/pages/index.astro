@@ -161,13 +161,13 @@ import PageStyles from '../components/PageStyles.astro';
         subtitleElement.classList.remove('fade-out');
         titleElement.classList.add('fade-in');
         subtitleElement.classList.add('fade-in');
-      }, 600);
+      }, 480);
     }
   }
 
   Promise.all(slides.map((slide) => preloadHeroImage(slide.image))).then(() => {
     if (!carouselTimer) {
-      carouselTimer = window.setInterval(changeSlide, 6000);
+      carouselTimer = window.setInterval(changeSlide, 5200);
     }
   });
 
