@@ -26,6 +26,7 @@ const nav = isEn
       services: 'Services',
       territories: 'Territories',
       insight: 'Insight',
+      whyUs: 'Why us',
       audience: 'Who we serve',
       contact: 'Contact',
     }
@@ -34,6 +35,7 @@ const nav = isEn
       services: 'Servicios',
       territories: 'Territorios',
       insight: 'Visión',
+      whyUs: 'Por qué nosotros',
       audience: 'Para quién',
       contact: 'Contacto',
     };
@@ -44,6 +46,7 @@ const navLinks = isEn
       services: '/en/#servicios',
       territories: '/en/#territorios',
       insight: '/en/#vision',
+      whyUs: '/en/#por-que-nosotros',
       audience: '/en/#clientes',
       contact: '/en/#contacto',
     }
@@ -52,6 +55,7 @@ const navLinks = isEn
       services: '/servicios/',
       territories: '/territorios/',
       insight: '/vision/',
+      whyUs: '/por-que-nosotros/',
       audience: '/clientes/',
       contact: '/contacto/',
     };
@@ -135,6 +139,7 @@ const formNextUrl = isEn ? 'https://territorium.capital/en/thanks/' : 'https://t
         <li><a href={navLinks.services} class="nav-link">{nav.services}</a></li>
         <li><a href={navLinks.territories} class="nav-link">{nav.territories}</a></li>
         <li><a href={navLinks.insight} class="nav-link">{nav.insight}</a></li>
+        <li><a href={navLinks.whyUs} class="nav-link">{nav.whyUs}</a></li>
         <li><a href={navLinks.audience} class="nav-link">{nav.audience}</a></li>
         <li><a href={navLinks.contact} class="nav-link nav-link--muted">{nav.contact}</a></li>
       </ul>
