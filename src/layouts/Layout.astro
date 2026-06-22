@@ -3,22 +3,66 @@
 export interface Props {
   title?: string;
   description?: string;
+  lang?: 'es' | 'en';
 }
 
 const {
-  title = "Territorium - Tecnología y naturaleza para la restauración",
-  description = "Combinamos ciencia ambiental, imágenes satelitales, análisis de datos y soluciones basadas en la naturaleza para auditar su territorio.",
+  title = "Territorium - Resiliencia y rentabilidad territorial",
+  description = "Territorium asesora en compraventa de territorios, capital natural y restauración llave en mano para convertir suelo en resiliencia, rentabilidad y legado.",
+  lang = 'es',
 } = Astro.props;
+
+const isEn = lang === 'en';
+const canonicalUrl = isEn ? 'https://territorium.capital/en/' : 'https://territorium.capital/';
+const nav = isEn
+  ? {
+      home: 'Home',
+      services: 'Services',
+      territories: 'Territories',
+      insight: 'Insight',
+      audience: 'Who we serve',
+      contact: 'Contact',
+    }
+  : {
+      home: 'Inicio',
+      services: 'Servicios',
+      territories: 'Territorios',
+      insight: 'Visión',
+      audience: 'Para quién',
+      contact: 'Contacto',
+    };
+
+const footer = isEn
+  ? {
+      kicker: 'A profitable legacy',
+      heading: 'Let’s talk about your territory.',
+      bodyOne: 'Tomorrow’s land is managed today. At Territorium, we show that economic return and ecological regeneration are not opposing paths, but the only route to the future.',
+      bodyTwo: 'Discover the hidden value of your land and secure a legacy for the next generations.',
+      contact: 'Contact',
+      investors: 'Investors / partners',
+    }
+  : {
+      kicker: 'Un legado rentable',
+      heading: 'Hablemos de su territorio.',
+      bodyOne: 'El suelo del mañana se gestiona hoy. En Territorium demostramos que la rentabilidad económica y la regeneración ecológica no son caminos opuestos, sino la única vía hacia el futuro.',
+      bodyTwo: 'Descubra el valor oculto de su tierra y asegure un legado para las próximas generaciones.',
+      contact: 'Contacto',
+      investors: 'Inversores / socios',
+    };
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang={lang}>
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" hreflang="es" href="https://territorium.capital/" />
+    <link rel="alternate" hreflang="en" href="https://territorium.capital/en/" />
+    <link rel="alternate" hreflang="x-default" href="https://territorium.capital/" />
     <title>{title}</title>
 
   <!-- Tipografía principal: Alice -->
@@ -30,64 +74,60 @@ const {
 
   <body>
     <!-- NAVEGACIÓN GLOBAL -->
-   <nav class="site-nav">
-  <div class="nav-logo">
-    <a href="#inicio">
-      <img src="tcl.png" alt="Logotipo">
-    </a>
-  </div>
+    <nav class="site-nav">
+      <div class="nav-logo">
+        <a href="#hero-carousel">
+          <img class="nav-logo__image" src="/tcl.png" alt="Territorium Capital">
+        </a>
+      </div>
 
-  <ul class="nav-list">
-    <li><a href="#inicio" class="nav-link">Inicio</a></li>
-    <li><a href="#servicios" class="nav-link">Servicios</a></li>
-    <li><a href="#equipo" class="nav-link">Equipo</a></li>
-    <li><a href="#contacto" class="nav-link nav-link--muted">Contacto</a></li>
-  </ul>
-</nav>
+      <ul class="nav-list">
+        <li><a href="#hero-carousel" class="nav-link">{nav.home}</a></li>
+        <li><a href="#servicios" class="nav-link">{nav.services}</a></li>
+        <li><a href="#territorios" class="nav-link">{nav.territories}</a></li>
+        <li><a href="#vision" class="nav-link">{nav.insight}</a></li>
+        <li><a href="#clientes" class="nav-link">{nav.audience}</a></li>
+        <li><a href="#contacto" class="nav-link nav-link--muted">{nav.contact}</a></li>
+      </ul>
+
+      <div class="language-switch" aria-label={isEn ? 'Language selector' : 'Selector de idioma'}>
+        <a href="/" class:list={['language-switch__link', !isEn && 'language-switch__link--active']}>ES</a>
+        <span aria-hidden="true">|</span>
+        <a href="/en/" class:list={['language-switch__link', isEn && 'language-switch__link--active']}>EN</a>
+      </div>
+    </nav>
 
     <!-- CONTENIDO DE LA PÁGINA -->
     <slot />
 
     <!-- PIE DE PÁGINA GLOBAL -->
-    
-       <footer id="contacto" class="site-footer">
-  <div class="footer-container">
-    
-    <div class="footer-block footer-block--brand">
-      <h2 class="footer-heading">Un legado rentable</h2>
-      <p class="footer-body">
-        El suelo del mañana se gestiona hoy. En Territorium demostramos que
-        la rentabilidad económica y la regeneración ecológica no son caminos
-        opuestos, sino la única vía hacia el futuro.
-      </p>
-    </div>
-  </div>
-    <div class="footer-block footer-block--contact">
-
-      
-      <div class="contact-info">
-        <span class="contact-label">Contacto</span>
-        <a href="mailto:blanca@wildsquare.es" class="contact-link contact-link--email">
-          blanca@wildsquare.es
-        </a>
+    <footer id="contacto" class="site-footer">
+      <div class="footer-block footer-block--brand">
+        <span class="footer-kicker">{footer.kicker}</span>
+        <h2 class="footer-heading">{footer.heading}</h2>
+        <p class="footer-body">{footer.bodyOne}</p>
+        <p class="footer-body">{footer.bodyTwo}</p>
       </div>
 
-      <div class="contact-info">
-        <span class="contact-label">WhatsApp</span>
-        <a href="https://wa.me/34646051005" target="_blank" rel="noopener noreferrer" class="contact-link">
-          +34 646 051 005
-        </a>
-      </div>
-
-      <div class="contact-info">
-        <span class="contact-label">Inversores / partners</span>
-      </div>
-    </div>
-
-  </div>
-</footer>
+      <div class="footer-block footer-block--contact">
+        <div class="contact-info">
+          <span class="contact-label">{footer.contact}</span>
+          <a href="mailto:blanca@territorium.capital" class="contact-link contact-link--email">
+            blanca@territorium.capital
+          </a>
         </div>
-      </slot>
+
+        <div class="contact-info">
+          <span class="contact-label">WhatsApp</span>
+          <a href="https://wa.me/34646051005" target="_blank" rel="noopener noreferrer" class="contact-link">
+            +34 646 051 005
+          </a>
+        </div>
+
+        <div class="contact-info">
+          <span class="contact-label">{footer.investors}</span>
+        </div>
+      </div>
     </footer>
   </body>
 </html>
@@ -97,12 +137,14 @@ const {
   /* ─── DESIGN TOKENS ─────────────────────────────────────── */
   :root {
     /* Paleta */
-    --color-sand:       #E6DFD3;   /* fondo base */
-    --color-sand-dark:  #D1C9BC;   /* elementos secundarios sobre arena */
-    --color-indigo:     #3B4D8F;   /* acento principal / textos de marca */
-    --color-indigo-mid: #465A9F;   /* sección ejes de trabajo */
-    --color-body:       #4A5568;   /* cuerpo de texto */
+    --color-sand:       #F4F1EA;   /* fondo base */
+    --color-sand-dark:  #D8D0C2;   /* elementos secundarios sobre arena */
+    --color-indigo:     #182B49;   /* acento principal / textos de marca */
+    --color-indigo-mid: #233E63;   /* sección ejes de trabajo */
+    --color-body:       #4B5563;   /* cuerpo de texto */
     --color-white:      #FFFFFF;
+    --color-gold:       #9B7B4F;
+    --color-border:     rgba(24, 43, 73, 0.16);
 
     /* Tipografía */
     --font-base: 'Plus Jakarta Sans', sans-serif;
@@ -162,52 +204,6 @@ const {
     -moz-osx-font-smoothing: grayscale;
   }
 
-  /* Contenedor principal */
-.site-nav {
-  display: flex;
-  flex-direction: column;   /* Apila el logo arriba y los links abajo */
-  align-items: center;      /* Centra horizontalmente ambos elementos */
-  justify-content: center;
-  gap: var(--space-4);      /* Espacio vertical entre el logo y los enlaces */
-  max-width: var(--container-max);
-  margin-inline: auto;
-  padding: var(--space-6) var(--space-4); /* Espaciado interno balanceado */
-}
-
-/* Controla el tamaño de tu logo */
-.nav-logo img {
-  height: 55px;             /* Ajusta este valor si quieres el logo un poco más grande o chico */
-  width: auto;   
-  display: block;
-}
-
-.nav-list {
-  display: flex;                 
-  align-items: center;
-  justify-content: center;  /* Centra los enlaces horizontalmente */
-  list-style: none;              
-  margin: 0;
-  padding: 0;
-  gap: var(--space-8);      /* Espacio horizontal entre cada enlace */
-}
-
-.nav-link {
-  text-decoration: none;
-  font-size: var(--text-sm);
-  font-weight: 600;
-  letter-spacing: 0.025em;
-  color: var(--color-indigo);
-  transition: opacity 0.2s ease;
-}
-
-.nav-link:hover {
-  text-decoration: underline;
-}
-
-.nav-link--muted {
-  opacity: 0.6;
-}
-
   img, video {
     max-width: 100%;
     display: block;
@@ -224,34 +220,106 @@ const {
 
   /* ─── NAVEGACIÓN ─────────────────────────────────────────── */
   .site-nav {
-  display: flex;
-  justify-content: space-between; 
-  align-items: center;           
-  max-width: var(--container-max);
-  margin-inline: auto;
-  padding: var(--space-4) var(--space-6); /* Reduce el grosor del navbar */
-}
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-8);
+    width: 100%;
+    max-width: none;
+    margin-inline: 0;
+    min-height: 82px;
+    padding: 0.85rem var(--space-8);
+    background: rgba(255, 255, 255, 0.96);
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: 0 12px 30px rgba(24, 43, 73, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 20;
+  }
+
+  .nav-logo {
+    flex: 0 0 auto;
+  }
+
+  .nav-logo img.nav-logo__image {
+    height: 54px;
+    width: auto;
+    display: block;
+  }
 
   .nav-list {
     display: flex;
-    justify-content: center;
-    gap: var(--space-12);
+    align-items: center;
+    justify-content: flex-end;
+    gap: var(--space-6);
+    margin-left: auto;
+  }
+
+  .language-switch {
+    align-items: center;
+    border-left: 1px solid var(--color-border);
+    display: flex;
+    gap: 0.45rem;
+    padding-left: var(--space-4);
+    white-space: nowrap;
+  }
+
+  .language-switch__link {
+    color: rgba(24, 43, 73, 0.55);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.2s ease;
+  }
+
+  .language-switch__link:hover,
+  .language-switch__link--active {
+    color: var(--color-indigo);
   }
 
   .nav-link {
-    font-size: var(--text-sm);
-    font-weight: 600;
-    letter-spacing: 0.025em;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
     color: var(--color-indigo);
-    transition: opacity 0.2s ease;
+    text-transform: uppercase;
+    transition: color 0.2s ease, opacity 0.2s ease;
   }
 
   .nav-link:hover {
-    text-decoration: underline;
+    color: var(--color-gold);
+    text-decoration: none;
   }
 
   .nav-link--muted {
     opacity: 0.6;
+  }
+
+  @media (max-width: 640px) {
+    .site-nav {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: var(--space-3);
+      min-height: auto;
+      padding-inline: var(--space-4);
+    }
+
+    .nav-logo img.nav-logo__image {
+      height: 46px;
+    }
+
+    .nav-list {
+      justify-content: flex-start;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+      width: 100%;
+    }
+
+    .language-switch {
+      border-left: 0;
+      padding-left: 0;
+    }
   }
 
   /* ─── HERO ───────────────────────────────────────────────── */
@@ -267,17 +335,17 @@ body {
 }
   .hero {
     position: relative;
-    height: 550px;
+    height: 620px;
     background-color: #2d3748;
     background-size: cover;
     background-position: center;
     display: flex;
     align-items: center;
-    padding: var(--space-6) var(--space-16);
+    padding: var(--space-6) clamp(var(--space-6), 5vw, var(--space-20));
   }
 
   .hero__content {
-    max-width: var(--container-narrow);
+    max-width: 46rem;
     color: var(--color-white);
   }
 
@@ -287,21 +355,21 @@ body {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    opacity: 0.9;
-    margin-bottom: var(--space-2);
-  }
-
-  .hero__title {
-    font-size: clamp(var(--text-3xl), 5vw, var(--text-5xl));
-    font-weight: 800;
-    line-height: 1.15;
+    opacity: 0.86;
     margin-bottom: var(--space-4);
   }
 
+  .hero__title {
+    font-size: clamp(2.7rem, 5.6vw, 5.6rem);
+    font-weight: 400;
+    line-height: 0.98;
+    margin-bottom: var(--space-6);
+  }
+
   .hero__subtitle {
-    font-size: var(--text-sm);
+    font-size: var(--text-lg);
     opacity: 0.9;
-    max-width: 36rem;
+    max-width: 40rem;
     margin-bottom: var(--space-8);
   }
 
@@ -377,11 +445,11 @@ body {
 
   /* ─── SECCIÓN EJES DE TRABAJO (fondo azul) ───────────────── */
   .section-axes {
-    background-color: var(--color-indigo-mid);
+    background: linear-gradient(180deg, var(--color-indigo) 0%, var(--color-indigo-mid) 100%);
     color: var(--color-white);
-    padding-block: var(--space-16);
+    padding-block: var(--space-20);
     padding-inline: var(--space-6);
-    border-radius: var(--radius-top) var(--radius-top) 0 0;
+    border-radius: 0;
   }
 
   .section-axes__label {
@@ -393,128 +461,213 @@ body {
     margin-bottom: var(--space-12);
   }
 
+  .axes-showcase {
+    display: grid;
+    grid-template-columns: minmax(280px, 0.72fr) minmax(0, 1.28fr);
+    gap: var(--space-10, 2.5rem);
+    align-items: stretch;
+  }
+
+  .axes-feature {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-left: 4px solid var(--color-gold);
+    padding: clamp(var(--space-8), 4vw, var(--space-12));
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.18);
+  }
+
+  .axes-feature__eyebrow {
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+  }
+
+  .axes-feature h3 {
+    font-family: 'Alice', serif;
+    font-size: clamp(var(--text-3xl), 4vw, var(--text-5xl));
+    font-weight: 400;
+    line-height: 1.04;
+    margin-block: var(--space-5);
+    color: var(--color-white);
+  }
+
+  .axes-feature p {
+    color: rgba(255, 255, 255, 0.78);
+    font-size: var(--text-base);
+    line-height: 1.75;
+    margin-bottom: var(--space-8);
+  }
+
+  .axes-feature__cta {
+    width: fit-content;
+    border: 1px solid rgba(255, 255, 255, 0.42);
+    padding: var(--space-3) var(--space-5);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-white);
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .axes-feature__cta:hover {
+    background: var(--color-white);
+    border-color: var(--color-white);
+    color: var(--color-indigo);
+  }
+
   .axes-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: var(--space-6);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-4);
+    border: 0;
   }
 
-  /* ─── TARJETA DE EJE ─────────────────────────────────────── */
-/* ─── TARJETA DE EJE (CORREGIDO) ─────────────────────────── */
-.card-axis {
-  background-color: var(--color-sand);
-  color: var(--color-indigo);
-  padding: var(--space-8);
-  border-radius: var(--radius-xl);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between; /* Empuja el botón siempre al fondo de la tarjeta */
-  min-height: 320px; /* Un poco más de espacio para que quepa el botón cómodamente */
-}
-
-.card-axis__content {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-1);
-}
-
-.card-axis__brand {
-  font-size: var(--text-sm);
-  font-weight: 500;
-  opacity: 0.7;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.card-axis__name {
-  font-family: 'Alice', serif;
-  font-size: var(--text-2xl);
-  font-weight: 400;
-  color: var(--color-indigo);
-  margin-block: var(--space-1) var(--space-2);
-}
-
-.card-axis__tag {
-  font-size: var(--text-xs);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: #c4a47c; /* El tono marrón/dorado elegante */
-  margin-bottom: var(--space-4);
-}
-
-.card-axis__body {
-  font-size: var(--text-sm);
-  line-height: 1.6;
-  color: var(--color-body);
-  margin-bottom: var(--space-6);
-}
-
-/* Botón específico para las tarjetas sobre fondo arena */
-.card-axis__cta {
-  display: inline-block;
-  width: fit-content;
-  border-bottom: 2px solid var(--color-indigo);
-  padding-bottom: var(--space-1);
-  font-size: var(--text-xs);
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--color-indigo);
-  transition: opacity 0.2s ease, transform 0.2s ease;
-}
-
-.card-axis__cta:hover {
-  opacity: 0.8;
-  transform: translateX(3px); /* Pequeño desplazamiento interactivo */
-}
-
-  /* ─── SECCIÓN EQUIPO ─────────────────────────────────────── */
-  .section-team {
-    padding-block: var(--space-20);
-    text-align: center;
-  }
-
-  .section-team__heading {
-    font-size: var(--text-3xl);
-    font-weight: 700;
-    margin-bottom: var(--space-4);
-  }
-
-  .section-team__body {
-    font-size: var(--text-sm);
-    color: var(--color-body);
-    max-width: 36rem;
-    margin-inline: auto;
-    line-height: 1.75;
-    margin-bottom: var(--space-12);
-  }
-
-  .team-grid {
+  .card-axis {
+    color: var(--color-white);
+    padding: var(--space-6);
+    border: 1px solid rgba(255, 255, 255, 0.16);
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: var(--space-6);
-    max-width: 48rem;
-    margin-inline: auto;
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+    min-height: 188px;
+    background: rgba(255, 255, 255, 0.055);
   }
 
-  /* Placeholder de foto — sustitúyelo con <img> real */
-  .team-photo {
-    background-color: var(--color-sand-dark);
-    aspect-ratio: 1 / 1;
-    border-radius: var(--radius-sm);
+  .card-axis__number {
+    color: var(--color-gold);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: 0.12em;
+  }
+
+  .card-axis__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .card-axis__name {
+    font-family: 'Alice', serif;
+    font-size: var(--text-2xl);
+    font-weight: 400;
+    color: var(--color-white);
+    margin: 0;
+  }
+
+  .card-axis__tag {
+    font-size: var(--text-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(255, 255, 255, 0.82);
+  }
+
+  .card-axis__body {
+    font-size: var(--text-sm);
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.68);
+  }
+
+  .transaction-flow {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-4);
+    margin-top: var(--space-4);
+  }
+
+  .transaction-flow article {
+    background: rgba(255, 255, 255, 0.62);
+    border-top: 2px solid rgba(24, 43, 73, 0.32);
+    min-height: 210px;
+    padding: var(--space-6);
+  }
+
+  .transaction-flow span {
+    color: var(--color-gold);
+    display: block;
+    font-size: var(--text-xs);
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    margin-bottom: var(--space-5, 1.25rem);
+  }
+
+  .transaction-flow h3 {
+    color: var(--color-indigo);
+    font-size: var(--text-2xl);
+    font-weight: 400;
+    margin-bottom: var(--space-3);
+  }
+
+  .transaction-flow p {
+    color: var(--color-body);
+    font-size: var(--text-sm);
+    line-height: 1.7;
+  }
+
+  .restoration-cinema.container {
+    max-width: 78rem;
+  }
+
+  .restoration-compare__caption {
+    background: rgba(24, 43, 73, 0.74);
+    backdrop-filter: blur(10px);
+    bottom: var(--space-6);
+    color: var(--color-white);
+    display: grid;
+    gap: var(--space-1);
+    left: var(--space-6);
+    max-width: min(28rem, calc(100% - 3rem));
+    padding: var(--space-5, 1.25rem);
+    position: absolute;
+    z-index: 6;
+  }
+
+  .restoration-compare__caption strong {
+    font-family: 'Alice', serif;
+    font-size: var(--text-2xl);
+    font-weight: 400;
+  }
+
+  .restoration-compare__caption span {
+    color: rgba(255, 255, 255, 0.76);
+    font-size: var(--text-sm);
+  }
+
+  .science-method {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-top: var(--space-6);
+  }
+
+  .science-method span {
+    background: #f7f4ee;
+    border: 1px solid var(--color-border);
+    color: var(--color-indigo);
+    font-size: var(--text-xs);
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    padding: 0.65rem 0.8rem;
+    text-transform: uppercase;
   }
 
   /* ─── PIE DE PÁGINA ──────────────────────────────────────── */
   .site-footer {
-    max-width: var(--container-narrow);
+    max-width: var(--container-max);
     margin-inline: auto;
-    padding-inline: var(--space-6);
-    padding-bottom: var(--space-24);
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-16);
+    padding: var(--space-20) var(--space-6) var(--space-24);
+    text-align: left;
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(240px, 0.6fr);
+    gap: var(--space-12);
+    border-top: 1px solid var(--color-border);
   }
 
   .footer-block {
@@ -524,15 +677,25 @@ body {
   }
 
   .footer-heading {
-    font-size: var(--text-2xl);
+    font-size: clamp(var(--text-3xl), 5vw, var(--text-5xl));
     font-weight: 700;
     color: var(--color-indigo);
+    line-height: 1.05;
+  }
+
+  .footer-kicker {
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: var(--color-gold);
+    text-transform: uppercase;
   }
 
   .footer-body {
-    font-size: var(--text-sm);
+    font-size: var(--text-lg);
     color: var(--color-body);
-    line-height: 1.75;
+    line-height: 1.65;
+    max-width: 42rem;
   }
 
   /* ─── UTILIDADES ─────────────────────────────────────────── */
@@ -551,199 +714,44 @@ body {
   /* ─── RESPONSIVE ─────────────────────────────────────────── */
   @media (max-width: 768px) {
     .nav-list {
-      gap: var(--space-8);
+      gap: var(--space-4);
+      flex-wrap: wrap;
     }
 
     .hero {
       padding-inline: var(--space-6);
       height: auto;
-      min-height: 420px;
+      min-height: 540px;
       padding-block: var(--space-16);
+    }
+
+    .site-footer {
+      grid-template-columns: 1fr;
+      gap: var(--space-8);
+      padding-block: var(--space-16);
+    }
+
+    .axes-showcase {
+      grid-template-columns: 1fr;
+    }
+
+    .transaction-flow {
+      grid-template-columns: 1fr;
+    }
+
+    .axes-feature {
+      padding: var(--space-8);
     }
 
     .axes-grid {
       grid-template-columns: 1fr;
     }
 
-    .team-grid {
-      grid-template-columns: 1fr;
-      max-width: 280px;
+    .card-axis {
+      min-height: auto;
     }
+
   }
-
-  /* Centra el contenido de cada miembro */
-.team-member {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
-/* Contenedor circular de la foto */
-.team-photo-wrapper {
-  width: 180px;         /* Ajusta este tamaño (ej. 150px o 200px) a tu gusto */
-  height: 180px;        /* Debe ser exactamente igual al ancho para que sea un círculo */
-  border-radius: 50%;   /* Esto hace que el contenedor sea redondo */
-  overflow: hidden;     /* Recorta la imagen PNG para que no se salga del círculo */
-  margin-bottom: 1.5rem;
-  background-color: #f4f4f4; /* Fondo gris claro por si el PNG tiene transparencia */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave opcional */
-}
-
-/* Estilos de la imagen dentro del círculo */
-.team-photo {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;    /* ¡ESTO EVITA QUE SE VEA ANCHA! Recorta y adapta la foto proporcionalmente */
-  object-position: center; /* Centra la cara dentro del círculo */
-}
-
-/* Estilos de los textos (opcionales para mejorar la tipografía) */
-.team-member__name {
-  font-size: 1.25rem;
-  margin: 0.5rem 0 0.25rem 0;
-  color: #3B4D8F;
-}
-
-.team-member__role {
-  font-size: 0.95rem;
-  color: #666;
-  margin: 0;
-}
-
-/* ─── CONTENEDORES DE SECCIÓN ───────────────────────────── */
-.team-section {
-  max-width: var(--container-max);
-  margin: var(--space-16) auto;
-  padding-inline: var(--space-3);
-}
-
-.section-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  border-bottom: 1px solid var(--color-sand-dark);
-  padding-bottom: var(--space-3);
-  margin-bottom: var(--space-8);
-}
-
-.section-title {
-  font-family: 'Alice', serif;
-  font-size: var(--text-2xl);
-  color: var(--color-indigo);
-  font-weight: 400;
-}
-
-.section-title .italic-title {
-  font-style: italic;
-  color: #c4a47c; /* Tono dorado/marrón suave de tu captura */
-}
-
-.section-subtitle {
-  font-size: var(--text-xs);
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  color: #a0aec0;
-}
-
-/* ─── GRIDS / CUADRÍCULAS ───────────────────────────────── */
-.team-grid {
-  display: grid;
-  gap: var(--space-6);
-}
-
-.team-grid--main {
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-}
-
-.team-grid--secondary {
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-}
-
-/* ─── TARJETAS DE INTEGRANTES ───────────────────────────── */
-.team-card {
-  background-color: transparent; /* Mantiene el fondo limpio de tu web */
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  padding: var(--space-6);
-  border-radius: var(--radius-sm);
-  display: flex;
-  flex-direction: column;
-}
-
-/* Formato horizontal para los asesores de abajo */
-.team-card--horizontal {
-  flex-direction: row;
-  align-items: flex-start;
-  gap: var(--space-4);
-}
-
-.card-content {
-  display: flex;
-  flex-direction: column;
-}
-
-/* ─── AVATARES (FOTOS CIRCULARES) ───────────────────────── */
-.avatar-wrapper {
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  overflow: hidden;
-  background-color: var(--color-sand-dark);
-  margin-bottom: var(--space-4);
-  flex-shrink: 0; /* Evita que la foto se aplaste en horizontal */
-}
-
-.team-card--horizontal .avatar-wrapper {
-  width: 70px;
-  height: 70px;
-  margin-bottom: 0;
-}
-
-.team-avatar {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: grayscale(100%); /* Efecto blanco y negro como tu captura */
-}
-
-/* ─── TEXTOS POR TARJETA ────────────────────────────────── */
-.team-role {
-  font-size: var(--text-xs);
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  color: #c4a47c; /* Color del rol */
-  margin-bottom: var(--space-1);
-}
-
-.team-name {
-  font-family: 'Alice', serif;
-  font-size: var(--text-lg);
-  color: var(--color-indigo);
-  margin-bottom: var(--space-3);
-  font-weight: 400;
-}
-
-.team-bio {
-  font-size: var(--text-sm);
-  color: var(--color-body);
-  line-height: 1.5;
-}
-
-/* RESPONSIVE PARA MÓVILES */
-@media (max-width: 768px) {
-  .section-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--space-2);
-  }
-  .team-card--horizontal {
-    flex-direction: column;
-  }
-  .team-card--horizontal .avatar-wrapper {
-    margin-bottom: var(--space-4);
-  }
-}
 
   /* ─── ACCESIBILIDAD ──────────────────────────────────────── */
   @media (prefers-reduced-motion: reduce) {
