@@ -1,0 +1,26 @@
+{
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "wildsquare.es"
+        }
+      ],
+      "destination": "https://territorium.capital/$1",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.wildsquare.es"
+        }
+      ],
+      "destination": "https://territorium.capital/$1",
+      "permanent": true
+    }
+  ]
+}
