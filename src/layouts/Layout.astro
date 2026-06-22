@@ -4,16 +4,20 @@ export interface Props {
   title?: string;
   description?: string;
   lang?: 'es' | 'en';
+  canonicalPath?: string;
+  showContactForm?: boolean;
 }
 
 const {
   title = "Territorium - Resiliencia y rentabilidad territorial",
   description = "Territorium asesora en compraventa de territorios, capital natural y restauración llave en mano para convertir suelo en resiliencia, rentabilidad y legado.",
   lang = 'es',
+  canonicalPath,
+  showContactForm = false,
 } = Astro.props;
 
 const isEn = lang === 'en';
-const canonicalUrl = isEn ? 'https://territorium.capital/en/' : 'https://territorium.capital/';
+const canonicalUrl = `https://territorium.capital${canonicalPath ?? (isEn ? '/en/' : '/')}`;
 const nav = isEn
   ? {
       home: 'Home',
@@ -30,6 +34,24 @@ const nav = isEn
       insight: 'Visión',
       audience: 'Para quién',
       contact: 'Contacto',
+    };
+
+const navLinks = isEn
+  ? {
+      home: '/en/',
+      services: '/en/#servicios',
+      territories: '/en/#territorios',
+      insight: '/en/#vision',
+      audience: '/en/#clientes',
+      contact: '/en/#contacto',
+    }
+  : {
+      home: '/',
+      services: '/servicios/',
+      territories: '/territorios/',
+      insight: '/vision/',
+      audience: '/clientes/',
+      contact: '/contacto/',
     };
 
 const footer = isEn
@@ -98,18 +120,18 @@ const formNextUrl = isEn ? 'https://territorium.capital/en/thanks/' : 'https://t
     <!-- NAVEGACIÓN GLOBAL -->
     <nav class="site-nav">
       <div class="nav-logo">
-        <a href="#hero-carousel">
+        <a href={navLinks.home}>
           <img class="nav-logo__image" src="/tcl.png" alt="Territorium Capital">
         </a>
       </div>
 
       <ul class="nav-list">
-        <li><a href="#hero-carousel" class="nav-link">{nav.home}</a></li>
-        <li><a href="#servicios" class="nav-link">{nav.services}</a></li>
-        <li><a href="#territorios" class="nav-link">{nav.territories}</a></li>
-        <li><a href="#vision" class="nav-link">{nav.insight}</a></li>
-        <li><a href="#clientes" class="nav-link">{nav.audience}</a></li>
-        <li><a href="#contacto" class="nav-link nav-link--muted">{nav.contact}</a></li>
+        <li><a href={navLinks.home} class="nav-link">{nav.home}</a></li>
+        <li><a href={navLinks.services} class="nav-link">{nav.services}</a></li>
+        <li><a href={navLinks.territories} class="nav-link">{nav.territories}</a></li>
+        <li><a href={navLinks.insight} class="nav-link">{nav.insight}</a></li>
+        <li><a href={navLinks.audience} class="nav-link">{nav.audience}</a></li>
+        <li><a href={navLinks.contact} class="nav-link nav-link--muted">{nav.contact}</a></li>
       </ul>
 
       <div class="language-switch" aria-label={isEn ? 'Language selector' : 'Selector de idioma'}>
@@ -150,6 +172,7 @@ const formNextUrl = isEn ? 'https://territorium.capital/en/thanks/' : 'https://t
           <span class="contact-label">{footer.investors}</span>
         </div>
 
+        {showContactForm && (
         <form class="contact-form" action="https://formsubmit.co/blanca@territorium.capital" method="POST">
           <input type="hidden" name="_subject" value="Nueva consulta desde Territorium Capital" />
           <input type="hidden" name="_template" value="table" />
@@ -189,6 +212,7 @@ const formNextUrl = isEn ? 'https://territorium.capital/en/thanks/' : 'https://t
 
           <button type="submit">{footer.submit}</button>
         </form>
+        )}
       </div>
     </footer>
   </body>
@@ -360,25 +384,47 @@ const formNextUrl = isEn ? 'https://territorium.capital/en/thanks/' : 'https://t
 
   @media (max-width: 640px) {
     .site-nav {
-      align-items: flex-start;
-      flex-direction: column;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      grid-template-areas:
+        "logo lang"
+        "nav nav";
       gap: var(--space-3);
       min-height: auto;
       padding-inline: var(--space-4);
     }
 
+    .nav-logo {
+      grid-area: logo;
+    }
+
     .nav-logo img.nav-logo__image {
-      height: 46px;
+      height: 40px;
     }
 
     .nav-list {
+      grid-area: nav;
       justify-content: flex-start;
       gap: var(--space-4);
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      padding-bottom: var(--space-1);
+      scrollbar-width: none;
       width: 100%;
     }
 
+    .nav-list::-webkit-scrollbar {
+      display: none;
+    }
+
+    .nav-link {
+      font-size: 0.68rem;
+      white-space: nowrap;
+    }
+
     .language-switch {
+      grid-area: lang;
+      justify-self: end;
       border-left: 0;
       padding-left: 0;
     }
@@ -849,7 +895,8 @@ body {
   @media (max-width: 768px) {
     .nav-list {
       gap: var(--space-4);
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
+      overflow-x: auto;
     }
 
     .hero {

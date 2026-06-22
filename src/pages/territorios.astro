@@ -1,0 +1,92 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageStyles from '../components/PageStyles.astro';
+---
+
+<Layout title="Territorios - Territorium Capital" canonicalPath="/territorios/">
+  <PageStyles />
+
+  <main>
+    <section id="territorios" class="estate-section page-first-section reveal">
+      <div class="estate-section__content">
+        <div class="estate-section__header">
+          <div>
+            <span class="section-kicker">Territorios y restauración llave en mano</span>
+            <h1>Operaciones sobre territorios de alto valor ecológico.</h1>
+          </div>
+          <p>
+            Compra, restauración, gestión y venta con una tesis clara de valor
+            patrimonial, biodiversidad, agua, paisaje y capital natural.
+          </p>
+        </div>
+        <div class="estate-section__note">
+          <strong>Modelo Territorium</strong>
+          <span>Del activo rústico al territorio invertible, restaurado y defendible ante compradores, socios o comités de inversión.</span>
+        </div>
+        <div class="transaction-flow">
+          <article><span>01</span><h3>Comprar</h3><p>Originación y valoración de territorios con potencial ecológico y patrimonial.</p></article>
+          <article><span>02</span><h3>Restaurar</h3><p>Proyecto llave en mano con presupuesto, indicadores y seguimiento técnico.</p></article>
+          <article><span>03</span><h3>Gestionar</h3><p>Activación de biodiversidad, agua, paisaje y resiliencia climática.</p></article>
+          <article><span>04</span><h3>Vender</h3><p>Tesis de valor preparada para compradores cualificados e inversores.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="restauracion" class="restoration-section reveal">
+      <div class="container restoration-section__header">
+        <span class="section-kicker">Antes y después</span>
+        <h2>La restauración se entiende cuando el territorio cambia.</h2>
+        <p>
+          Restaurar no es embellecer. Es aumentar resiliencia, valor ecológico
+          y futuro. Deslice la línea para comparar el estado inicial y el
+          resultado de un proyecto diseñado para recuperar agua, vegetación,
+          biodiversidad y valor paisajístico.
+        </p>
+      </div>
+
+      <div class="container restoration-cinema">
+        <div class="restoration-compare" data-compare>
+          <img class="restoration-compare__image" src="/imagenes/restauracion-despues.png" alt="Territorio antes del proyecto de restauración">
+          <div class="restoration-compare__after" data-compare-after>
+            <img class="restoration-compare__image" src="/imagenes/restauracion-antes.jpg" alt="Territorio después del proyecto de restauración">
+          </div>
+          <div class="restoration-compare__handle" data-compare-handle aria-hidden="true"></div>
+          <input class="restoration-compare__range" data-compare-range type="range" min="0" max="100" value="50" aria-label="Comparar antes y después de la restauración">
+          <span class="restoration-compare__label restoration-compare__label--before">Antes</span>
+          <span class="restoration-compare__label restoration-compare__label--after">Después</span>
+          <div class="restoration-compare__caption">
+            <strong>Degradación → resiliencia</strong>
+            <span>Agua, vegetación, hábitat y valor territorial.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const observer = new IntersectionObserver((entries, currentObserver) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+          currentObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+    const range = document.querySelector("[data-compare-range]") as HTMLInputElement | null;
+    const after = document.querySelector("[data-compare-after]") as HTMLElement | null;
+    const handle = document.querySelector("[data-compare-handle]") as HTMLElement | null;
+    const setComparePosition = (value: string) => {
+      if (!after || !handle) return;
+      after.style.clipPath = `inset(0 ${100 - Number(value)}% 0 0)`;
+      handle.style.left = `${value}%`;
+    };
+    if (range && after && handle) {
+      setComparePosition(range.value);
+      range.addEventListener("input", () => setComparePosition(range.value));
+    }
+  });
+</script>

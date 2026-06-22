@@ -1,0 +1,43 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageStyles from '../components/PageStyles.astro';
+---
+
+<Layout title="Contacto - Territorium Capital" canonicalPath="/contacto/" showContactForm>
+  <PageStyles />
+
+  <main>
+    <section class="problem-section page-first-section reveal">
+      <div class="container editorial-grid">
+        <div>
+          <span class="section-kicker">Contacto</span>
+          <h1>Hablemos de su territorio.</h1>
+        </div>
+        <div class="editorial-copy">
+          <p>
+            Cuéntenos qué necesita: comprar, vender, restaurar, conocer el valor
+            ecológico de su territorio o invertir en capital natural.
+          </p>
+          <p>
+            El formulario está al final de esta página. También puede escribir
+            directamente a blanca@territorium.capital.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const observer = new IntersectionObserver((entries, currentObserver) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+          currentObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+  });
+</script>

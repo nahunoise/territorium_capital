@@ -1,0 +1,90 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageStyles from '../components/PageStyles.astro';
+---
+
+<Layout title="Visión - Territorium Capital" canonicalPath="/vision/">
+  <PageStyles />
+
+  <main>
+    <section id="vision" class="advantage-section page-first-section reveal">
+      <div class="container">
+        <div class="section-heading section-heading--left">
+          <span class="section-kicker">Visión de mercado</span>
+          <h1>Análisis territorial para decidir con criterio inversor.</h1>
+          <p>
+            Analizamos el activo como lo haría una consultora inmobiliaria,
+            incorporando capital natural, restauración y resiliencia climática.
+          </p>
+        </div>
+
+        <div class="urban-analysis">
+          <div class="urban-analysis__image">
+            <img src="/imagenes/territorio-urbano-analisis.jpg" alt="Análisis de cobertura verde en territorio urbano">
+          </div>
+          <div class="urban-analysis__copy">
+            <span>Análisis urbano y periurbano</span>
+            <h3>Medimos la infraestructura verde también en territorio urbano.</h3>
+            <p>
+              La lectura de cobertura vegetal, conectividad ecológica y espacios
+              de oportunidad permite identificar dónde un entorno urbano puede
+              ganar resiliencia, valor ambiental y calidad territorial.
+            </p>
+          </div>
+        </div>
+
+        <div class="resilience-metric">
+          <span>Métrica clave de resiliencia</span>
+          <h3>Cuanto más biodiverso es un territorio, más resiliente es frente a eventos climáticos.</h3>
+          <p>
+            La biodiversidad reduce vulnerabilidad, mejora la capacidad de
+            recuperación del ecosistema y aumenta el valor ecológico del activo.
+          </p>
+          <div class="resilience-flow" aria-label="Biodiversidad, resiliencia, rentabilidad y valor ecológico">
+            <strong>Biodiversidad</strong>
+            <strong>Resiliencia climática</strong>
+            <strong>Rentabilidad</strong>
+            <strong>Valor ecológico</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="science-section reveal">
+      <div class="container science-grid">
+        <div class="science-card">
+          <span class="section-kicker">Credibilidad científica</span>
+          <h2>Colaboración con la Universidad Politécnica de Madrid.</h2>
+          <p>
+            Integramos conocimiento técnico y académico en la evaluación de
+            territorios, la lectura ecológica del suelo y el diseño de proyectos
+            de restauración con trazabilidad.
+          </p>
+          <div class="science-method">
+            <span>Ciencia ambiental</span>
+            <span>Análisis territorial</span>
+            <span>Indicadores de biodiversidad</span>
+            <span>Decisión de inversión</span>
+          </div>
+        </div>
+        <a href="https://www.upm.es" target="_blank" rel="noopener noreferrer" class="science-logo" aria-label="Universidad Politécnica de Madrid">
+          <img src="/imagenes/aliado_1.jpeg" alt="Logo Universidad Politécnica de Madrid">
+        </a>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const observer = new IntersectionObserver((entries, currentObserver) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+          currentObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+  });
+</script>

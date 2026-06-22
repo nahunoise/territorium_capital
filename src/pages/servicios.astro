@@ -1,0 +1,88 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageStyles from '../components/PageStyles.astro';
+---
+
+<Layout title="Servicios - Territorium Capital" canonicalPath="/servicios/">
+  <PageStyles />
+
+  <main>
+    <section id="servicios" class="section-axes page-first-section reveal">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-kicker section-kicker--light">Servicios</span>
+          <h1>Del diagnóstico territorial a la creación de valor.</h1>
+          <p>
+            Una metodología para comprar, valorar, restaurar y gestionar
+            territorios con criterio ecológico, patrimonial y financiero.
+          </p>
+        </div>
+
+        <div class="axes-showcase">
+          <article class="axes-feature">
+            <span class="axes-feature__eyebrow">Método Territorium</span>
+            <h3>Convertimos territorio en una tesis de inversión defendible.</h3>
+            <p>
+              Medimos el potencial ecológico, traducimos sus variables a valor
+              patrimonial y diseñamos una hoja de ruta para activar el activo:
+              comprar, restaurar, gestionar o vender con mayor claridad.
+            </p>
+            <a href="/contacto/" class="axes-feature__cta">Hablar de mi territorio</a>
+          </article>
+
+          <div class="axes-grid" aria-label="Líneas de trabajo Territorium">
+            <article class="card-axis">
+              <span class="card-axis__number">01</span>
+              <div class="card-axis__content">
+                <h3 class="card-axis__name">Territorios</h3>
+                <p class="card-axis__tag">Compra y venta</p>
+                <p class="card-axis__body">Búsqueda, valoración y preparación de territorios de alto valor ecológico.</p>
+              </div>
+            </article>
+
+            <article class="card-axis">
+              <span class="card-axis__number">02</span>
+              <div class="card-axis__content">
+                <h3 class="card-axis__name">Gestión</h3>
+                <p class="card-axis__tag">Decisión territorial</p>
+                <p class="card-axis__body">Medición de biodiversidad, agua, paisaje y resiliencia para priorizar actuaciones.</p>
+              </div>
+            </article>
+
+            <article class="card-axis">
+              <span class="card-axis__number">03</span>
+              <div class="card-axis__content">
+                <h3 class="card-axis__name">Capital</h3>
+                <p class="card-axis__tag">Tesis de valor</p>
+                <p class="card-axis__body">Lectura financiera del capital natural para defender oportunidad, riesgo y precio.</p>
+              </div>
+            </article>
+
+            <article class="card-axis">
+              <span class="card-axis__number">04</span>
+              <div class="card-axis__content">
+                <h3 class="card-axis__name">Restauración</h3>
+                <p class="card-axis__tag">Llave en mano</p>
+                <p class="card-axis__body">Diseño, ejecución y seguimiento de proyectos de restauración con impacto medible.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const observer = new IntersectionObserver((entries, currentObserver) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+          currentObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+  });
+</script>

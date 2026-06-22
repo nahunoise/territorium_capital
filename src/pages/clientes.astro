@@ -1,0 +1,59 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageStyles from '../components/PageStyles.astro';
+---
+
+<Layout title="Para quién - Territorium Capital" canonicalPath="/clientes/">
+  <PageStyles />
+
+  <main>
+    <section id="clientes" class="audience-section page-first-section reveal">
+      <div class="container editorial-grid">
+        <div>
+          <span class="section-kicker">A quién acompañamos</span>
+          <h1>Territorios con vocación de legado, rentabilidad y futuro.</h1>
+        </div>
+        <div class="audience-list">
+          <article><h3>Grandes propietarios de suelo</h3><p>Familias y particulares que desean transmitir un legado más valioso, resiliente y rentable.</p></article>
+          <article><h3>Fondos de inversión y patrimonios familiares</h3><p>Inversores que buscan optimizar activos rústicos bajo criterios ambientales, sociales y de gobernanza rigurosos.</p></article>
+          <article><h3>Empresas y corporaciones</h3><p>Compañías que necesitan compensar su huella ambiental con proyectos locales, reales y trazables.</p></article>
+          <article><h3>Administraciones públicas</h3><p>Entidades que requieren una gestión avanzada y sostenible de montes y espacios públicos.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="why-us-section reveal">
+      <div class="container why-us-grid">
+        <div class="why-us-intro">
+          <span class="section-kicker">Por qué nosotros</span>
+          <h2>No solo intermediamos territorio. Lo hacemos invertible, restaurable y defendible.</h2>
+          <p>
+            Nuestra diferencia está en unir la mirada transaccional de una firma
+            inmobiliaria con ciencia ambiental, capital natural y capacidad de
+            ejecución sobre el terreno.
+          </p>
+        </div>
+
+        <div class="why-us-list">
+          <article><span>01</span><h3>Del dato ecológico al valor patrimonial</h3><p>Traducimos biodiversidad, agua, suelo, paisaje y resiliencia climática a decisiones de compra, venta e inversión.</p></article>
+          <article><span>02</span><h3>Restauración llave en mano</h3><p>Diseñamos el proyecto, lo presupuestamos, coordinamos su ejecución y dejamos trazabilidad técnica.</p></article>
+          <article><span>03</span><h3>Especialistas en activos con potencial natural</h3><p>No tratamos el territorio como un inmueble genérico: analizamos su capacidad ecológica, productiva, regulatoria y patrimonial.</p></article>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const observer = new IntersectionObserver((entries, currentObserver) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+          currentObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+  });
+</script>
