@@ -808,37 +808,70 @@
       padding-block: var(--space-12);
     }
 
-    .home-chapters .section-heading {
-      margin-bottom: var(--space-8);
+    .home-chapters .container {
+      padding-inline: var(--space-4);
     }
 
     .chapter-grid {
-      gap: 0;
+      gap: var(--space-3);
     }
 
     .chapter-card {
-      border-left: 0;
-      border-right: 0;
-      border-bottom: 0;
-      box-shadow: none;
+      align-items: center;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.98), rgba(247,248,244,0.96));
+      border: 1px solid rgba(24, 43, 73, 0.14);
+      border-radius: 8px;
+      box-shadow: 0 14px 34px rgba(24, 43, 73, 0.08);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      grid-template-areas:
+        "label arrow"
+        "title arrow"
+        "body arrow";
+      column-gap: var(--space-4);
       min-height: 0;
-      padding: var(--space-5) 0;
+      overflow: hidden;
+      padding: var(--space-5);
+      position: relative;
     }
 
-    .chapter-card:first-child {
-      border-top: 1px solid var(--color-border);
+    .chapter-card::after {
+      align-items: center;
+      background: var(--color-indigo);
+      border-radius: 999px;
+      color: var(--color-white);
+      content: ">";
+      display: flex;
+      font-size: 0.85rem;
+      font-weight: 700;
+      grid-area: arrow;
+      height: 34px;
+      justify-content: center;
+      line-height: 1;
+      width: 34px;
+    }
+
+    .chapter-card span {
+      grid-area: label;
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
     }
 
     .chapter-card h3 {
       align-self: auto;
-      font-size: var(--text-xl);
-      margin-top: var(--space-3);
+      grid-area: title;
+      font-size: clamp(1.1rem, 6vw, 1.35rem);
+      line-height: 1.15;
+      margin-top: var(--space-2);
     }
 
     .chapter-card p {
+      grid-area: body;
       font-size: var(--text-sm);
-      line-height: 1.55;
+      line-height: 1.45;
       margin-top: var(--space-2);
+      max-width: 24rem;
     }
 
     .hero__actions {
