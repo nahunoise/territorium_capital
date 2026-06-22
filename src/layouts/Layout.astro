@@ -6,6 +6,7 @@ export interface Props {
   lang?: 'es' | 'en';
   canonicalPath?: string;
   showContactForm?: boolean;
+  preloadImages?: string[];
 }
 
 const {
@@ -14,6 +15,7 @@ const {
   lang = 'es',
   canonicalPath,
   showContactForm = false,
+  preloadImages = [],
 } = Astro.props;
 
 const isEn = lang === 'en';
@@ -107,6 +109,9 @@ const formNextUrl = isEn ? 'https://territorium.capital/en/thanks/' : 'https://t
     <link rel="alternate" hreflang="es" href="https://territorium.capital/" />
     <link rel="alternate" hreflang="en" href="https://territorium.capital/en/" />
     <link rel="alternate" hreflang="x-default" href="https://territorium.capital/" />
+    {preloadImages.map((imagePath) => (
+      <link rel="preload" as="image" href={imagePath} />
+    ))}
     <title>{title}</title>
 
   <!-- Tipografía principal: Alice -->

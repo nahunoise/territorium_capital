@@ -6,6 +6,7 @@ import Layout from '../layouts/Layout.astro';
   lang="en"
   title="Territorium - Territorial resilience and return"
   description="Territorium advises on territory transactions, natural capital and turnkey restoration to turn land into resilience, return and legacy."
+  preloadImages={['/imagenes/fondo-1.webp', '/imagenes/fondo-2.webp', '/imagenes/fondo-3.webp']}
 >
 
   <header class="hero" id="hero-carousel">
@@ -420,26 +421,44 @@ import Layout from '../layouts/Layout.astro';
 <script>
   const slides = [
     {
-      image: "url('/imagenes/fondo-1.jpg')",
+      image: "/imagenes/fondo-1.webp",
       title: "Territories with natural value<br/>for investors and owners",
       subtitle: "Advisory for rural asset transactions, valuation and activation."
     },
     {
-      image: "url('/imagenes/fondo-2.jpg')",
+      image: "/imagenes/fondo-2.webp",
       title: "Turnkey ecological<br/>restoration",
       subtitle: "Design, execution, monitoring and reporting to transform territory with rigour."
     },
     {
-      image: "url('/imagenes/fondo-3.jpg')",
+      image: "/imagenes/fondo-3.webp",
       title: "Natural capital<br/>turned into patrimonial strategy",
       subtitle: "We integrate science, data and financial judgement to multiply territorial value."
     }
   ];
 
   let currentIndex = 0;
+  let carouselTimer: number | undefined;
   const heroElement = document.getElementById('hero-carousel') as HTMLElement;
   const titleElement = document.getElementById('carousel-title') as HTMLElement;
   const subtitleElement = document.getElementById('carousel-subtitle') as HTMLElement;
+
+  const heroGradient = "linear-gradient(90deg, rgba(10,20,32,0.82), rgba(10,20,32,0.48) 48%, rgba(10,20,32,0.18))";
+  const imageCache = new Map<string, Promise<void>>();
+
+  function preloadHeroImage(src: string) {
+    if (imageCache.has(src)) return imageCache.get(src);
+
+    const promise = new Promise<void>((resolve) => {
+      const image = new Image();
+      image.onload = () => resolve();
+      image.onerror = () => resolve();
+      image.src = src;
+    });
+
+    imageCache.set(src, promise);
+    return promise;
+  }
 
   function changeSlide() {
     currentIndex = (currentIndex + 1) % slides.length;
@@ -453,7 +472,7 @@ import Layout from '../layouts/Layout.astro';
 
       setTimeout(() => {
         heroElement.style.backgroundImage =
-          `linear-gradient(90deg, rgba(10,20,32,0.82), rgba(10,20,32,0.48) 48%, rgba(10,20,32,0.18)), ${next.image}`;
+          `${heroGradient}, url('${next.image}')`;
         titleElement.innerHTML = next.title;
         subtitleElement.textContent = next.subtitle;
         titleElement.classList.remove('fade-out');
@@ -464,7 +483,11 @@ import Layout from '../layouts/Layout.astro';
     }
   }
 
-  setInterval(changeSlide, 6000);
+  Promise.all(slides.map((slide) => preloadHeroImage(slide.image))).then(() => {
+    if (!carouselTimer) {
+      carouselTimer = window.setInterval(changeSlide, 6000);
+    }
+  });
 
   document.addEventListener("DOMContentLoaded", () => {
     const checkVisibility = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
@@ -506,7 +529,7 @@ import Layout from '../layouts/Layout.astro';
 
 <style>
   .hero {
-    background-image: linear-gradient(90deg, rgba(10,20,32,0.82), rgba(10,20,32,0.48) 48%, rgba(10,20,32,0.18)), url('/imagenes/fondo-1.jpg');
+    background-image: linear-gradient(90deg, rgba(10,20,32,0.82), rgba(10,20,32,0.48) 48%, rgba(10,20,32,0.18)), url('/imagenes/fondo-1.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

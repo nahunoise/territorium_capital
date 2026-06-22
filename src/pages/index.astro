@@ -3,7 +3,11 @@ import Layout from '../layouts/Layout.astro';
 import PageStyles from '../components/PageStyles.astro';
 ---
 
-<Layout title="Territorium - Resiliencia y rentabilidad territorial" canonicalPath="/">
+<Layout
+  title="Territorium - Resiliencia y rentabilidad territorial"
+  canonicalPath="/"
+  preloadImages={['/imagenes/fondo-1.webp', '/imagenes/fondo-2.webp', '/imagenes/fondo-3.webp']}
+>
   <PageStyles />
 
   <header class="hero home-hero" id="hero-carousel">
@@ -103,26 +107,44 @@ import PageStyles from '../components/PageStyles.astro';
 <script>
   const slides = [
     {
-      image: "url('/imagenes/fondo-1.jpg')",
+      image: "/imagenes/fondo-1.webp",
       title: "Territorios con valor natural<br/>para inversores y propietarios",
       subtitle: "Asesoramiento en compraventa, valoración y activación de activos rústicos."
     },
     {
-      image: "url('/imagenes/fondo-2.jpg')",
+      image: "/imagenes/fondo-2.webp",
       title: "Restauración ecológica<br/>llave en mano",
       subtitle: "Diseño, ejecución, seguimiento e informes para transformar territorio con rigor."
     },
     {
-      image: "url('/imagenes/fondo-3.jpg')",
+      image: "/imagenes/fondo-3.webp",
       title: "Capital natural<br/>convertido en estrategia patrimonial",
       subtitle: "Integramos ciencia, datos y criterio financiero para multiplicar el valor territorial."
     }
   ];
 
   let currentIndex = 0;
+  let carouselTimer: number | undefined;
   const heroElement = document.getElementById('hero-carousel') as HTMLElement;
   const titleElement = document.getElementById('carousel-title') as HTMLElement;
   const subtitleElement = document.getElementById('carousel-subtitle') as HTMLElement;
+
+  const heroGradient = "linear-gradient(90deg, rgba(10,20,32,0.82), rgba(10,20,32,0.48) 48%, rgba(10,20,32,0.18))";
+  const imageCache = new Map<string, Promise<void>>();
+
+  function preloadHeroImage(src: string) {
+    if (imageCache.has(src)) return imageCache.get(src);
+
+    const promise = new Promise<void>((resolve) => {
+      const image = new Image();
+      image.onload = () => resolve();
+      image.onerror = () => resolve();
+      image.src = src;
+    });
+
+    imageCache.set(src, promise);
+    return promise;
+  }
 
   function changeSlide() {
     currentIndex = (currentIndex + 1) % slides.length;
@@ -136,7 +158,7 @@ import PageStyles from '../components/PageStyles.astro';
 
       setTimeout(() => {
         heroElement.style.backgroundImage =
-          `linear-gradient(90deg, rgba(10,20,32,0.82), rgba(10,20,32,0.48) 48%, rgba(10,20,32,0.18)), ${next.image}`;
+          `${heroGradient}, url('${next.image}')`;
         titleElement.innerHTML = next.title;
         subtitleElement.textContent = next.subtitle;
         titleElement.classList.remove('fade-out');
@@ -147,7 +169,11 @@ import PageStyles from '../components/PageStyles.astro';
     }
   }
 
-  setInterval(changeSlide, 6000);
+  Promise.all(slides.map((slide) => preloadHeroImage(slide.image))).then(() => {
+    if (!carouselTimer) {
+      carouselTimer = window.setInterval(changeSlide, 6000);
+    }
+  });
 
   document.addEventListener("DOMContentLoaded", () => {
     const observer = new IntersectionObserver((entries, currentObserver) => {
