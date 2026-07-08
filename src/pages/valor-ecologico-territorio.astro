@@ -1,0 +1,93 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageStyles from '../components/PageStyles.astro';
+
+const title = 'Conocer el valor ecológico de mi territorio - Territorium Capital';
+const description = 'Diagnóstico para conocer el valor ecológico de un territorio mediante biodiversidad, resiliencia climática, agua, suelo y capital natural.';
+---
+
+<Layout title={title} description={description} canonicalPath="/valor-ecologico-territorio/">
+  <PageStyles />
+
+  <main>
+    <section class="seo-page-hero seo-page-hero--value">
+      <div class="seo-page-hero__inner">
+        <span class="section-kicker section-kicker--light">Valor ecológico medible</span>
+        <h1>Conocer el valor ecológico de su territorio.</h1>
+        <p>
+          Transformamos biodiversidad, agua, suelo, cobertura vegetal,
+          conectividad y resiliencia climática en una lectura clara para tomar
+          decisiones patrimoniales.
+        </p>
+        <div class="seo-page-hero__actions">
+          <a class="seo-cta seo-cta--solid" href="/contacto/">Solicitar diagnóstico territorial</a>
+          <a class="seo-cta" href="/vision/">Ver visión Territorium</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="seo-section seo-section--white">
+      <div class="container seo-two-col">
+        <div>
+          <span class="section-kicker">Índice Territorium</span>
+          <h2>La biodiversidad es nuestra métrica clave de resiliencia.</h2>
+        </div>
+        <div class="seo-copy">
+          <p>
+            Un territorio más biodiverso suele ser más resiliente: responde
+            mejor a eventos climáticos, conserva mejor el agua, protege suelo y
+            sostiene más funciones ecológicas.
+          </p>
+          <p>
+            Esa resiliencia puede traducirse en menor riesgo, mayor valor
+            ecológico y una tesis patrimonial más sólida.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="seo-section">
+      <div class="container seo-card-grid">
+        <article class="seo-card">
+          <span>01</span>
+          <h3>Medir</h3>
+          <p>Biodiversidad, cobertura vegetal, agua, suelo, conectividad y potencial de restauración.</p>
+        </article>
+        <article class="seo-card">
+          <span>02</span>
+          <h3>Interpretar</h3>
+          <p>Traducir los datos ecológicos en prioridades, riesgos y oportunidades patrimoniales.</p>
+        </article>
+        <article class="seo-card">
+          <span>03</span>
+          <h3>Activar</h3>
+          <p>Definir actuaciones de restauración, gestión, compra, venta o inversión en capital natural.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="seo-section seo-section--white">
+      <div class="container seo-two-col">
+        <div>
+          <span class="section-kicker">Resultado</span>
+          <h2>Un diagnóstico para decidir con más información.</h2>
+        </div>
+        <ul class="seo-list">
+          <li><strong>Mapa de valor ecológico.</strong> Lectura visual de zonas de oportunidad, presión y restauración.</li>
+          <li><strong>Tesis de capital natural.</strong> Relato estratégico para propietarios, compradores, empresas o inversores.</li>
+          <li><strong>Plan de actuación.</strong> Próximos pasos para conservar, restaurar, gestionar o preparar una operación.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'Diagnóstico de valor ecológico territorial',
+    provider: { '@type': 'Organization', name: 'Territorium Capital', url: 'https://territorium.capital/' },
+    areaServed: 'España',
+    serviceType: 'Diagnóstico territorial y capital natural',
+    description
+  })} />
+</Layout>

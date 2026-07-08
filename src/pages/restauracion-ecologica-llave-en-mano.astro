@@ -1,0 +1,94 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageStyles from '../components/PageStyles.astro';
+
+const title = 'Restauración ecológica llave en mano - Territorium Capital';
+const description = 'Diseño, ejecución y seguimiento de restauración ecológica llave en mano para territorios con impacto medible, biodiversidad y resiliencia.';
+---
+
+<Layout title={title} description={description} canonicalPath="/restauracion-ecologica-llave-en-mano/">
+  <PageStyles />
+
+  <main>
+    <section class="seo-page-hero seo-page-hero--restoration">
+      <div class="seo-page-hero__inner">
+        <span class="section-kicker section-kicker--light">Restauración llave en mano</span>
+        <h1>Restaurar territorio para aumentar resiliencia y valor.</h1>
+        <p>
+          Diseñamos y ejecutamos proyectos de restauración ecológica con
+          diagnóstico, presupuesto, indicadores, seguimiento técnico y visión
+          patrimonial.
+        </p>
+        <div class="seo-page-hero__actions">
+          <a class="seo-cta seo-cta--solid" href="/contacto/">Solicitar diagnóstico</a>
+          <a class="seo-cta" href="/territorios/#restauracion">Ver antes y después</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="seo-section seo-section--white">
+      <div class="container seo-two-col">
+        <div>
+          <span class="section-kicker">Método</span>
+          <h2>Restaurar no es embellecer. Es activar función ecológica.</h2>
+        </div>
+        <div class="seo-copy">
+          <p>
+            La restauración crea valor cuando mejora el funcionamiento del
+            ecosistema: agua, suelo, vegetación, hábitat, conectividad y
+            capacidad de respuesta ante eventos climáticos.
+          </p>
+          <p>
+            Territorium une ciencia ambiental, datos territoriales y ejecución
+            de proyecto para que la restauración sea medible, defendible y
+            alineada con una estrategia de activo.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="seo-section">
+      <div class="container seo-card-grid">
+        <article class="seo-card">
+          <span>01</span>
+          <h3>Diagnóstico</h3>
+          <p>Lectura ecológica y patrimonial del territorio, con prioridades de actuación y riesgos.</p>
+        </article>
+        <article class="seo-card">
+          <span>02</span>
+          <h3>Proyecto</h3>
+          <p>Diseño técnico, presupuesto, calendario, permisos, proveedores y trazabilidad de ejecución.</p>
+        </article>
+        <article class="seo-card">
+          <span>03</span>
+          <h3>Seguimiento</h3>
+          <p>Indicadores de biodiversidad, resiliencia, vegetación, agua y evolución del valor ecológico.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="seo-section seo-section--white">
+      <div class="container seo-two-col">
+        <div>
+          <span class="section-kicker">Impacto</span>
+          <h2>Biodiversidad como métrica de resiliencia.</h2>
+        </div>
+        <ul class="seo-list">
+          <li><strong>Más biodiversidad.</strong> Mayor diversidad de especies, hábitats y estructuras ecológicas.</li>
+          <li><strong>Más resiliencia.</strong> Mayor capacidad del territorio para responder a sequía, calor, erosión o incendios.</li>
+          <li><strong>Más valor.</strong> Un activo natural más defendible ante propietarios, compradores, inversores y empresas.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'Restauración ecológica llave en mano',
+    provider: { '@type': 'Organization', name: 'Territorium Capital', url: 'https://territorium.capital/' },
+    areaServed: 'España',
+    serviceType: 'Restauración ecológica',
+    description
+  })} />
+</Layout>

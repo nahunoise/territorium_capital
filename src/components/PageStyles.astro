@@ -709,6 +709,178 @@
     margin-top: var(--space-4);
   }
 
+  .seo-page-hero {
+    background:
+      linear-gradient(90deg, rgba(10,20,32,0.84), rgba(10,20,32,0.54) 52%, rgba(10,20,32,0.2)),
+      url('/imagenes/fondo-2.webp') center / cover no-repeat;
+    color: var(--color-white);
+    min-height: 560px;
+    padding: clamp(var(--space-16), 10vw, var(--space-24)) clamp(var(--space-6), 6vw, var(--space-20));
+    display: flex;
+    align-items: center;
+  }
+
+  .seo-page-hero--value {
+    background-image:
+      linear-gradient(90deg, rgba(10,20,32,0.84), rgba(10,20,32,0.54) 52%, rgba(10,20,32,0.2)),
+      url('/imagenes/territorio-urbano-analisis.jpg');
+  }
+
+  .seo-page-hero--restoration {
+    background-image:
+      linear-gradient(90deg, rgba(10,20,32,0.84), rgba(10,20,32,0.54) 52%, rgba(10,20,32,0.2)),
+      url('/imagenes/restauracion-despues.png');
+  }
+
+  .seo-page-hero__inner {
+    max-width: 62rem;
+  }
+
+  .seo-page-hero h1 {
+    font-size: clamp(2.7rem, 6vw, 5.8rem);
+    font-weight: 400;
+    line-height: 0.98;
+    max-width: 56rem;
+  }
+
+  .seo-page-hero p {
+    color: rgba(255,255,255,0.82);
+    font-size: clamp(1.05rem, 2vw, 1.25rem);
+    line-height: 1.7;
+    margin-top: var(--space-6);
+    max-width: 45rem;
+  }
+
+  .seo-page-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-5);
+    margin-top: var(--space-8);
+  }
+
+  .seo-cta {
+    border: 1px solid currentColor;
+    display: inline-flex;
+    font-size: var(--text-xs);
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    min-height: 48px;
+    align-items: center;
+    padding-inline: var(--space-5);
+    text-transform: uppercase;
+  }
+
+  .seo-cta--solid {
+    background: var(--color-white);
+    border-color: var(--color-white);
+    color: var(--color-indigo);
+  }
+
+  .seo-section {
+    padding-block: clamp(var(--space-16), 9vw, var(--space-24));
+  }
+
+  .seo-section--white {
+    background: var(--color-white);
+  }
+
+  .seo-two-col {
+    display: grid;
+    gap: clamp(var(--space-8), 7vw, var(--space-16));
+    grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1.1fr);
+    align-items: start;
+  }
+
+  .seo-two-col h2,
+  .seo-faq h2 {
+    color: var(--color-indigo);
+    font-size: clamp(var(--text-3xl), 5vw, var(--text-5xl));
+    font-weight: 400;
+    line-height: 1.08;
+  }
+
+  .seo-copy {
+    display: grid;
+    gap: var(--space-5);
+  }
+
+  .seo-copy p,
+  .seo-list li,
+  .seo-faq p {
+    color: var(--color-body);
+    font-size: var(--text-base);
+    line-height: 1.75;
+  }
+
+  .seo-list {
+    display: grid;
+    gap: var(--space-4);
+    list-style: none;
+  }
+
+  .seo-list li {
+    border-top: 1px solid var(--color-border);
+    padding-top: var(--space-4);
+  }
+
+  .seo-list strong {
+    color: var(--color-indigo);
+    display: block;
+    font-family: 'Alice', serif;
+    font-size: var(--text-xl);
+    font-weight: 400;
+    margin-bottom: var(--space-2);
+  }
+
+  .seo-card-grid {
+    display: grid;
+    gap: 1px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    background: var(--color-border);
+    border: 1px solid var(--color-border);
+  }
+
+  .seo-card {
+    background: var(--color-white);
+    min-height: 250px;
+    padding: var(--space-8);
+  }
+
+  .seo-card span {
+    color: var(--color-gold);
+    display: block;
+    font-size: var(--text-xs);
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    margin-bottom: var(--space-8);
+    text-transform: uppercase;
+  }
+
+  .seo-card h3,
+  .seo-faq h3 {
+    color: var(--color-indigo);
+    font-size: clamp(var(--text-xl), 3vw, var(--text-2xl));
+    font-weight: 400;
+    line-height: 1.15;
+  }
+
+  .seo-card p {
+    color: var(--color-body);
+    font-size: var(--text-sm);
+    line-height: 1.7;
+    margin-top: var(--space-4);
+  }
+
+  .seo-faq {
+    display: grid;
+    gap: var(--space-6);
+  }
+
+  .seo-faq article {
+    border-top: 1px solid var(--color-border);
+    padding-top: var(--space-5);
+  }
+
   .divider-icon {
     display: flex;
     align-items: center;
@@ -752,7 +924,9 @@
     .chapter-grid,
     .why-us-grid,
     .science-grid,
-    .resilience-flow {
+    .resilience-flow,
+    .seo-two-col,
+    .seo-card-grid {
       grid-template-columns: 1fr;
     }
 
@@ -891,6 +1065,20 @@
     .restoration-compare {
       aspect-ratio: 4 / 5;
       min-height: 360px;
+    }
+
+    .seo-page-hero {
+      min-height: 560px;
+      padding-inline: var(--space-5);
+    }
+
+    .seo-page-hero h1 {
+      font-size: clamp(2.3rem, 13vw, 3.8rem);
+    }
+
+    .seo-card {
+      min-height: 0;
+      padding: var(--space-6);
     }
   }
 </style>

@@ -1,0 +1,129 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageStyles from '../components/PageStyles.astro';
+
+const title = 'Comprar o vender territorio de alto valor ecológico - Territorium Capital';
+const description = 'Asesoramiento para comprar, restaurar y vender territorios de alto valor ecológico con tesis patrimonial, biodiversidad, agua y capital natural.';
+const faq = [
+  {
+    question: '¿Qué es un territorio de alto valor ecológico?',
+    answer: 'Es un activo territorial cuyo valor no depende solo de su uso actual, sino de su biodiversidad, agua, conectividad ecológica, paisaje, resiliencia climática y potencial de restauración.'
+  },
+  {
+    question: '¿Territorium actúa como intermediario inmobiliario?',
+    answer: 'Territorium no solo intermedia. Analiza el valor ecológico, estructura una tesis patrimonial, diseña restauración llave en mano y prepara el activo para una compra, gestión o venta con mayor claridad.'
+  },
+  {
+    question: '¿Para quién es este servicio?',
+    answer: 'Para propietarios, patrimonios familiares, inversores, family offices, empresas y administraciones que quieren comprar, vender o transformar territorios con una visión ecológica y financiera.'
+  }
+];
+---
+
+<Layout title={title} description={description} canonicalPath="/comprar-vender-territorio-alto-valor-ecologico/">
+  <PageStyles />
+
+  <main>
+    <section class="seo-page-hero">
+      <div class="seo-page-hero__inner">
+        <span class="section-kicker section-kicker--light">Compraventa territorial</span>
+        <h1>Comprar o vender territorio de alto valor ecológico.</h1>
+        <p>
+          Acompañamos operaciones donde el valor no está solo en la tierra,
+          sino en su biodiversidad, agua, paisaje, resiliencia y potencial de
+          restauración.
+        </p>
+        <div class="seo-page-hero__actions">
+          <a class="seo-cta seo-cta--solid" href="/contacto/">Solicitar reunión</a>
+          <a class="seo-cta" href="/restauracion-ecologica-llave-en-mano/">Ver restauración llave en mano</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="seo-section seo-section--white">
+      <div class="container seo-two-col">
+        <div>
+          <span class="section-kicker">Tesis de valor</span>
+          <h2>Del suelo disponible al activo natural defendible.</h2>
+        </div>
+        <div class="seo-copy">
+          <p>
+            Territorium identifica territorios con potencial ecológico y
+            patrimonial, analiza sus variables críticas y prepara una tesis
+            clara para comprar, transformar, gestionar o vender.
+          </p>
+          <p>
+            Nuestra diferencia está en unir criterio transaccional, lectura
+            ecológica y ejecución de restauración. No vendemos una superficie:
+            defendemos una oportunidad territorial.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="seo-section">
+      <div class="container seo-card-grid">
+        <article class="seo-card">
+          <span>01</span>
+          <h3>Compra</h3>
+          <p>Originación, análisis y valoración de territorios con potencial ecológico, patrimonial y de restauración.</p>
+        </article>
+        <article class="seo-card">
+          <span>02</span>
+          <h3>Transformación</h3>
+          <p>Diseño de una hoja de ruta para aumentar biodiversidad, resiliencia climática y valor del activo.</p>
+        </article>
+        <article class="seo-card">
+          <span>03</span>
+          <h3>Venta</h3>
+          <p>Preparación del relato, documentación técnica y tesis de valor para compradores cualificados.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="seo-section seo-section--white">
+      <div class="container seo-two-col">
+        <div>
+          <span class="section-kicker">Qué analizamos</span>
+          <h2>Las variables que convierten territorio en capital natural.</h2>
+        </div>
+        <ul class="seo-list">
+          <li><strong>Biodiversidad y resiliencia.</strong> Mayor diversidad ecológica significa mayor capacidad de respuesta frente a sequía, incendios, erosión y eventos climáticos.</li>
+          <li><strong>Agua, suelo y paisaje.</strong> Leemos el territorio como un sistema: hidrología, cobertura vegetal, conectividad y valor paisajístico.</li>
+          <li><strong>Potencial de restauración.</strong> Identificamos actuaciones capaces de activar valor ecológico, reputacional, patrimonial y financiero.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="seo-section">
+      <div class="container seo-faq">
+        <h2>Preguntas frecuentes</h2>
+        {faq.map((item) => (
+          <article>
+            <h3>{item.question}</h3>
+            <p>{item.answer}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+  </main>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'Comprar o vender territorio de alto valor ecológico',
+    provider: { '@type': 'Organization', name: 'Territorium Capital', url: 'https://territorium.capital/' },
+    areaServed: 'España',
+    serviceType: 'Asesoramiento en compraventa y restauración de territorios',
+    description
+  })} />
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faq.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: { '@type': 'Answer', text: item.answer }
+    }))
+  })} />
+</Layout>

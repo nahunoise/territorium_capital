@@ -99,6 +99,56 @@ const footer = isEn
     };
 
 const formNextUrl = isEn ? 'https://territorium.capital/en/thanks/' : 'https://territorium.capital/gracias/';
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Territorium Capital',
+  url: 'https://territorium.capital/',
+  logo: 'https://territorium.capital/Territorium_Capital_logo.png',
+  email: 'blanca@territorium.capital',
+  sameAs: [],
+  description: 'Firma de inteligencia financiera territorial, restauración ecológica llave en mano y capital natural.'
+};
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Territorium Capital',
+  url: 'https://territorium.capital/',
+  inLanguage: isEn ? 'en' : 'es'
+};
+const breadcrumbLabels: Record<string, string> = {
+  '/servicios/': 'Servicios',
+  '/territorios/': 'Territorios',
+  '/comprar-vender-territorio-alto-valor-ecologico/': 'Comprar o vender territorio de alto valor ecológico',
+  '/restauracion-ecologica-llave-en-mano/': 'Restauración ecológica llave en mano',
+  '/valor-ecologico-territorio/': 'Valor ecológico del territorio',
+  '/vision/': 'Visión',
+  '/por-que-nosotros/': 'Por qué nosotros',
+  '/clientes/': 'Para quién',
+  '/contacto/': 'Contacto',
+  '/en/': 'Home'
+};
+const breadcrumbPath = canonicalPath ?? (isEn ? '/en/' : '/');
+const breadcrumbSchema = breadcrumbPath === '/'
+  ? null
+  : {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Territorium Capital',
+          item: 'https://territorium.capital/'
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: breadcrumbLabels[breadcrumbPath] ?? title,
+          item: canonicalUrl
+        }
+      ]
+    };
 ---
 
 <!doctype html>
@@ -113,10 +163,19 @@ const formNextUrl = isEn ? 'https://territorium.capital/en/thanks/' : 'https://t
     <link rel="alternate" hreflang="es" href="https://territorium.capital/" />
     <link rel="alternate" hreflang="en" href="https://territorium.capital/en/" />
     <link rel="alternate" hreflang="x-default" href="https://territorium.capital/" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content="https://territorium.capital/imagenes/fondo-1.webp" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
     {preloadImages.map((imagePath) => (
       <link rel="preload" as="image" href={imagePath} />
     ))}
     <title>{title}</title>
+    <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+    {breadcrumbSchema && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />}
 
   <!-- Tipografía principal: Alice -->
 <!-- Tipografía para títulos: Alice -->
