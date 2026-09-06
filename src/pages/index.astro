@@ -13,16 +13,20 @@ import PageStyles from '../components/PageStyles.astro';
 
   <header class="hero home-hero" id="hero-carousel">
     <div class="hero-video-stage" aria-hidden="true">
-      <video class="hero-video is-active" data-hero-video muted playsinline autoplay loop preload="auto" poster="/imagenes/fondo-1.webp">
+      <video class="hero-video is-active" data-hero-video muted playsinline webkit-playsinline autoplay loop preload="auto" poster="/imagenes/fondo-1.webp" disablepictureinpicture>
+        <source src="/videos/mobile/hero-bosque-luz-mobile.mp4" type="video/mp4" media="(max-width: 640px)" />
         <source src="/videos/premium/hero-bosque-luz.mp4" type="video/mp4" />
       </video>
-      <video class="hero-video" data-hero-video muted playsinline loop preload="auto" poster="/imagenes/fondo-2.webp">
+      <video class="hero-video" data-hero-video muted playsinline webkit-playsinline loop preload="auto" poster="/imagenes/fondo-2.webp" disablepictureinpicture>
+        <source src="/videos/mobile/hero-buitre-vuelo-mobile.mp4" type="video/mp4" media="(max-width: 640px)" />
         <source src="/videos/premium/hero-buitre-vuelo.mp4" type="video/mp4" />
       </video>
-      <video class="hero-video" data-hero-video muted playsinline loop preload="auto" poster="/imagenes/restauracion-despues.png">
+      <video class="hero-video" data-hero-video muted playsinline webkit-playsinline loop preload="auto" poster="/imagenes/restauracion-despues.png" disablepictureinpicture>
+        <source src="/videos/mobile/hero-montana-territorio-mobile.mp4" type="video/mp4" media="(max-width: 640px)" />
         <source src="/videos/premium/hero-montana-territorio.mp4" type="video/mp4" />
       </video>
-      <video class="hero-video" data-hero-video muted playsinline loop preload="auto" poster="/imagenes/medidas/riesgo-seco.jpg">
+      <video class="hero-video" data-hero-video muted playsinline webkit-playsinline loop preload="auto" poster="/imagenes/medidas/riesgo-seco.jpg" disablepictureinpicture>
+        <source src="/videos/mobile/hero-ribera-seca-mobile.mp4" type="video/mp4" media="(max-width: 640px)" />
         <source src="/videos/premium/hero-ribera-seca.mp4" type="video/mp4" />
       </video>
       <div class="hero-video-stage__overlay"></div>
@@ -280,9 +284,26 @@ import PageStyles from '../components/PageStyles.astro';
   }
 
   videoElements.forEach((video) => {
+    video.muted = true;
+    video.setAttribute('muted', '');
+    video.setAttribute('playsinline', '');
+    video.setAttribute('webkit-playsinline', '');
     video.addEventListener('playing', () => video.classList.add('is-playing'));
     video.addEventListener('pause', () => video.classList.remove('is-playing'));
     video.addEventListener('error', () => video.classList.remove('is-playing'));
+  });
+
+  function retryActiveVideo() {
+    const activeVideo = videoElements[currentVideoIndex] || videoElements[0];
+    if (activeVideo && !activeVideo.classList.contains('is-playing')) {
+      playHeroVideo(activeVideo);
+    }
+  }
+
+  window.addEventListener('touchstart', retryActiveVideo, { once: true, passive: true });
+  window.addEventListener('pointerdown', retryActiveVideo, { once: true, passive: true });
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden) retryActiveVideo();
   });
 
   function changeSlide() {

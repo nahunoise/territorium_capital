@@ -13,14 +13,17 @@ import PageStyles from '../components/PageStyles.astro';
 
   <header class="hero home-hero" id="hero-carousel">
     <div class="hero-video-stage" aria-hidden="true">
-      <video class="hero-video is-active" data-hero-video muted playsinline autoplay loop preload="auto" poster="/imagenes/fondo-1.webp">
-        <source src="/videos/territorio-video-01.mp4" type="video/mp4" />
+      <video class="hero-video is-active" data-hero-video muted playsinline webkit-playsinline autoplay loop preload="auto" poster="/imagenes/fondo-1.webp" disablepictureinpicture>
+        <source src="/videos/mobile/hero-bosque-luz-mobile.mp4" type="video/mp4" media="(max-width: 640px)" />
+        <source src="/videos/premium/hero-bosque-luz.mp4" type="video/mp4" />
       </video>
-      <video class="hero-video" data-hero-video muted playsinline loop preload="auto" poster="/imagenes/fondo-2.webp">
-        <source src="/videos/territorio-video-03.mp4" type="video/mp4" />
+      <video class="hero-video" data-hero-video muted playsinline webkit-playsinline loop preload="auto" poster="/imagenes/fondo-2.webp" disablepictureinpicture>
+        <source src="/videos/mobile/hero-buitre-vuelo-mobile.mp4" type="video/mp4" media="(max-width: 640px)" />
+        <source src="/videos/premium/hero-buitre-vuelo.mp4" type="video/mp4" />
       </video>
-      <video class="hero-video" data-hero-video muted playsinline loop preload="auto" poster="/imagenes/restauracion-despues.png">
-        <source src="/videos/territorio-video-05.mp4" type="video/mp4" />
+      <video class="hero-video" data-hero-video muted playsinline webkit-playsinline loop preload="auto" poster="/imagenes/restauracion-despues.png" disablepictureinpicture>
+        <source src="/videos/mobile/hero-montana-territorio-mobile.mp4" type="video/mp4" media="(max-width: 640px)" />
+        <source src="/videos/premium/hero-montana-territorio.mp4" type="video/mp4" />
       </video>
       <div class="hero-video-stage__overlay"></div>
     </div>
@@ -476,6 +479,47 @@ import PageStyles from '../components/PageStyles.astro';
     return promise;
   }
 
+  function playHeroVideo(video: HTMLVideoElement) {
+    videoElements.forEach((element) => {
+      element.classList.remove('is-active', 'is-playing');
+      if (element !== video) element.pause();
+    });
+
+    video.classList.add('is-active');
+    video.currentTime = 0;
+    video.playbackRate = 0.92;
+
+    const playPromise = video.play();
+    if (playPromise) {
+      playPromise
+        .then(() => video.classList.add('is-playing'))
+        .catch(() => video.classList.remove('is-playing'));
+    }
+  }
+
+  videoElements.forEach((video) => {
+    video.muted = true;
+    video.setAttribute('muted', '');
+    video.setAttribute('playsinline', '');
+    video.setAttribute('webkit-playsinline', '');
+    video.addEventListener('playing', () => video.classList.add('is-playing'));
+    video.addEventListener('pause', () => video.classList.remove('is-playing'));
+    video.addEventListener('error', () => video.classList.remove('is-playing'));
+  });
+
+  function retryActiveVideo() {
+    const activeVideo = videoElements[currentVideoIndex] || videoElements[0];
+    if (activeVideo && !activeVideo.classList.contains('is-playing')) {
+      playHeroVideo(activeVideo);
+    }
+  }
+
+  window.addEventListener('touchstart', retryActiveVideo, { once: true, passive: true });
+  window.addEventListener('pointerdown', retryActiveVideo, { once: true, passive: true });
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden) retryActiveVideo();
+  });
+
   function changeSlide() {
     currentIndex = (currentIndex + 1) % slides.length;
     const next = slides[currentIndex];
@@ -492,13 +536,7 @@ import PageStyles from '../components/PageStyles.astro';
         currentVideoIndex = (currentVideoIndex + 1) % videoElements.length;
         const activeVideo = videoElements[currentVideoIndex];
         if (activeVideo) {
-          videoElements.forEach((video) => {
-            video.classList.remove('is-active');
-            if (video !== activeVideo) video.pause();
-          });
-          activeVideo.classList.add('is-active');
-          activeVideo.currentTime = 0;
-          activeVideo.play().catch(() => {});
+          playHeroVideo(activeVideo);
         }
         titleElement.innerHTML = next.title;
         subtitleElement.textContent = next.subtitle;
@@ -511,7 +549,9 @@ import PageStyles from '../components/PageStyles.astro';
   }
 
   Promise.all(slides.map((slide) => preloadHeroImage(slide.image))).then(() => {
-    videoElements[0]?.play().catch(() => {});
+    if (videoElements[0]) {
+      playHeroVideo(videoElements[0]);
+    }
     if (!carouselTimer) {
       carouselTimer = window.setInterval(changeSlide, 5000);
     }
