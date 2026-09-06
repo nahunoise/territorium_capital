@@ -3,7 +3,11 @@ import Layout from '../layouts/Layout.astro';
 import PageStyles from '../components/PageStyles.astro';
 ---
 
-<Layout title="Servicios - Territorium Capital" canonicalPath="/servicios/">
+<Layout
+  title="Servicios de gestión territorial | Territorium Capital"
+  description="Diagnóstico, gestión patrimonial, regeneración y capital natural para propietarios, empresas e inversores que buscan aumentar el valor de sus territorios."
+  canonicalPath="/servicios/"
+>
   <PageStyles />
 
   <main>
@@ -11,33 +15,36 @@ import PageStyles from '../components/PageStyles.astro';
       <div class="container">
         <div class="section-heading">
           <span class="section-kicker section-kicker--light">Servicios</span>
-          <h1>Del diagnóstico territorial a la creación de valor.</h1>
+          <h1>Del conocimiento del territorio a la creación de valor.</h1>
           <p>
-            Una metodología para comprar, valorar, restaurar y gestionar
-            territorios con criterio ecológico, patrimonial y financiero.
+            Integramos diagnóstico, estrategia patrimonial, regeneración y
+            capital natural para convertir información territorial en
+            decisiones, actuaciones y valor a largo plazo.
           </p>
         </div>
 
         <div class="axes-showcase">
           <article class="axes-feature">
             <span class="axes-feature__eyebrow">Método Territorium</span>
-            <h3>Convertimos territorio en una tesis de inversión defendible.</h3>
+            <h3>Entender. Decidir. Ejecutar. Medir.</h3>
             <p>
-              Medimos el potencial ecológico, traducimos sus variables a valor
-              patrimonial y diseñamos una hoja de ruta para activar el activo:
-              comprar, restaurar, gestionar o vender con mayor claridad.
+              Analizamos cómo funciona un territorio, definimos una hoja de ruta
+              patrimonial y acompañamos su transformación con criterio técnico,
+              económico y ecológico.
             </p>
-            <a href="/contacto/" class="axes-feature__cta">Hablar de mi territorio</a>
-            <a href="/restauracion-ecologica-llave-en-mano/" class="axes-feature__cta">Restauración llave en mano</a>
+            <div class="axes-feature__actions">
+              <a href="/analizar-mi-finca/" class="axes-feature__cta">Analizar mi territorio</a>
+              <a href="/restauracion-ecologica-llave-en-mano/" class="axes-feature__cta">Restauración llave en mano</a>
+            </div>
           </article>
 
           <div class="axes-grid" aria-label="Líneas de trabajo Territorium">
             <article class="card-axis">
               <span class="card-axis__number">01</span>
               <div class="card-axis__content">
-                <h3 class="card-axis__name">Territorios</h3>
-                <p class="card-axis__tag">Compra y venta</p>
-                <p class="card-axis__body">Búsqueda, valoración y preparación de territorios de alto valor ecológico.</p>
+                <h3 class="card-axis__name">Diagnóstico</h3>
+                <p class="card-axis__tag">Conocer antes de decidir</p>
+                <p class="card-axis__body">Lectura ecológica, patrimonial y de riesgo para entender el potencial real del territorio.</p>
               </div>
             </article>
 
@@ -45,31 +52,55 @@ import PageStyles from '../components/PageStyles.astro';
               <span class="card-axis__number">02</span>
               <div class="card-axis__content">
                 <h3 class="card-axis__name">Gestión</h3>
-                <p class="card-axis__tag">Decisión territorial</p>
-                <p class="card-axis__body">Medición de biodiversidad, agua, paisaje y resiliencia para priorizar actuaciones.</p>
+                <p class="card-axis__tag">Estrategia patrimonial</p>
+                <p class="card-axis__body">Una hoja de ruta para priorizar actuaciones, reducir vulnerabilidades y mejorar la toma de decisiones.</p>
               </div>
             </article>
 
             <article class="card-axis">
               <span class="card-axis__number">03</span>
               <div class="card-axis__content">
-                <h3 class="card-axis__name">Capital</h3>
-                <p class="card-axis__tag">Tesis de valor</p>
-                <p class="card-axis__body">Lectura financiera del capital natural para defender oportunidad, riesgo y precio.</p>
+                <h3 class="card-axis__name">Regeneración</h3>
+                <p class="card-axis__tag">Del plan al terreno</p>
+                <p class="card-axis__body">Restauración ecológica, seguimiento técnico y mejora de agua, suelo, biodiversidad y paisaje.</p>
               </div>
             </article>
 
             <article class="card-axis">
               <span class="card-axis__number">04</span>
               <div class="card-axis__content">
-                <h3 class="card-axis__name">Restauración</h3>
-                <p class="card-axis__tag">Llave en mano</p>
-                <p class="card-axis__body">Diseño, ejecución y seguimiento de proyectos de restauración con impacto medible.</p>
+                <h3 class="card-axis__name">Capital natural</h3>
+                <p class="card-axis__tag">Valor patrimonial</p>
+                <p class="card-axis__body">Información clara para operaciones, inversión, gestión y comunicación con base territorial.</p>
               </div>
             </article>
           </div>
         </div>
       </div>
+    </section>
+
+    <section class="services-editorial reveal" aria-label="Servicios principales Territorium">
+      <div class="services-editorial__intro">
+        <span class="section-kicker">Servicios</span>
+        <h2>Una lectura completa del territorio.</h2>
+      </div>
+
+      <div class="services-editorial__rail">
+        <a class="services-editorial__item services-editorial__item--left" href="/valor-ecologico-territorio/">
+          <img src="/imagenes/servicio-diagnostico-capas.png" alt="Análisis territorial con capas ambientales">
+          <span>Diagnóstico territorial</span>
+        </a>
+        <a class="services-editorial__item services-editorial__item--center" href="/analizar-mi-finca/">
+          <img src="/imagenes/servicio-capital-natural.jpg" alt="Paisaje natural de montaña y bosque como capital natural">
+          <span>Capital natural</span>
+        </a>
+        <a class="services-editorial__item services-editorial__item--right" href="/restauracion-ecologica-llave-en-mano/">
+          <img src="/imagenes/restauracion-despues.png" alt="Humedal restaurado con biodiversidad">
+          <span>Restauración</span>
+        </a>
+      </div>
+
+      <div class="services-editorial__arrow" aria-hidden="true"></div>
     </section>
   </main>
 </Layout>

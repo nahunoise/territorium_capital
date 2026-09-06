@@ -1,0 +1,198 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageStyles from '../components/PageStyles.astro';
+---
+
+<Layout
+  title="Analizar el potencial de una finca | Territorium Capital"
+  description="Cuéntenos dónde está su territorio y qué quiere conseguir. Territorium estudia el contexto para definir cómo analizar, gestionar o poner en valor su capital natural."
+  canonicalPath="/analizar-mi-finca/"
+>
+  <PageStyles />
+
+  <main>
+    <section class="analysis-landing page-first-section reveal">
+      <div class="analysis-landing__copy">
+        <span class="section-kicker">Analizar mi territorio</span>
+        <h1>Conozca el potencial real de su territorio.</h1>
+        <p>
+          Cuéntenos dónde está, qué quiere conseguir y en qué punto se
+          encuentra. Revisaremos la información para valorar el encaje y
+          proponerle el siguiente paso más adecuado.
+        </p>
+        <p class="analysis-landing__note">
+          Esta primera solicitud no constituye una tasación ni un diagnóstico
+          técnico completo. Sirve para comprender el contexto y orientar el
+          alcance correcto.
+        </p>
+      </div>
+
+      <form class="analysis-form" action="https://formsubmit.co/blanca@territorium.capital" method="POST" data-analysis-form>
+        <input type="hidden" name="_subject" value="Nueva solicitud: Analizar mi territorio" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_next" value="https://territorium.capital/gracias/" />
+        <input type="text" name="_honey" class="contact-form__honey" tabindex="-1" autocomplete="off" />
+
+        <div class="analysis-form__progress">
+          <span data-step-label>1 de 3</span>
+          <div><i data-step-bar></i></div>
+        </div>
+
+        <fieldset class="analysis-form__step is-active" data-step="1">
+          <legend>El territorio</legend>
+          <label>
+            <span>Provincia o zona*</span>
+            <input type="text" name="Provincia o zona" required />
+          </label>
+          <label>
+            <span>Superficie aproximada*</span>
+            <select name="Superficie aproximada" required>
+              <option value="">Seleccione un rango</option>
+              <option>&lt; 50 ha</option>
+              <option>50-250 ha</option>
+              <option>250-1.000 ha</option>
+              <option>&gt; 1.000 ha</option>
+              <option>No lo sé</option>
+            </select>
+          </label>
+          <label>
+            <span>Situación actual*</span>
+            <select name="Situación actual" required>
+              <option value="">Seleccione una opción</option>
+              <option>Soy propietario</option>
+              <option>Represento al propietario</option>
+              <option>Estoy valorando una adquisición</option>
+              <option>Otro</option>
+            </select>
+          </label>
+        </fieldset>
+
+        <fieldset class="analysis-form__step" data-step="2">
+          <legend>Qué quiere conseguir</legend>
+          <div class="analysis-options">
+            <label><input type="checkbox" name="Objetivos" value="Conocer el potencial" /> Conocer su potencial</label>
+            <label><input type="checkbox" name="Objetivos" value="Definir una estrategia" /> Definir una estrategia</label>
+            <label><input type="checkbox" name="Objetivos" value="Restaurar o regenerar" /> Restaurar o regenerar</label>
+            <label><input type="checkbox" name="Objetivos" value="Preparar venta" /> Preparar una venta</label>
+            <label><input type="checkbox" name="Objetivos" value="Capital natural" /> Explorar capital natural</label>
+          </div>
+          <label>
+            <span>Prioridad principal*</span>
+            <textarea name="Prioridad principal" rows="4" required placeholder="Explique brevemente qué le gustaría conseguir."></textarea>
+          </label>
+        </fieldset>
+
+        <fieldset class="analysis-form__step" data-step="3">
+          <legend>Contacto</legend>
+          <label>
+            <span>Nombre y apellidos*</span>
+            <input type="text" name="Nombre" autocomplete="name" required />
+          </label>
+          <label>
+            <span>Email*</span>
+            <input type="email" name="Email" autocomplete="email" required />
+          </label>
+          <label>
+            <span>Teléfono</span>
+            <input type="tel" name="Teléfono" autocomplete="tel" />
+          </label>
+          <label class="analysis-form__privacy">
+            <input type="checkbox" name="Acepta privacidad" required />
+            <span>Acepto que Territorium utilice estos datos para gestionar mi solicitud.</span>
+          </label>
+        </fieldset>
+
+        <div class="analysis-form__actions">
+          <button type="button" data-prev hidden>Anterior</button>
+          <button type="button" data-next>Continuar</button>
+          <button type="submit" data-submit hidden>Enviar mi solicitud</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="trust-strip reveal">
+      <article>
+        <span>01</span>
+        <h2>Contexto primero</h2>
+        <p>No pedimos documentación técnica completa para iniciar la conversación.</p>
+      </article>
+      <article>
+        <span>02</span>
+        <h2>Criterio profesional</h2>
+        <p>La primera revisión determina qué tipo de trabajo tiene sentido.</p>
+      </article>
+      <article>
+        <span>03</span>
+        <h2>Información confidencial</h2>
+        <p>Los datos se usan exclusivamente para gestionar la solicitud.</p>
+      </article>
+    </section>
+
+    <section class="seo-section seo-section--white reveal">
+      <div class="container seo-two-col">
+        <div>
+          <span class="section-kicker">Qué miramos</span>
+          <h2>Un territorio es más que superficie y localización.</h2>
+        </div>
+        <ul class="seo-list">
+          <li><strong>Agua y suelo</strong>Disponibilidad, retención, erosión, capacidad productiva y potencial de recuperación.</li>
+          <li><strong>Biodiversidad</strong>Hábitats, especies, conectividad ecológica y resiliencia frente a eventos climáticos.</li>
+          <li><strong>Paisaje y usos</strong>Coberturas, actividad, configuración territorial y oportunidades de mejora.</li>
+          <li><strong>Capital natural</strong>Oportunidades vinculadas al valor ecológico y patrimonial del territorio.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const observer = new IntersectionObserver((entries, currentObserver) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+          currentObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+    const form = document.querySelector("[data-analysis-form]") as HTMLFormElement | null;
+    if (!form) return;
+    const steps = Array.from(form.querySelectorAll("[data-step]")) as HTMLElement[];
+    const next = form.querySelector("[data-next]") as HTMLButtonElement | null;
+    const prev = form.querySelector("[data-prev]") as HTMLButtonElement | null;
+    const submit = form.querySelector("[data-submit]") as HTMLButtonElement | null;
+    const label = form.querySelector("[data-step-label]") as HTMLElement | null;
+    const bar = form.querySelector("[data-step-bar]") as HTMLElement | null;
+    let current = 0;
+
+    const update = () => {
+      steps.forEach((step, index) => step.classList.toggle("is-active", index === current));
+      if (prev) prev.hidden = current === 0;
+      if (next) next.hidden = current === steps.length - 1;
+      if (submit) submit.hidden = current !== steps.length - 1;
+      if (label) label.textContent = `${current + 1} de ${steps.length}`;
+      if (bar) bar.style.width = `${((current + 1) / steps.length) * 100}%`;
+    };
+
+    const currentStepIsValid = () => {
+      const fields = Array.from(steps[current].querySelectorAll("input, select, textarea")) as HTMLInputElement[];
+      return fields.every((field) => field.reportValidity());
+    };
+
+    next?.addEventListener("click", () => {
+      if (!currentStepIsValid()) return;
+      current = Math.min(current + 1, steps.length - 1);
+      update();
+    });
+
+    prev?.addEventListener("click", () => {
+      current = Math.max(current - 1, 0);
+      update();
+    });
+
+    update();
+  });
+</script>

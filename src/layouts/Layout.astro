@@ -25,18 +25,16 @@ const nav = isEn
       home: 'Home',
       services: 'Services',
       territories: 'Territories',
-      insight: 'Insight',
-      whyUs: 'Why us',
-      audience: 'Who we serve',
+      about: 'About',
+      analyze: 'Analyse my territory',
       contact: 'Contact',
     }
   : {
       home: 'Inicio',
       services: 'Servicios',
       territories: 'Territorios',
-      insight: 'Visión',
-      whyUs: 'Por qué nosotros',
-      audience: 'Para quién',
+      about: 'Sobre Territorium',
+      analyze: 'Analizar mi territorio',
       contact: 'Contacto',
     };
 
@@ -45,18 +43,16 @@ const navLinks = isEn
       home: '/en/',
       services: '/en/#servicios',
       territories: '/en/#territorios',
-      insight: '/en/#vision',
-      whyUs: '/en/#por-que-nosotros',
-      audience: '/en/#clientes',
+      about: '/en/#por-que-nosotros',
+      analyze: '/contacto/',
       contact: '/en/#contacto',
     }
   : {
       home: '/',
       services: '/servicios/',
       territories: '/territorios/',
-      insight: '/vision/',
-      whyUs: '/por-que-nosotros/',
-      audience: '/clientes/',
+      about: '/sobre-territorium/',
+      analyze: '/analizar-mi-finca/',
       contact: '/contacto/',
     };
 
@@ -107,7 +103,7 @@ const organizationSchema = {
   logo: 'https://territorium.capital/Territorium_Capital_logo.png',
   email: 'blanca@territorium.capital',
   sameAs: [],
-  description: 'Firma de inteligencia financiera territorial, restauración ecológica llave en mano y capital natural.'
+  description: 'Gestora patrimonial territorial especializada en capital natural, restauración ecológica y resiliencia del territorio.'
 };
 const websiteSchema = {
   '@context': 'https://schema.org',
@@ -122,6 +118,8 @@ const breadcrumbLabels: Record<string, string> = {
   '/comprar-vender-territorio-alto-valor-ecologico/': 'Comprar o vender territorio de alto valor ecológico',
   '/restauracion-ecologica-llave-en-mano/': 'Restauración ecológica llave en mano',
   '/valor-ecologico-territorio/': 'Valor ecológico del territorio',
+  '/sobre-territorium/': 'Sobre Territorium',
+  '/analizar-mi-finca/': 'Analizar mi territorio',
   '/vision/': 'Visión',
   '/por-que-nosotros/': 'Por qué nosotros',
   '/clientes/': 'Para quién',
@@ -177,11 +175,6 @@ const breadcrumbSchema = breadcrumbPath === '/'
     <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
     {breadcrumbSchema && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />}
 
-  <!-- Tipografía principal: Alice -->
-<!-- Tipografía para títulos: Alice -->
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Alice&display=swap" rel="stylesheet" />
   </head>
 
   <body>
@@ -197,9 +190,8 @@ const breadcrumbSchema = breadcrumbPath === '/'
         <li><a href={navLinks.home} class="nav-link">{nav.home}</a></li>
         <li><a href={navLinks.services} class="nav-link">{nav.services}</a></li>
         <li><a href={navLinks.territories} class="nav-link">{nav.territories}</a></li>
-        <li><a href={navLinks.insight} class="nav-link">{nav.insight}</a></li>
-        <li><a href={navLinks.whyUs} class="nav-link">{nav.whyUs}</a></li>
-        <li><a href={navLinks.audience} class="nav-link">{nav.audience}</a></li>
+        <li><a href={navLinks.about} class="nav-link">{nav.about}</a></li>
+        <li><a href={navLinks.analyze} class="nav-link">{nav.analyze}</a></li>
         <li><a href={navLinks.contact} class="nav-link nav-link--muted">{nav.contact}</a></li>
       </ul>
 
@@ -214,7 +206,7 @@ const breadcrumbSchema = breadcrumbPath === '/'
     <slot />
 
     <!-- PIE DE PÁGINA GLOBAL -->
-    <footer id="contacto" class="site-footer">
+    <footer id="contacto" class:list={['site-footer', showContactForm && 'site-footer--with-form']}>
       <div class="footer-block footer-block--brand">
         <span class="footer-kicker">{footer.kicker}</span>
         <h2 class="footer-heading">{footer.heading}</h2>
@@ -302,7 +294,8 @@ const breadcrumbSchema = breadcrumbPath === '/'
     --color-border:     rgba(24, 43, 73, 0.16);
 
     /* Tipografía */
-    --font-base: 'Plus Jakarta Sans', sans-serif;
+    --font-display: Georgia, 'Times New Roman', serif;
+    --font-base: 'Segoe UI', Avenir, 'Avenir Next', sans-serif;
 
     /* Escala tipográfica */
     --text-xs:  0.75rem;   /* 12px */
@@ -501,14 +494,12 @@ const breadcrumbSchema = breadcrumbPath === '/'
 
   /* ─── HERO ───────────────────────────────────────────────── */
 
-  /* Títulos elegantes con Alice */
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Alice', serif;
+  font-family: var(--font-display);
 }
 
-/* Cuerpo de texto con Avenir (y sus alternativas) */
 body {
-  font-family: 'Avenir', 'Avenir Next', 'Montserrat', 'Segoe UI', sans-serif;
+  font-family: var(--font-base);
 }
   .hero {
     position: relative;
@@ -666,7 +657,7 @@ body {
   }
 
   .axes-feature h3 {
-    font-family: 'Alice', serif;
+    font-family: var(--font-display);
     font-size: clamp(var(--text-3xl), 4vw, var(--text-5xl));
     font-weight: 400;
     line-height: 1.04;
@@ -679,6 +670,13 @@ body {
     font-size: var(--text-base);
     line-height: 1.75;
     margin-bottom: var(--space-8);
+  }
+
+  .axes-feature__actions {
+    align-items: flex-start;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
   }
 
   .axes-feature__cta {
@@ -731,7 +729,7 @@ body {
   }
 
   .card-axis__name {
-    font-family: 'Alice', serif;
+    font-family: var(--font-display);
     font-size: var(--text-2xl);
     font-weight: 400;
     color: var(--color-white);
@@ -807,7 +805,7 @@ body {
   }
 
   .restoration-compare__caption strong {
-    font-family: 'Alice', serif;
+    font-family: var(--font-display);
     font-size: var(--text-2xl);
     font-weight: 400;
   }
@@ -847,6 +845,16 @@ body {
     border-top: 1px solid var(--color-border);
   }
 
+  .site-footer--with-form {
+    align-items: start;
+    grid-template-columns: minmax(320px, 0.8fr) minmax(440px, 1.2fr);
+    max-width: 78rem;
+  }
+
+  .site-footer--with-form .footer-block--contact {
+    width: 100%;
+  }
+
   .footer-block {
     display: flex;
     flex-direction: column;
@@ -883,6 +891,7 @@ body {
     gap: var(--space-4);
     margin-top: var(--space-4);
     padding: var(--space-6);
+    width: 100%;
   }
 
   .contact-form h3 {
@@ -895,14 +904,17 @@ body {
   .contact-form label {
     display: grid;
     gap: var(--space-2);
+    min-width: 0;
   }
 
   .contact-form label span {
     color: var(--color-indigo);
+    display: block;
     font-size: var(--text-xs);
     font-weight: 800;
     letter-spacing: 0.1em;
     text-transform: uppercase;
+    white-space: normal;
   }
 
   .contact-form input,

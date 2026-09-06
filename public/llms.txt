@@ -1,6 +1,6 @@
 # Territorium Capital
 
-Territorium Capital is a territorial intelligence and natural capital firm based in Spain. It helps owners, investors, family offices, companies and public administrations understand, restore, buy, sell and manage territories with ecological value.
+Territorium Capital is a territorial patrimonial management firm based in Spain. It helps owners, investors, family offices, companies and public administrations understand, restore, buy, sell and manage territories with ecological value.
 
 Core thesis: biodiversity increases territorial resilience; resilience reduces climate risk and supports ecological, patrimonial and financial value.
 
@@ -9,8 +9,8 @@ Primary services:
 - Turnkey ecological restoration: https://territorium.capital/restauracion-ecologica-llave-en-mano/
 - Ecological value diagnosis for territories: https://territorium.capital/valor-ecologico-territorio/
 - Territorial services: https://territorium.capital/servicios/
-- Vision and methodology: https://territorium.capital/vision/
-- Why Territorium: https://territorium.capital/por-que-nosotros/
+- About Territorium: https://territorium.capital/sobre-territorium/
+- Analyse my territory: https://territorium.capital/analizar-mi-finca/
 
 Important concepts:
 - Natural capital
@@ -20,6 +20,7 @@ Important concepts:
 - Territorial asset
 - Turnkey ecological restoration
 - High ecological value territory
-- Financial territorial intelligence
+- Territorial patrimonial management
+- Wild Square technology
 
 Contact: blanca@territorium.capital

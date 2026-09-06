@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import PageStyles from '../components/PageStyles.astro';
 ---
 
 <Layout
@@ -8,8 +9,21 @@ import Layout from '../layouts/Layout.astro';
   description="Territorium advises on territory transactions, natural capital and turnkey restoration to turn land into resilience, return and legacy."
   preloadImages={['/imagenes/fondo-1.webp', '/imagenes/fondo-2.webp', '/imagenes/fondo-3.webp']}
 >
+  <PageStyles />
 
-  <header class="hero" id="hero-carousel">
+  <header class="hero home-hero" id="hero-carousel">
+    <div class="hero-video-stage" aria-hidden="true">
+      <video class="hero-video is-active" data-hero-video muted playsinline autoplay loop preload="auto" poster="/imagenes/fondo-1.webp">
+        <source src="/videos/territorio-video-01.mp4" type="video/mp4" />
+      </video>
+      <video class="hero-video" data-hero-video muted playsinline loop preload="auto" poster="/imagenes/fondo-2.webp">
+        <source src="/videos/territorio-video-03.mp4" type="video/mp4" />
+      </video>
+      <video class="hero-video" data-hero-video muted playsinline loop preload="auto" poster="/imagenes/restauracion-despues.png">
+        <source src="/videos/territorio-video-05.mp4" type="video/mp4" />
+      </video>
+      <div class="hero-video-stage__overlay"></div>
+    </div>
     <div class="hero__content">
       <span class="hero__eyebrow">Territorium Capital · Advisory & Restoration</span>
       <h1 class="hero__title fade-in" id="carousel-title">
@@ -438,10 +452,12 @@ import Layout from '../layouts/Layout.astro';
   ];
 
   let currentIndex = 0;
+  let currentVideoIndex = 0;
   let carouselTimer: number | undefined;
   const heroElement = document.getElementById('hero-carousel') as HTMLElement;
   const titleElement = document.getElementById('carousel-title') as HTMLElement;
   const subtitleElement = document.getElementById('carousel-subtitle') as HTMLElement;
+  const videoElements = Array.from(document.querySelectorAll('[data-hero-video]')) as HTMLVideoElement[];
 
   const heroGradient = "linear-gradient(90deg, rgba(10,20,32,0.82), rgba(10,20,32,0.48) 48%, rgba(10,20,32,0.18))";
   const imageCache = new Map<string, Promise<void>>();
@@ -473,6 +489,17 @@ import Layout from '../layouts/Layout.astro';
       setTimeout(() => {
         heroElement.style.backgroundImage =
           `${heroGradient}, url('${next.image}')`;
+        currentVideoIndex = (currentVideoIndex + 1) % videoElements.length;
+        const activeVideo = videoElements[currentVideoIndex];
+        if (activeVideo) {
+          videoElements.forEach((video) => {
+            video.classList.remove('is-active');
+            if (video !== activeVideo) video.pause();
+          });
+          activeVideo.classList.add('is-active');
+          activeVideo.currentTime = 0;
+          activeVideo.play().catch(() => {});
+        }
         titleElement.innerHTML = next.title;
         subtitleElement.textContent = next.subtitle;
         titleElement.classList.remove('fade-out');
@@ -484,8 +511,9 @@ import Layout from '../layouts/Layout.astro';
   }
 
   Promise.all(slides.map((slide) => preloadHeroImage(slide.image))).then(() => {
+    videoElements[0]?.play().catch(() => {});
     if (!carouselTimer) {
-      carouselTimer = window.setInterval(changeSlide, 5200);
+      carouselTimer = window.setInterval(changeSlide, 5000);
     }
   });
 

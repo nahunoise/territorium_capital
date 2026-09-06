@@ -4,24 +4,41 @@ import PageStyles from '../components/PageStyles.astro';
 ---
 
 <Layout
-  title="Territorium - Resiliencia y rentabilidad territorial"
+  title="Gestión patrimonial territorial | Territorium Capital"
+  description="Ciencia, tecnología y gestión patrimonial para conocer, regenerar y aumentar el valor de territorios a largo plazo."
   canonicalPath="/"
   preloadImages={['/imagenes/fondo-1.webp', '/imagenes/fondo-2.webp', '/imagenes/fondo-3.webp']}
 >
   <PageStyles />
 
   <header class="hero home-hero" id="hero-carousel">
+    <div class="hero-video-stage" aria-hidden="true">
+      <video class="hero-video is-active" data-hero-video muted playsinline autoplay loop preload="auto" poster="/imagenes/fondo-1.webp">
+        <source src="/videos/premium/hero-bosque-luz.mp4" type="video/mp4" />
+      </video>
+      <video class="hero-video" data-hero-video muted playsinline loop preload="auto" poster="/imagenes/fondo-2.webp">
+        <source src="/videos/premium/hero-buitre-vuelo.mp4" type="video/mp4" />
+      </video>
+      <video class="hero-video" data-hero-video muted playsinline loop preload="auto" poster="/imagenes/restauracion-despues.png">
+        <source src="/videos/premium/hero-montana-territorio.mp4" type="video/mp4" />
+      </video>
+      <video class="hero-video" data-hero-video muted playsinline loop preload="auto" poster="/imagenes/medidas/riesgo-seco.jpg">
+        <source src="/videos/premium/hero-ribera-seca.mp4" type="video/mp4" />
+      </video>
+      <div class="hero-video-stage__overlay"></div>
+    </div>
     <div class="hero__content">
-      <span class="hero__eyebrow">Territorium Capital</span>
+      <span class="hero__eyebrow">Gestora patrimonial territorial</span>
       <h1 class="hero__title fade-in" id="carousel-title">
-        Territorios con valor natural para inversores y propietarios
+        Su territorio puede valer más. Y funcionar mejor.
       </h1>
       <p class="hero__subtitle fade-in" id="carousel-subtitle">
-        Convertimos territorio, biodiversidad y restauración en resiliencia,
-        rentabilidad y legado.
+        Ciencia, tecnología y gestión patrimonial para conocer, regenerar y
+        aumentar el valor de territorios a largo plazo.
       </p>
       <div class="hero__actions">
-        <a href="/contacto/" class="hero__cta">Hablar con un experto</a>
+        <a href="/analizar-mi-finca/" class="hero__cta">Analizar mi territorio</a>
+        <a href="/sobre-territorium/" class="hero__cta hero__cta--primary">Sobre Territorium</a>
       </div>
     </div>
   </header>
@@ -47,56 +64,151 @@ import PageStyles from '../components/PageStyles.astro';
             <small>04</small>
             <span>Invertir en capital natural</span>
           </a>
+          <a href="/analizar-mi-finca/" class="service-finder__item">
+            <small>05</small>
+            <span>Analizar el potencial de mi territorio</span>
+          </a>
         </div>
       </div>
     </section>
 
-    <section class="manifesto-section reveal">
-      <div class="manifesto-section__image">
-        <img src="/imagenes/territorio-legado.jpg" alt="Paisaje natural gestionado por Territorium">
+    <section class="positioning-section reveal">
+      <div class="container positioning-section__grid">
+        <div>
+          <span class="section-kicker">Qué es Territorium</span>
+          <h2>Una gestora patrimonial territorial.</h2>
+        </div>
+        <div class="positioning-section__copy">
+          <p>
+            Ayudamos a propietarios, empresas, inversores e instituciones a
+            entender, gestionar y mejorar el funcionamiento de sus territorios
+            mediante ciencia ambiental, tecnología y capacidad de ejecución.
+          </p>
+          <p class="positioning-section__quote">
+            Convertimos biodiversidad, agua, suelo y paisaje en una estrategia
+            patrimonial clara.
+          </p>
+        </div>
       </div>
-      <div class="manifesto-section__copy">
-        <span class="section-kicker">Somos de la tierra</span>
-        <h2>Nacemos, vivimos y volvemos a ella.</h2>
+    </section>
+
+    <section class="measures-section reveal" aria-label="Variables que mide Territorium">
+      <div class="container measures-section__header">
+        <span class="section-kicker">Qué medimos</span>
+        <h2>Lo que no siempre se ve también cuenta.</h2>
+      </div>
+      <div class="measures-carousel">
+        <div class="measures-carousel__track">
+          {[0, 1].map(() => (
+            <>
+              <article>
+                <img src="/imagenes/medidas/nuevas/biodiversidad-ciervo.jpg" alt="Fauna salvaje en bosque maduro">
+                <div class="measures-carousel__content">
+                  <span>01</span>
+                  <h3>Biodiversidad</h3>
+                  <p>Fauna, hábitats y mosaico ecológico.</p>
+                </div>
+              </article>
+              <article>
+                <img src="/imagenes/medidas/nuevas/agua-rio-aereo.jpg" alt="Río y bosque vistos desde el aire">
+                <div class="measures-carousel__content">
+                  <span>02</span>
+                  <h3>Agua</h3>
+                  <p>Retención, drenaje y comportamiento hídrico.</p>
+                </div>
+              </article>
+              <article>
+                <img src="/imagenes/medidas/nuevas/suelo-textura.jpg" alt="Textura de suelo y materia orgánica">
+                <div class="measures-carousel__content">
+                  <span>03</span>
+                  <h3>Suelo</h3>
+                  <p>Erosión, estructura y capacidad de recuperación.</p>
+                </div>
+              </article>
+              <article>
+                <img src="/imagenes/medidas/nuevas/paisaje-spain.jpg" alt="Paisaje territorial de montaña al atardecer">
+                <div class="measures-carousel__content">
+                  <span>04</span>
+                  <h3>Paisaje</h3>
+                  <p>Coberturas, usos y lectura patrimonial.</p>
+                </div>
+              </article>
+              <article>
+                <img src="/imagenes/medidas/nuevas/conectividad-bosque.jpg" alt="Continuidad de vegetación y caminos naturales desde el aire">
+                <div class="measures-carousel__content">
+                  <span>05</span>
+                  <h3>Conectividad</h3>
+                  <p>Continuidad entre hábitats y zonas clave.</p>
+                </div>
+              </article>
+              <article>
+                <img src="/imagenes/medidas/nuevas/riesgo-climatico-sequia.jpg" alt="Suelo seco y agrietado por estrés hídrico">
+                <div class="measures-carousel__content">
+                  <span>06</span>
+                  <h3>Riesgo climático</h3>
+                  <p>Estrés hídrico, exposición y capacidad de respuesta.</p>
+                </div>
+              </article>
+              <article>
+                <img src="/imagenes/medidas/nuevas/capital-natural-rural.jpg" alt="Mosaico de agua, suelo, vegetación y usos rurales">
+                <div class="measures-carousel__content">
+                  <span>07</span>
+                  <h3>Capital natural</h3>
+                  <p>Oportunidades ecológicas, económicas y patrimoniales.</p>
+                </div>
+              </article>
+            </>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="living-territory reveal" aria-label="Territorio vivo">
+      <video class="living-territory__video" muted playsinline autoplay loop preload="metadata" poster="/imagenes/medidas/fauna-salvaje.jpg">
+        <source src="/videos/buitre-leonado-vuelo.mp4" type="video/mp4" />
+      </video>
+      <div class="living-territory__content">
+        <span>Territorio vivo</span>
+        <div aria-hidden="true"></div>
+        <h2>La biodiversidad es el pulso visible del territorio.</h2>
         <p>
-          Desde la tierra nacen nuestros alimentos, nuestra historia y las vidas
-          que viven en ella. En Territorium medimos y activamos ese valor para
-          que el legado también sea rentable y resiliente.
+          Donde hay especies, conectividad y hábitat, hay más resiliencia y más valor natural.
         </p>
       </div>
     </section>
 
-    <section class="home-chapters reveal">
-      <div class="container">
-        <div class="chapter-grid">
-          <a href="/servicios/" class="chapter-card">
-            <span>Servicios</span>
-            <h3>Qué hacemos</h3>
-            <p>Diagnóstico, gestión, capital natural y restauración llave en mano.</p>
-          </a>
-          <a href="/comprar-vender-territorio-alto-valor-ecologico/" class="chapter-card">
-            <span>Territorios</span>
-            <h3>Comprar, restaurar, vender</h3>
-            <p>Operaciones sobre territorios de alto valor ecológico.</p>
-          </a>
-          <a href="/valor-ecologico-territorio/" class="chapter-card">
-            <span>Visión</span>
-            <h3>Valor ecológico medible</h3>
-            <p>Biodiversidad, resiliencia climática y tesis de inversión.</p>
-          </a>
-          <a href="/por-que-nosotros/" class="chapter-card">
-            <span>Por qué nosotros</span>
-            <h3>No solo intermediamos</h3>
-            <p>Medimos, estructuramos, restauramos y activamos valor natural.</p>
-          </a>
-          <a href="/clientes/" class="chapter-card">
-            <span>Para quién</span>
-            <h3>Propietarios, inversores y empresas</h3>
-            <p>Una entrada diferente para cada tipo de decisión.</p>
-          </a>
-        </div>
+    <section class="sticky-story reveal" aria-label="Territorio, legado y resiliencia">
+      <div class="sticky-story__media">
+        <img src="/imagenes/territorio-legado.jpg" alt="Paisaje natural gestionado por Territorium">
+      </div>
+      <div class="sticky-story__content">
+        <article>
+          <span class="section-kicker">Somos de la tierra</span>
+          <h2>Nacemos, vivimos y volvemos a ella.</h2>
+          <p>
+            Desde la tierra nacen nuestros alimentos, nuestra historia y las
+            vidas que viven en ella. Es legado, memoria y futuro.
+          </p>
+        </article>
+        <article>
+          <span class="section-kicker">Resiliencia</span>
+          <h2>Un territorio que funciona mejor resiste mejor.</h2>
+          <p>
+            Medimos biodiversidad, agua, suelo y paisaje para entender cómo
+            responde cada territorio ante presión climática y cambios de uso.
+          </p>
+        </article>
+        <article>
+          <span class="section-kicker">Valor</span>
+          <h2>La naturaleza también forma parte del patrimonio.</h2>
+          <p>
+            Convertimos esa lectura ecológica en una estrategia clara para
+            conservar, restaurar, gestionar o poner en valor el territorio.
+          </p>
+        </article>
       </div>
     </section>
+
   </main>
 </Layout>
 
@@ -104,26 +216,33 @@ import PageStyles from '../components/PageStyles.astro';
   const slides = [
     {
       image: "/imagenes/fondo-1.webp",
-      title: "Territorios con valor natural<br/>para inversores y propietarios",
-      subtitle: "Asesoramiento en compraventa, valoración y activación de activos rústicos."
+      title: "Su territorio puede valer más.<br/>Y funcionar mejor.",
+      subtitle: "Gestión patrimonial territorial para unir resiliencia, valor y legado."
     },
     {
       image: "/imagenes/fondo-2.webp",
-      title: "Restauración ecológica<br/>llave en mano",
-      subtitle: "Diseño, ejecución, seguimiento e informes para transformar territorio con rigor."
+      title: "Restauración ecológica<br/>con criterio patrimonial",
+      subtitle: "Diseño, ejecución y seguimiento para transformar territorio con rigor."
     },
     {
       image: "/imagenes/fondo-3.webp",
-      title: "Capital natural<br/>convertido en estrategia patrimonial",
-      subtitle: "Integramos ciencia, datos y criterio financiero para multiplicar el valor territorial."
+      title: "Capital natural<br/>para decidir mejor",
+      subtitle: "Integramos ciencia, datos y criterio económico para construir valor territorial."
+    },
+    {
+      image: "/imagenes/medidas/riesgo-seco.jpg",
+      title: "La biodiversidad<br/>también es resiliencia",
+      subtitle: "Medimos el funcionamiento ecológico para orientar inversión, restauración y gestión."
     }
   ];
 
   let currentIndex = 0;
+  let currentVideoIndex = 0;
   let carouselTimer: number | undefined;
   const heroElement = document.getElementById('hero-carousel') as HTMLElement;
   const titleElement = document.getElementById('carousel-title') as HTMLElement;
   const subtitleElement = document.getElementById('carousel-subtitle') as HTMLElement;
+  const videoElements = Array.from(document.querySelectorAll('[data-hero-video]')) as HTMLVideoElement[];
 
   const heroGradient = "linear-gradient(90deg, rgba(10,20,32,0.82), rgba(10,20,32,0.48) 48%, rgba(10,20,32,0.18))";
   const imageCache = new Map<string, Promise<void>>();
@@ -155,6 +274,18 @@ import PageStyles from '../components/PageStyles.astro';
       setTimeout(() => {
         heroElement.style.backgroundImage =
           `${heroGradient}, url('${next.image}')`;
+        currentVideoIndex = (currentVideoIndex + 1) % videoElements.length;
+        const activeVideo = videoElements[currentVideoIndex];
+        if (activeVideo) {
+          videoElements.forEach((video) => {
+            video.classList.remove('is-active');
+            if (video !== activeVideo) video.pause();
+          });
+          activeVideo.classList.add('is-active');
+          activeVideo.currentTime = 0;
+          activeVideo.playbackRate = 0.92;
+          activeVideo.play().catch(() => {});
+        }
         titleElement.innerHTML = next.title;
         subtitleElement.textContent = next.subtitle;
         titleElement.classList.remove('fade-out');
@@ -166,8 +297,12 @@ import PageStyles from '../components/PageStyles.astro';
   }
 
   Promise.all(slides.map((slide) => preloadHeroImage(slide.image))).then(() => {
+    if (videoElements[0]) {
+      videoElements[0].playbackRate = 0.92;
+      videoElements[0].play().catch(() => {});
+    }
     if (!carouselTimer) {
-      carouselTimer = window.setInterval(changeSlide, 5200);
+      carouselTimer = window.setInterval(changeSlide, 5000);
     }
   });
 
