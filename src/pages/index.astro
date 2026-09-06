@@ -261,6 +261,30 @@ import PageStyles from '../components/PageStyles.astro';
     return promise;
   }
 
+  function playHeroVideo(video: HTMLVideoElement) {
+    videoElements.forEach((element) => {
+      element.classList.remove('is-active', 'is-playing');
+      if (element !== video) element.pause();
+    });
+
+    video.classList.add('is-active');
+    video.currentTime = 0;
+    video.playbackRate = 0.92;
+
+    const playPromise = video.play();
+    if (playPromise) {
+      playPromise
+        .then(() => video.classList.add('is-playing'))
+        .catch(() => video.classList.remove('is-playing'));
+    }
+  }
+
+  videoElements.forEach((video) => {
+    video.addEventListener('playing', () => video.classList.add('is-playing'));
+    video.addEventListener('pause', () => video.classList.remove('is-playing'));
+    video.addEventListener('error', () => video.classList.remove('is-playing'));
+  });
+
   function changeSlide() {
     currentIndex = (currentIndex + 1) % slides.length;
     const next = slides[currentIndex];
@@ -277,14 +301,7 @@ import PageStyles from '../components/PageStyles.astro';
         currentVideoIndex = (currentVideoIndex + 1) % videoElements.length;
         const activeVideo = videoElements[currentVideoIndex];
         if (activeVideo) {
-          videoElements.forEach((video) => {
-            video.classList.remove('is-active');
-            if (video !== activeVideo) video.pause();
-          });
-          activeVideo.classList.add('is-active');
-          activeVideo.currentTime = 0;
-          activeVideo.playbackRate = 0.92;
-          activeVideo.play().catch(() => {});
+          playHeroVideo(activeVideo);
         }
         titleElement.innerHTML = next.title;
         subtitleElement.textContent = next.subtitle;
@@ -298,8 +315,7 @@ import PageStyles from '../components/PageStyles.astro';
 
   Promise.all(slides.map((slide) => preloadHeroImage(slide.image))).then(() => {
     if (videoElements[0]) {
-      videoElements[0].playbackRate = 0.92;
-      videoElements[0].play().catch(() => {});
+      playHeroVideo(videoElements[0]);
     }
     if (!carouselTimer) {
       carouselTimer = window.setInterval(changeSlide, 5000);
