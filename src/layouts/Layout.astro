@@ -238,6 +238,7 @@ const breadcrumbSchema = breadcrumbPath === '/'
           <input type="hidden" name="_subject" value="Nueva consulta desde Territorium Capital" />
           <input type="hidden" name="_template" value="table" />
           <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_url" value="https://www.territorium.capital/contacto/" />
           <input type="hidden" name="_next" value={formNextUrl} />
           <input type="text" name="_honey" class="contact-form__honey" tabindex="-1" autocomplete="off" />
 
@@ -250,7 +251,7 @@ const breadcrumbSchema = breadcrumbPath === '/'
 
           <label>
             <span>{footer.email}</span>
-            <input type="email" name="Email" autocomplete="email" required />
+            <input type="email" name="email" autocomplete="email" required />
           </label>
 
           <label>
