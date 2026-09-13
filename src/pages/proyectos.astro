@@ -1,0 +1,65 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageStyles from '../components/PageStyles.astro';
+---
+
+<Layout
+  title="Proyectos | Territorium Capital"
+  description="Proyectos e iniciativas de Territorium Capital en gestión patrimonial territorial, capital natural, validación de activos rurales y restauración."
+  canonicalPath="/proyectos/"
+>
+  <PageStyles />
+
+  <main>
+    <section class="projects-hero page-first-section reveal">
+      <div class="container projects-hero__grid">
+        <div>
+          <span class="section-kicker">Proyectos</span>
+          <h1>Evidencia territorial, metodología y colaboración.</h1>
+        </div>
+        <div class="projects-hero__copy">
+          <p>
+            Seleccionamos iniciativas que muestran como Territorium convierte
+            territorio, datos y criterio patrimonial en decisiones de gestión,
+            regeneración e inversión a largo plazo.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="projects-list reveal">
+      <div class="container projects-list__grid">
+        <a class="project-feature-card" href="/proyectos/regenera/">
+          <div class="project-feature-card__media">
+            <img src="/imagenes/servicio-capital-natural.jpg" alt="Paisaje rural de alto valor natural">
+          </div>
+          <div class="project-feature-card__copy">
+            <span>Proyecto destacado</span>
+            <h2>REGENERA</h2>
+            <p class="project-feature-card__subtitle">Natural Capital Asset Management</p>
+            <p>
+              Proyecto de Territorium Capital en colaboración con GestLand para
+              profesionalizar la validación, estructuración y gestión de activos
+              rurales y de capital natural.
+            </p>
+            <strong>Ver proyecto</strong>
+          </div>
+        </a>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const observer = new IntersectionObserver((entries, currentObserver) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+          currentObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+  });
+</script>

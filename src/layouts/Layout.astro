@@ -25,6 +25,7 @@ const nav = isEn
       home: 'Home',
       services: 'Services',
       territories: 'Territories',
+      projects: 'Projects',
       about: 'About',
       analyze: 'Analyse my territory',
       contact: 'Contact',
@@ -33,6 +34,7 @@ const nav = isEn
       home: 'Inicio',
       services: 'Servicios',
       territories: 'Territorios',
+      projects: 'Proyectos',
       about: 'Sobre Territorium',
       analyze: 'Analizar mi territorio',
       contact: 'Contacto',
@@ -43,6 +45,7 @@ const navLinks = isEn
       home: '/en/',
       services: '/en/#servicios',
       territories: '/en/#territorios',
+      projects: '/proyectos/',
       about: '/en/#por-que-nosotros',
       analyze: '/contacto/',
       contact: '/en/#contacto',
@@ -51,6 +54,7 @@ const navLinks = isEn
       home: '/',
       services: '/servicios/',
       territories: '/territorios/',
+      projects: '/proyectos/',
       about: '/sobre-territorium/',
       analyze: '/analizar-mi-finca/',
       contact: '/contacto/',
@@ -115,6 +119,8 @@ const websiteSchema = {
 const breadcrumbLabels: Record<string, string> = {
   '/servicios/': 'Servicios',
   '/territorios/': 'Territorios',
+  '/proyectos/': 'Proyectos',
+  '/proyectos/regenera/': 'REGENERA',
   '/comprar-vender-territorio-alto-valor-ecologico/': 'Comprar o vender territorio de alto valor ecológico',
   '/restauracion-ecologica-llave-en-mano/': 'Restauración ecológica llave en mano',
   '/valor-ecologico-territorio/': 'Valor ecológico del territorio',
@@ -190,6 +196,7 @@ const breadcrumbSchema = breadcrumbPath === '/'
         <li><a href={navLinks.home} class="nav-link">{nav.home}</a></li>
         <li><a href={navLinks.services} class="nav-link">{nav.services}</a></li>
         <li><a href={navLinks.territories} class="nav-link">{nav.territories}</a></li>
+        {!isEn && <li><a href={navLinks.projects} class="nav-link">{nav.projects}</a></li>}
         <li><a href={navLinks.about} class="nav-link">{nav.about}</a></li>
         <li><a href={navLinks.analyze} class="nav-link">{nav.analyze}</a></li>
         <li><a href={navLinks.contact} class="nav-link nav-link--muted">{nav.contact}</a></li>

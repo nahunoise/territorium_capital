@@ -9,6 +9,8 @@ Primary services:
 - Turnkey ecological restoration: https://territorium.capital/restauracion-ecologica-llave-en-mano/
 - Ecological value diagnosis for territories: https://territorium.capital/valor-ecologico-territorio/
 - Territorial services: https://territorium.capital/servicios/
+- Projects: https://territorium.capital/proyectos/
+- REGENERA, a Territorium Capital project in collaboration with GestLand for rural and natural capital asset validation and management: https://territorium.capital/proyectos/regenera/
 - About Territorium: https://territorium.capital/sobre-territorium/
 - Analyse my territory: https://territorium.capital/analizar-mi-finca/
 
