@@ -13,6 +13,6 @@
   <url><loc>https://territorium.capital/vision/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://territorium.capital/por-que-nosotros/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://territorium.capital/clientes/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://territorium.capital/contacto/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://territorium.capital/contacto/</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
   <url><loc>https://territorium.capital/en/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
 </urlset>

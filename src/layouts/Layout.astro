@@ -28,7 +28,6 @@ const nav = isEn
       projects: 'Projects',
       about: 'About',
       analyze: 'Analyse my territory',
-      contact: 'Contact',
     }
   : {
       home: 'Inicio',
@@ -37,7 +36,6 @@ const nav = isEn
       projects: 'Proyectos',
       about: 'Sobre Territorium',
       analyze: 'Analizar mi territorio',
-      contact: 'Contacto',
     };
 
 const navLinks = isEn
@@ -47,8 +45,7 @@ const navLinks = isEn
       territories: '/en/#territorios',
       projects: '/proyectos/',
       about: '/en/#por-que-nosotros',
-      analyze: '/contacto/',
-      contact: '/en/#contacto',
+      analyze: '/analizar-mi-finca/',
     }
   : {
       home: '/',
@@ -57,7 +54,6 @@ const navLinks = isEn
       projects: '/proyectos/',
       about: '/sobre-territorium/',
       analyze: '/analizar-mi-finca/',
-      contact: '/contacto/',
     };
 
 const footer = isEn
@@ -199,7 +195,6 @@ const breadcrumbSchema = breadcrumbPath === '/'
         {!isEn && <li><a href={navLinks.projects} class="nav-link">{nav.projects}</a></li>}
         <li><a href={navLinks.about} class="nav-link">{nav.about}</a></li>
         <li><a href={navLinks.analyze} class="nav-link">{nav.analyze}</a></li>
-        <li><a href={navLinks.contact} class="nav-link nav-link--muted">{nav.contact}</a></li>
       </ul>
 
       <div class="language-switch" aria-label={isEn ? 'Language selector' : 'Selector de idioma'}>
