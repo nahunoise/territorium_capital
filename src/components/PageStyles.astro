@@ -1913,6 +1913,7 @@
   .project-feature-card__copy {
     align-content: center;
     display: grid;
+    gap: var(--space-5);
     min-width: 0;
     padding: clamp(var(--space-8), 6vw, var(--space-14, 3.5rem));
   }
@@ -1928,11 +1929,16 @@
 
   .project-feature-card__copy h2 {
     color: var(--color-indigo);
-    font-size: clamp(3rem, 6.5vw, 6rem);
+    font-size: clamp(2.7rem, 5.2vw, 5rem);
     font-weight: 400;
-    line-height: 0.95;
-    margin-top: var(--space-5);
+    line-height: 1;
+    margin-top: 0;
     overflow-wrap: anywhere;
+  }
+
+  .project-feature-card:first-child .project-feature-card__copy h2 {
+    font-size: clamp(3rem, 6.5vw, 6rem);
+    line-height: 0.95;
   }
 
   .project-feature-card__subtitle {
@@ -1940,7 +1946,7 @@
     font-size: var(--text-xs) !important;
     font-weight: 800;
     letter-spacing: 0.16em;
-    margin-top: var(--space-5) !important;
+    margin-top: 0 !important;
     text-transform: uppercase;
   }
 
@@ -1948,14 +1954,14 @@
     color: var(--color-body);
     font-size: var(--text-lg);
     line-height: 1.75;
-    margin-top: var(--space-6);
+    margin-top: 0;
     max-width: 42rem;
   }
 
   .project-feature-card__copy strong {
     border-bottom: 2px solid currentColor;
     justify-self: start;
-    margin-top: var(--space-8);
+    margin-top: var(--space-3);
     padding-bottom: var(--space-1);
   }
 
