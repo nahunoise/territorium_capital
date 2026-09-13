@@ -1721,6 +1721,12 @@
       url('/imagenes/restauracion-despues.png');
   }
 
+  .seo-page-hero--agri {
+    background-image:
+      linear-gradient(90deg, rgba(10,20,32,0.84), rgba(10,20,32,0.54) 52%, rgba(10,20,32,0.2)),
+      url('/imagenes/medidas/nuevas/capital-natural-rural.jpg');
+  }
+
   .seo-page-hero__inner {
     max-width: 62rem;
   }
@@ -1863,6 +1869,7 @@
 
   .projects-list__grid {
     display: grid;
+    gap: clamp(var(--space-8), 6vw, var(--space-14, 3.5rem));
     max-width: 74rem;
     padding-inline: 0;
   }
@@ -1876,6 +1883,14 @@
     min-height: 0;
     overflow: visible;
     box-shadow: 0 24px 70px rgba(24, 43, 73, 0.1);
+  }
+
+  .project-feature-card--reverse .project-feature-card__media {
+    order: 2;
+  }
+
+  .project-feature-card--reverse .project-feature-card__copy {
+    order: 1;
   }
 
   .project-feature-card__media {
@@ -2445,6 +2460,14 @@
 
     .project-feature-card__media {
       min-height: 360px;
+    }
+
+    .project-feature-card--reverse .project-feature-card__media {
+      order: 1;
+    }
+
+    .project-feature-card--reverse .project-feature-card__copy {
+      order: 2;
     }
 
     .regenera-hero__content {
