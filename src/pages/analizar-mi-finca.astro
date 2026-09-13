@@ -32,7 +32,7 @@ import PageStyles from '../components/PageStyles.astro';
         <input type="hidden" name="_template" value="table" />
         <input type="hidden" name="_captcha" value="false" />
         <input type="hidden" name="_url" value="https://www.territorium.capital/analizar-mi-finca/" />
-        <input type="hidden" name="_next" value="https://territorium.capital/gracias/" />
+        <input type="hidden" name="_next" value="https://www.territorium.capital/gracias/" />
         <input type="text" name="_honey" class="contact-form__honey" tabindex="-1" autocomplete="off" />
 
         <div class="analysis-form__progress">
@@ -192,6 +192,26 @@ import PageStyles from '../components/PageStyles.astro';
     prev?.addEventListener("click", () => {
       current = Math.max(current - 1, 0);
       update();
+    });
+
+    form.addEventListener("submit", (event) => {
+      if (!currentStepIsValid()) {
+        event.preventDefault();
+        return;
+      }
+
+      form.classList.add("is-submitting");
+      const buttons = Array.from(form.querySelectorAll("button")) as HTMLButtonElement[];
+      buttons.forEach((button) => {
+        if (button.type !== "submit") {
+          button.disabled = true;
+        }
+      });
+
+      if (submit) {
+        submit.disabled = true;
+        submit.textContent = "Enviando solicitud...";
+      }
     });
 
     update();
