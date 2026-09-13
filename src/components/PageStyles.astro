@@ -2044,39 +2044,55 @@
 
   .regenera-brand-strip {
     display: grid;
-    gap: 1px;
+    gap: var(--space-5, 1.25rem);
     grid-template-columns: 1.35fr 1fr 1fr;
-    margin-top: calc(var(--space-16) * -0.5);
+    margin-top: clamp(var(--space-10, 2.5rem), 6vw, var(--space-16));
     position: relative;
     z-index: 2;
   }
 
   .regenera-brand-strip article {
-    background: #f4efe3;
-    border: 1px solid rgba(14, 32, 24, 0.08);
+    background: transparent;
+    border-top: 1px solid rgba(14, 32, 24, 0.18);
     display: flex;
     flex-direction: column;
     justify-content: center;
-    min-height: 170px;
-    padding: clamp(var(--space-6), 4vw, var(--space-10));
+    min-height: 132px;
+    padding: var(--space-6) 0 0;
   }
 
   .regenera-brand-strip__project {
-    background: #0e2018 !important;
-    overflow: hidden;
+    overflow: visible;
   }
 
   .regenera-brand-strip img {
     display: block;
-    max-height: 74px;
-    max-width: min(100%, 360px);
+    max-height: 58px;
+    max-width: min(100%, 280px);
     object-fit: contain;
     object-position: left center;
   }
 
-  .regenera-brand-strip__project img {
-    max-height: 92px;
-    max-width: min(100%, 460px);
+  .regenera-brand-strip strong {
+    color: #0e2018;
+    display: block;
+    font-family: var(--font-display);
+    font-size: clamp(var(--text-2xl), 3vw, var(--text-4xl));
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  .regenera-brand-strip span {
+    color: #c9a24a;
+    display: block;
+    font-size: var(--text-xs);
+    font-weight: 900;
+    letter-spacing: 0.16em;
+    line-height: 1.5;
+    margin-top: var(--space-3);
+    text-transform: uppercase;
   }
 
   .regenera-brand-strip p {
@@ -2220,15 +2236,24 @@
   }
 
   .regenera-collab__cards img {
-    background: rgba(255, 255, 255, 0.92);
     display: block;
     height: 68px;
     margin-bottom: var(--space-6);
     max-width: 240px;
     object-fit: contain;
     object-position: left center;
-    padding: var(--space-3);
     width: 100%;
+  }
+
+  .regenera-collab__brand {
+    color: var(--color-white);
+    display: block;
+    font-family: var(--font-display);
+    font-size: clamp(var(--text-3xl), 4vw, var(--text-5xl));
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    line-height: 1;
+    margin-bottom: var(--space-6);
   }
 
   .regenera-collab__cards span {
@@ -2488,18 +2513,17 @@
     }
 
     .regenera-brand-strip {
-      margin-top: 0;
+      margin-top: var(--space-8);
       padding-inline: clamp(1.25rem, 6vw, 1.75rem);
     }
 
     .regenera-brand-strip article {
       min-height: 0;
-      padding: var(--space-6);
+      padding-top: var(--space-5);
     }
 
-    .regenera-brand-strip img,
-    .regenera-brand-strip__project img {
-      max-height: 72px;
+    .regenera-brand-strip img {
+      max-height: 52px;
     }
 
     .regenera-disclaimer .container {
