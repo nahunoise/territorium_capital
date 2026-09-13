@@ -12,6 +12,7 @@ Primary services:
 - Projects: https://territorium.capital/proyectos/
 - REGENERA, a Territorium Capital project in collaboration with GestLand for rural and natural capital asset validation and management: https://territorium.capital/proyectos/regenera/
 - Agricultural climate resilience, a Territorium Capital project for measuring how functional natural infrastructure can reduce agricultural vulnerability to climate events: https://territorium.capital/proyectos/resiliencia-agricola/
+- Voluntary positive-impact housing, a Territorium Capital project inspired by Biodiversity Net Gain logic for residential developments: reduce, avoid, improve in situ and support ex situ restoration: https://territorium.capital/proyectos/viviendas-impacto-positivo/
 - About Territorium: https://territorium.capital/sobre-territorium/
 - Analyse my territory: https://territorium.capital/analizar-mi-finca/
 
