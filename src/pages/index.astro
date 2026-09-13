@@ -7,27 +7,27 @@ import PageStyles from '../components/PageStyles.astro';
   title="Gestión patrimonial territorial | Territorium Capital"
   description="Ciencia, tecnología y gestión patrimonial para conocer, regenerar y aumentar el valor de territorios a largo plazo."
   canonicalPath="/"
-  preloadImages={['/imagenes/fondo-1.webp', '/imagenes/fondo-2.webp', '/imagenes/fondo-3.webp']}
+  preloadImages={['/imagenes/fondo-1.webp']}
 >
   <PageStyles />
 
   <header class="hero home-hero" id="hero-carousel">
     <div class="hero-video-stage" aria-hidden="true">
-      <video class="hero-video is-active" data-hero-video muted playsinline webkit-playsinline autoplay loop preload="auto" poster="/imagenes/fondo-1.webp" disablepictureinpicture>
+      <video class="hero-video is-active" data-hero-video data-loaded="true" muted playsinline webkit-playsinline autoplay loop preload="auto" poster="/imagenes/fondo-1.webp" disablepictureinpicture>
         <source src="/videos/mobile/hero-bosque-luz-mobile.mp4" type="video/mp4" media="(max-width: 640px)" />
         <source src="/videos/premium/hero-bosque-luz.mp4" type="video/mp4" />
       </video>
-      <video class="hero-video" data-hero-video muted playsinline webkit-playsinline loop preload="auto" poster="/imagenes/fondo-2.webp" disablepictureinpicture>
-        <source src="/videos/mobile/hero-buitre-vuelo-mobile.mp4" type="video/mp4" media="(max-width: 640px)" />
-        <source src="/videos/premium/hero-buitre-vuelo.mp4" type="video/mp4" />
+      <video class="hero-video" data-hero-video muted playsinline webkit-playsinline loop preload="none" poster="/imagenes/fondo-2.webp" disablepictureinpicture>
+        <source data-src="/videos/mobile/hero-buitre-vuelo-mobile.mp4" type="video/mp4" media="(max-width: 640px)" />
+        <source data-src="/videos/premium/hero-buitre-vuelo.mp4" type="video/mp4" />
       </video>
-      <video class="hero-video" data-hero-video muted playsinline webkit-playsinline loop preload="auto" poster="/imagenes/restauracion-despues.png" disablepictureinpicture>
-        <source src="/videos/mobile/hero-montana-territorio-mobile.mp4" type="video/mp4" media="(max-width: 640px)" />
-        <source src="/videos/premium/hero-montana-territorio.mp4" type="video/mp4" />
+      <video class="hero-video" data-hero-video muted playsinline webkit-playsinline loop preload="none" poster="/imagenes/fondo-3.webp" disablepictureinpicture>
+        <source data-src="/videos/mobile/hero-montana-territorio-mobile.mp4" type="video/mp4" media="(max-width: 640px)" />
+        <source data-src="/videos/premium/hero-montana-territorio.mp4" type="video/mp4" />
       </video>
-      <video class="hero-video" data-hero-video muted playsinline webkit-playsinline loop preload="auto" poster="/imagenes/medidas/riesgo-seco.jpg" disablepictureinpicture>
-        <source src="/videos/mobile/hero-ribera-seca-mobile.mp4" type="video/mp4" media="(max-width: 640px)" />
-        <source src="/videos/premium/hero-ribera-seca.mp4" type="video/mp4" />
+      <video class="hero-video" data-hero-video muted playsinline webkit-playsinline loop preload="none" poster="/imagenes/medidas/riesgo-seco.jpg" disablepictureinpicture>
+        <source data-src="/videos/mobile/hero-ribera-seca-mobile.mp4" type="video/mp4" media="(max-width: 640px)" />
+        <source data-src="/videos/premium/hero-ribera-seca.mp4" type="video/mp4" />
       </video>
       <div class="hero-video-stage__overlay"></div>
     </div>
@@ -98,7 +98,7 @@ import PageStyles from '../components/PageStyles.astro';
 
     <section class="home-project reveal" aria-label="Proyecto destacado REGENERA">
       <div class="home-project__media">
-        <img src="/imagenes/servicio-capital-natural.jpg" alt="Paisaje rural de alto valor natural">
+        <img src="/imagenes/servicio-capital-natural.jpg" alt="Paisaje rural de alto valor natural" loading="lazy" decoding="async">
       </div>
       <div class="home-project__copy">
         <span class="section-kicker">Proyecto destacado</span>
@@ -123,7 +123,7 @@ import PageStyles from '../components/PageStyles.astro';
           {[0, 1].map(() => (
             <>
               <article>
-                <img src="/imagenes/medidas/nuevas/biodiversidad-ciervo.jpg" alt="Fauna salvaje en bosque maduro">
+                <img src="/imagenes/medidas/nuevas/biodiversidad-ciervo.jpg" alt="Fauna salvaje en bosque maduro" loading="lazy" decoding="async">
                 <div class="measures-carousel__content">
                   <span>01</span>
                   <h3>Biodiversidad</h3>
@@ -131,7 +131,7 @@ import PageStyles from '../components/PageStyles.astro';
                 </div>
               </article>
               <article>
-                <img src="/imagenes/medidas/nuevas/agua-rio-aereo.jpg" alt="Río y bosque vistos desde el aire">
+                <img src="/imagenes/medidas/nuevas/agua-rio-aereo.jpg" alt="Río y bosque vistos desde el aire" loading="lazy" decoding="async">
                 <div class="measures-carousel__content">
                   <span>02</span>
                   <h3>Agua</h3>
@@ -139,7 +139,7 @@ import PageStyles from '../components/PageStyles.astro';
                 </div>
               </article>
               <article>
-                <img src="/imagenes/medidas/nuevas/suelo-textura.jpg" alt="Textura de suelo y materia orgánica">
+                <img src="/imagenes/medidas/nuevas/suelo-textura.jpg" alt="Textura de suelo y materia orgánica" loading="lazy" decoding="async">
                 <div class="measures-carousel__content">
                   <span>03</span>
                   <h3>Suelo</h3>
@@ -147,7 +147,7 @@ import PageStyles from '../components/PageStyles.astro';
                 </div>
               </article>
               <article>
-                <img src="/imagenes/medidas/nuevas/paisaje-spain.jpg" alt="Paisaje territorial de montaña al atardecer">
+                <img src="/imagenes/medidas/nuevas/paisaje-spain.jpg" alt="Paisaje territorial de montaña al atardecer" loading="lazy" decoding="async">
                 <div class="measures-carousel__content">
                   <span>04</span>
                   <h3>Paisaje</h3>
@@ -155,7 +155,7 @@ import PageStyles from '../components/PageStyles.astro';
                 </div>
               </article>
               <article>
-                <img src="/imagenes/medidas/nuevas/conectividad-bosque.jpg" alt="Continuidad de vegetación y caminos naturales desde el aire">
+                <img src="/imagenes/medidas/nuevas/conectividad-bosque.jpg" alt="Continuidad de vegetación y caminos naturales desde el aire" loading="lazy" decoding="async">
                 <div class="measures-carousel__content">
                   <span>05</span>
                   <h3>Conectividad</h3>
@@ -163,7 +163,7 @@ import PageStyles from '../components/PageStyles.astro';
                 </div>
               </article>
               <article>
-                <img src="/imagenes/medidas/nuevas/riesgo-climatico-sequia.jpg" alt="Suelo seco y agrietado por estrés hídrico">
+                <img src="/imagenes/medidas/nuevas/riesgo-climatico-sequia.jpg" alt="Suelo seco y agrietado por estrés hídrico" loading="lazy" decoding="async">
                 <div class="measures-carousel__content">
                   <span>06</span>
                   <h3>Riesgo climático</h3>
@@ -171,7 +171,7 @@ import PageStyles from '../components/PageStyles.astro';
                 </div>
               </article>
               <article>
-                <img src="/imagenes/medidas/nuevas/capital-natural-rural.jpg" alt="Mosaico de agua, suelo, vegetación y usos rurales">
+                <img src="/imagenes/medidas/nuevas/capital-natural-rural.jpg" alt="Mosaico de agua, suelo, vegetación y usos rurales" loading="lazy" decoding="async">
                 <div class="measures-carousel__content">
                   <span>07</span>
                   <h3>Capital natural</h3>
@@ -185,7 +185,7 @@ import PageStyles from '../components/PageStyles.astro';
     </section>
 
     <section class="living-territory reveal" aria-label="Territorio vivo">
-      <video class="living-territory__video" muted playsinline autoplay loop preload="metadata" poster="/imagenes/medidas/fauna-salvaje.jpg">
+      <video class="living-territory__video" muted playsinline autoplay loop preload="none" poster="/imagenes/medidas/fauna-salvaje.jpg">
         <source src="/videos/buitre-leonado-vuelo.mp4" type="video/mp4" />
       </video>
       <div class="living-territory__content">
@@ -200,7 +200,7 @@ import PageStyles from '../components/PageStyles.astro';
 
     <section class="sticky-story reveal" aria-label="Territorio, legado y resiliencia">
       <div class="sticky-story__media">
-        <img src="/imagenes/territorio-legado.jpg" alt="Paisaje natural gestionado por Territorium">
+        <img src="/imagenes/territorio-legado.jpg" alt="Paisaje natural gestionado por Territorium" loading="lazy" decoding="async">
       </div>
       <div class="sticky-story__content">
         <article>
@@ -282,7 +282,25 @@ import PageStyles from '../components/PageStyles.astro';
     return promise;
   }
 
+  function hydrateHeroVideo(video: HTMLVideoElement) {
+    if (video.dataset.loaded === 'true') return;
+
+    Array.from(video.querySelectorAll('source')).forEach((source) => {
+      const lazySource = source as HTMLSourceElement;
+      const sourcePath = lazySource.dataset.src;
+      if (sourcePath) {
+        lazySource.src = sourcePath;
+        lazySource.removeAttribute('data-src');
+      }
+    });
+
+    video.dataset.loaded = 'true';
+    video.load();
+  }
+
   function playHeroVideo(video: HTMLVideoElement) {
+    hydrateHeroVideo(video);
+
     videoElements.forEach((element) => {
       element.classList.remove('is-active', 'is-playing');
       if (element !== video) element.pause();
@@ -298,6 +316,12 @@ import PageStyles from '../components/PageStyles.astro';
         .then(() => video.classList.add('is-playing'))
         .catch(() => video.classList.remove('is-playing'));
     }
+  }
+
+  function prepareNextVideo() {
+    if (videoElements.length < 2) return;
+    const nextVideo = videoElements[(currentVideoIndex + 1) % videoElements.length];
+    if (nextVideo) hydrateHeroVideo(nextVideo);
   }
 
   videoElements.forEach((video) => {
@@ -328,6 +352,7 @@ import PageStyles from '../components/PageStyles.astro';
     const next = slides[currentIndex];
 
     if (titleElement && subtitleElement && heroElement) {
+      preloadHeroImage(next.image);
       titleElement.classList.remove('fade-in');
       subtitleElement.classList.remove('fade-in');
       titleElement.classList.add('fade-out');
@@ -340,6 +365,7 @@ import PageStyles from '../components/PageStyles.astro';
         const activeVideo = videoElements[currentVideoIndex];
         if (activeVideo) {
           playHeroVideo(activeVideo);
+          prepareNextVideo();
         }
         titleElement.innerHTML = next.title;
         subtitleElement.textContent = next.subtitle;
@@ -351,14 +377,16 @@ import PageStyles from '../components/PageStyles.astro';
     }
   }
 
-  Promise.all(slides.map((slide) => preloadHeroImage(slide.image))).then(() => {
-    if (videoElements[0]) {
-      playHeroVideo(videoElements[0]);
-    }
-    if (!carouselTimer) {
-      carouselTimer = window.setInterval(changeSlide, 5000);
-    }
-  });
+  if (videoElements[0]) {
+    playHeroVideo(videoElements[0]);
+  }
+  setTimeout(() => {
+    prepareNextVideo();
+    slides.slice(1, 3).forEach((slide) => preloadHeroImage(slide.image));
+  }, 1200);
+  if (!carouselTimer) {
+    carouselTimer = window.setInterval(changeSlide, 5000);
+  }
 
   document.addEventListener("DOMContentLoaded", () => {
     const observer = new IntersectionObserver((entries, currentObserver) => {

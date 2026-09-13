@@ -1826,7 +1826,7 @@
 
   .projects-hero {
     background: var(--color-sand);
-    padding-block: clamp(var(--space-16), 10vw, var(--space-24));
+    padding-block: clamp(var(--space-14, 3.5rem), 8vw, var(--space-20));
   }
 
   .projects-hero__grid,
@@ -1846,6 +1846,7 @@
     font-size: clamp(var(--text-3xl), 5vw, var(--text-5xl));
     font-weight: 400;
     line-height: 1.08;
+    max-width: 48rem;
   }
 
   .projects-hero__copy p,
@@ -1856,26 +1857,34 @@
   }
 
   .projects-list {
-    background: var(--color-white);
-    padding-block: clamp(var(--space-12), 8vw, var(--space-20));
+    background: #ede8dd;
+    padding: clamp(var(--space-10, 2.5rem), 7vw, var(--space-16)) clamp(1.5rem, 5vw, var(--space-16));
   }
 
   .projects-list__grid {
     display: grid;
+    max-width: 74rem;
+    padding-inline: 0;
   }
 
   .project-feature-card {
-    background: var(--color-indigo);
-    color: var(--color-white);
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+    color: var(--color-indigo);
     display: grid;
-    grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
-    min-height: 520px;
-    overflow: hidden;
+    grid-template-columns: minmax(0, 0.95fr) minmax(360px, 1.05fr);
+    min-height: 0;
+    overflow: visible;
+    box-shadow: 0 24px 70px rgba(24, 43, 73, 0.1);
+  }
+
+  .project-feature-card__media {
+    min-height: 480px;
   }
 
   .project-feature-card__media img {
     height: 100%;
-    min-height: 520px;
+    min-height: 480px;
     object-fit: cover;
     width: 100%;
   }
@@ -1883,7 +1892,8 @@
   .project-feature-card__copy {
     align-content: center;
     display: grid;
-    padding: clamp(var(--space-8), 6vw, var(--space-16));
+    min-width: 0;
+    padding: clamp(var(--space-8), 6vw, var(--space-14, 3.5rem));
   }
 
   .project-feature-card__copy span,
@@ -1896,15 +1906,16 @@
   }
 
   .project-feature-card__copy h2 {
-    color: var(--color-white);
-    font-size: clamp(3rem, 7vw, 6.4rem);
+    color: var(--color-indigo);
+    font-size: clamp(3rem, 6.5vw, 6rem);
     font-weight: 400;
     line-height: 0.95;
     margin-top: var(--space-5);
+    overflow-wrap: anywhere;
   }
 
   .project-feature-card__subtitle {
-    color: rgba(255, 255, 255, 0.92) !important;
+    color: var(--color-indigo) !important;
     font-size: var(--text-xs) !important;
     font-weight: 800;
     letter-spacing: 0.16em;
@@ -1913,11 +1924,11 @@
   }
 
   .project-feature-card__copy p {
-    color: rgba(255, 255, 255, 0.78);
+    color: var(--color-body);
     font-size: var(--text-lg);
     line-height: 1.75;
     margin-top: var(--space-6);
-    max-width: 38rem;
+    max-width: 42rem;
   }
 
   .project-feature-card__copy strong {
@@ -2364,6 +2375,10 @@
       min-height: 360px;
     }
 
+    .project-feature-card__media {
+      min-height: 360px;
+    }
+
     .regenera-hero__content {
       max-width: none;
       min-height: 78vh;
@@ -2676,7 +2691,16 @@
 
     .home-project__copy h2,
     .project-feature-card__copy h2 {
-      font-size: clamp(3rem, 17vw, 5rem);
+      font-size: clamp(3rem, 15vw, 4.8rem);
+    }
+
+    .projects-list {
+      padding-inline: clamp(1.25rem, 6vw, 1.75rem);
+    }
+
+    .project-feature-card__copy p {
+      font-size: var(--text-base);
+      max-width: none;
     }
 
     .regenera-steps,
