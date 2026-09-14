@@ -2842,9 +2842,31 @@
       padding: var(--space-6);
     }
 
-    .home-project__copy h2,
-    .project-feature-card__copy h2 {
+    .home-project__copy h2 {
       font-size: clamp(3rem, 15vw, 4.8rem);
+    }
+
+    .project-feature-card__copy {
+      align-content: start;
+      gap: var(--space-4);
+    }
+
+    .project-feature-card__copy h2,
+    .project-feature-card:first-child .project-feature-card__copy h2,
+    .project-feature-card--long-title .project-feature-card__copy h2 {
+      font-size: clamp(2.15rem, 10vw, 3.35rem);
+      line-height: 1.05;
+    }
+
+    .project-feature-card__subtitle {
+      font-size: 0.68rem !important;
+      letter-spacing: 0.11em;
+      line-height: 1.45;
+    }
+
+    .project-feature-card__copy p {
+      font-size: var(--text-base);
+      line-height: 1.65;
     }
 
     .projects-list {
