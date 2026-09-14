@@ -11,7 +11,7 @@ export interface Props {
 
 const {
   title = "Territorium - Resiliencia y rentabilidad territorial",
-  description = "Territorium asesora en compraventa de territorios, capital natural y restauración llave en mano para convertir suelo en resiliencia, rentabilidad y legado.",
+  description = "Territorium es una gestora patrimonial territorial que integra ciencia, tecnología y ejecución para convertir capital natural, resiliencia y restauración en valor a largo plazo.",
   lang = 'es',
   canonicalPath,
   showContactForm = false,
@@ -24,7 +24,6 @@ const nav = isEn
   ? {
       home: 'Home',
       services: 'Services',
-      territories: 'Territories',
       projects: 'Projects',
       about: 'About',
       analyze: 'Analyse my territory',
@@ -32,7 +31,6 @@ const nav = isEn
   : {
       home: 'Inicio',
       services: 'Servicios',
-      territories: 'Territorios',
       projects: 'Proyectos',
       about: 'Sobre Territorium',
       analyze: 'Analizar mi territorio',
@@ -42,7 +40,6 @@ const navLinks = isEn
   ? {
       home: '/en/',
       services: '/en/#servicios',
-      territories: '/en/#territorios',
       projects: '/proyectos/',
       about: '/en/#por-que-nosotros',
       analyze: '/analizar-mi-finca/',
@@ -50,7 +47,6 @@ const navLinks = isEn
   : {
       home: '/',
       services: '/servicios/',
-      territories: '/territorios/',
       projects: '/proyectos/',
       about: '/sobre-territorium/',
       analyze: '/analizar-mi-finca/',
@@ -193,7 +189,6 @@ const breadcrumbSchema = breadcrumbPath === '/'
       <ul class="nav-list">
         <li><a href={navLinks.home} class="nav-link">{nav.home}</a></li>
         <li><a href={navLinks.services} class="nav-link">{nav.services}</a></li>
-        <li><a href={navLinks.territories} class="nav-link">{nav.territories}</a></li>
         {!isEn && <li><a href={navLinks.projects} class="nav-link">{nav.projects}</a></li>}
         <li><a href={navLinks.about} class="nav-link">{nav.about}</a></li>
         <li><a href={navLinks.analyze} class="nav-link">{nav.analyze}</a></li>
