@@ -281,6 +281,44 @@ const breadcrumbSchema = breadcrumbPath === '/'
         )}
       </div>
     </footer>
+
+    <script>
+      const prefetchedUrls = new Set<string>();
+      const scheduleIdle = window.requestIdleCallback ?? ((callback: IdleRequestCallback) => window.setTimeout(callback, 180));
+
+      function prefetchPage(url: string) {
+        if (prefetchedUrls.has(url)) return;
+        prefetchedUrls.add(url);
+
+        scheduleIdle(() => {
+          const link = document.createElement('link');
+          link.rel = 'prefetch';
+          link.href = url;
+          link.as = 'document';
+          document.head.appendChild(link);
+        });
+      }
+
+      function shouldPrefetch(anchor: HTMLAnchorElement) {
+        if (!anchor.href) return false;
+        if (anchor.target && anchor.target !== '_self') return false;
+        if (anchor.origin !== window.location.origin) return false;
+        if (anchor.pathname === window.location.pathname && anchor.hash) return false;
+        return true;
+      }
+
+      document.querySelectorAll<HTMLAnchorElement>('a[href]').forEach((anchor) => {
+        if (!shouldPrefetch(anchor)) return;
+        anchor.addEventListener('pointerenter', () => prefetchPage(anchor.href), { passive: true });
+        anchor.addEventListener('touchstart', () => prefetchPage(anchor.href), { passive: true });
+        anchor.addEventListener('focus', () => prefetchPage(anchor.href), { passive: true });
+        anchor.addEventListener('click', () => document.body.classList.add('is-leaving'), { passive: true });
+      });
+
+      window.addEventListener('pagehide', () => {
+        document.querySelectorAll('video').forEach((video) => video.pause());
+      });
+    </script>
   </body>
 </html>
 
@@ -356,6 +394,10 @@ const breadcrumbSchema = breadcrumbPath === '/'
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  body.is-leaving {
+    cursor: progress;
   }
 
   img, video {

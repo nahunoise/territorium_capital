@@ -7,23 +7,23 @@ import PageStyles from '../components/PageStyles.astro';
   lang="en"
   title="Territorium - Territorial resilience and return"
   description="Territorium advises on territory transactions, natural capital and turnkey restoration to turn land into resilience, return and legacy."
-  preloadImages={['/imagenes/fondo-1.webp', '/imagenes/fondo-2.webp', '/imagenes/fondo-3.webp']}
+  preloadImages={['/imagenes/fondo-1.webp']}
 >
   <PageStyles />
 
   <header class="hero home-hero" id="hero-carousel">
     <div class="hero-video-stage" aria-hidden="true">
-      <video class="hero-video is-active" data-hero-video muted playsinline webkit-playsinline autoplay loop preload="auto" poster="/imagenes/fondo-1.webp" disablepictureinpicture>
+      <video class="hero-video is-active" data-hero-video data-loaded="true" muted playsinline webkit-playsinline autoplay loop preload="auto" poster="/imagenes/fondo-1.webp" disablepictureinpicture>
         <source src="/videos/mobile/hero-bosque-luz-mobile.mp4" type="video/mp4" media="(max-width: 640px)" />
         <source src="/videos/premium/hero-bosque-luz.mp4" type="video/mp4" />
       </video>
-      <video class="hero-video" data-hero-video muted playsinline webkit-playsinline loop preload="auto" poster="/imagenes/fondo-2.webp" disablepictureinpicture>
-        <source src="/videos/mobile/hero-buitre-vuelo-mobile.mp4" type="video/mp4" media="(max-width: 640px)" />
-        <source src="/videos/premium/hero-buitre-vuelo.mp4" type="video/mp4" />
+      <video class="hero-video" data-hero-video muted playsinline webkit-playsinline loop preload="none" poster="/imagenes/fondo-2.webp" disablepictureinpicture>
+        <source data-src="/videos/mobile/hero-buitre-vuelo-mobile.mp4" type="video/mp4" media="(max-width: 640px)" />
+        <source data-src="/videos/premium/hero-buitre-vuelo.mp4" type="video/mp4" />
       </video>
-      <video class="hero-video" data-hero-video muted playsinline webkit-playsinline loop preload="auto" poster="/imagenes/restauracion-despues.png" disablepictureinpicture>
-        <source src="/videos/mobile/hero-montana-territorio-mobile.mp4" type="video/mp4" media="(max-width: 640px)" />
-        <source src="/videos/premium/hero-montana-territorio.mp4" type="video/mp4" />
+      <video class="hero-video" data-hero-video muted playsinline webkit-playsinline loop preload="none" poster="/imagenes/restauracion-despues.webp" disablepictureinpicture>
+        <source data-src="/videos/mobile/hero-montana-territorio-mobile.mp4" type="video/mp4" media="(max-width: 640px)" />
+        <source data-src="/videos/premium/hero-montana-territorio.mp4" type="video/mp4" />
       </video>
       <div class="hero-video-stage__overlay"></div>
     </div>
@@ -158,7 +158,7 @@ import PageStyles from '../components/PageStyles.astro';
 
       <div class="container restoration-cinema">
         <div class="restoration-compare" data-compare>
-          <img class="restoration-compare__image" src="/imagenes/restauracion-despues.png" alt="Territory before the restoration project">
+          <img class="restoration-compare__image" src="/imagenes/restauracion-despues.webp" alt="Territory before the restoration project">
           <div class="restoration-compare__after" data-compare-after>
             <img class="restoration-compare__image" src="/imagenes/restauracion-antes.jpg" alt="Territory after the restoration project">
           </div>
@@ -461,6 +461,9 @@ import PageStyles from '../components/PageStyles.astro';
   const titleElement = document.getElementById('carousel-title') as HTMLElement;
   const subtitleElement = document.getElementById('carousel-subtitle') as HTMLElement;
   const videoElements = Array.from(document.querySelectorAll('[data-hero-video]')) as HTMLVideoElement[];
+  const connection = (navigator as Navigator & { connection?: { saveData?: boolean; effectiveType?: string } }).connection;
+  const shouldLoadBackgroundMedia = !connection?.saveData && !['slow-2g', '2g'].includes(connection?.effectiveType ?? '');
+  const scheduleIdle = window.requestIdleCallback ?? ((callback: IdleRequestCallback) => window.setTimeout(callback, 250));
 
   const heroGradient = "linear-gradient(90deg, rgba(10,20,32,0.82), rgba(10,20,32,0.48) 48%, rgba(10,20,32,0.18))";
   const imageCache = new Map<string, Promise<void>>();
@@ -479,7 +482,25 @@ import PageStyles from '../components/PageStyles.astro';
     return promise;
   }
 
+  function hydrateHeroVideo(video: HTMLVideoElement) {
+    if (video.dataset.loaded === 'true') return;
+
+    Array.from(video.querySelectorAll('source')).forEach((source) => {
+      const lazySource = source as HTMLSourceElement;
+      const sourcePath = lazySource.dataset.src;
+      if (sourcePath) {
+        lazySource.src = sourcePath;
+        lazySource.removeAttribute('data-src');
+      }
+    });
+
+    video.dataset.loaded = 'true';
+    video.load();
+  }
+
   function playHeroVideo(video: HTMLVideoElement) {
+    hydrateHeroVideo(video);
+
     videoElements.forEach((element) => {
       element.classList.remove('is-active', 'is-playing');
       if (element !== video) element.pause();
@@ -495,6 +516,13 @@ import PageStyles from '../components/PageStyles.astro';
         .then(() => video.classList.add('is-playing'))
         .catch(() => video.classList.remove('is-playing'));
     }
+  }
+
+  function prepareNextVideo() {
+    if (!shouldLoadBackgroundMedia) return;
+    if (videoElements.length < 2) return;
+    const nextVideo = videoElements[(currentVideoIndex + 1) % videoElements.length];
+    if (nextVideo) hydrateHeroVideo(nextVideo);
   }
 
   videoElements.forEach((video) => {
@@ -537,6 +565,7 @@ import PageStyles from '../components/PageStyles.astro';
         const activeVideo = videoElements[currentVideoIndex];
         if (activeVideo) {
           playHeroVideo(activeVideo);
+          prepareNextVideo();
         }
         titleElement.innerHTML = next.title;
         subtitleElement.textContent = next.subtitle;
@@ -548,14 +577,16 @@ import PageStyles from '../components/PageStyles.astro';
     }
   }
 
-  Promise.all(slides.map((slide) => preloadHeroImage(slide.image))).then(() => {
-    if (videoElements[0]) {
-      playHeroVideo(videoElements[0]);
-    }
-    if (!carouselTimer) {
-      carouselTimer = window.setInterval(changeSlide, 5000);
-    }
-  });
+  if (videoElements[0]) {
+    playHeroVideo(videoElements[0]);
+  }
+  setTimeout(() => scheduleIdle(() => {
+    prepareNextVideo();
+    slides.slice(1).forEach((slide) => preloadHeroImage(slide.image));
+  }), 2800);
+  if (!carouselTimer) {
+    carouselTimer = window.setInterval(changeSlide, 5000);
+  }
 
   document.addEventListener("DOMContentLoaded", () => {
     const checkVisibility = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
