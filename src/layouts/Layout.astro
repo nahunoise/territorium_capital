@@ -21,6 +21,7 @@ const {
 const isEn = lang === 'en';
 const canonicalUrl = `https://territorium.capital${canonicalPath ?? (isEn ? '/en/' : '/')}`;
 const gaMeasurementId = import.meta.env.PUBLIC_GA_MEASUREMENT_ID;
+const gtmId = import.meta.env.PUBLIC_GTM_ID;
 const gaScript = gaMeasurementId
   ? `
       window.dataLayer = window.dataLayer || [];
@@ -29,6 +30,15 @@ const gaScript = gaMeasurementId
       gtag('config', ${JSON.stringify(gaMeasurementId)}, {
         anonymize_ip: true
       });
+    `
+  : '';
+const gtmScript = gtmId
+  ? `
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer',${JSON.stringify(gtmId)});
     `
   : '';
 const nav = isEn
@@ -176,6 +186,7 @@ const breadcrumbSchema = breadcrumbPath === '/'
     <meta property="og:image" content="https://territorium.capital/imagenes/fondo-1.webp" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
+    {gtmId && <script is:inline set:html={gtmScript}></script>}
     {preloadImages.map((imagePath) => (
       <link rel="preload" as="image" href={imagePath} />
     ))}
@@ -193,6 +204,16 @@ const breadcrumbSchema = breadcrumbPath === '/'
   </head>
 
   <body>
+    {gtmId && (
+      <noscript>
+        <iframe
+          src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
+          height="0"
+          width="0"
+          style="display:none;visibility:hidden"
+        ></iframe>
+      </noscript>
+    )}
     <!-- NAVEGACIÓN GLOBAL -->
     <nav class="site-nav">
       <div class="nav-logo">
