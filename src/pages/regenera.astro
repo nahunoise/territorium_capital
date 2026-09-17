@@ -1,0 +1,1122 @@
+---
+const title = 'REGENERA | Natural Capital Asset Management';
+const description = 'REGENERA convierte grandes activos rurales en patrimonios mejor entendidos, gestionados y regenerados, uniendo mercado, ciencia, tecnología y visión de largo plazo.';
+
+const valueSteps = [
+  ['01', 'Comprar bien', 'Identificar activos con encaje real antes de comprometer capital, tiempo y estructura.'],
+  ['02', 'Optimizar ingresos', 'Ordenar rentas, usos, costes, contratos y oportunidades existentes del activo.'],
+  ['03', 'Gestionar con control', 'Convertir la finca en un activo con presupuesto, indicadores, responsables y seguimiento.'],
+  ['04', 'Regenerar capital natural', 'Mejorar agua, suelo, arbolado, biodiversidad y resiliencia del territorio.'],
+  ['05', 'Elevar valor patrimonial', 'Construir una tesis de largo plazo: más resiliente, más trazable y mejor defendible.'],
+];
+
+const method = [
+  ['Originación', 'Localizamos activos rurales con escala, calidad territorial y potencial patrimonial.'],
+  ['Validación', 'Analizamos el activo desde mercado, documentación, agua, suelo, biodiversidad, producción y riesgos.'],
+  ['Adquisición', 'Acompañamos la decisión de compra con una tesis clara de valor y escenarios de actuación.'],
+  ['Asset Management', 'Gestionamos el activo con presupuesto, plan de negocio, CAPEX, proveedores e indicadores.'],
+  ['Portfolio Management', 'Comparamos fincas, priorizamos inversiones y construimos una cartera rural coherente.'],
+];
+
+const indicators = [
+  'Agua',
+  'Suelo',
+  'Arbolado',
+  'Biodiversidad',
+  'Rentas',
+  'CAPEX',
+  'Riesgo climático',
+  'Valor patrimonial',
+];
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/imagenes/medidas/nuevas/paisaje-spain.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preload" as="image" href="/imagenes/regenera-logo-lockup.png" />
+    <link rel="preload" as="video" href="/videos/premium/hero-bosque-luz.mp4" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <nav class="regenera-nav" aria-label="Navegación REGENERA">
+      <a href="#inicio" class="regenera-nav__brand" aria-label="REGENERA inicio">
+        <img src="/imagenes/regenera-logo-lockup.png" alt="REGENERA">
+      </a>
+      <div class="regenera-nav__links">
+        <a href="#que-es">Qué es</a>
+        <a href="#metodo">Método</a>
+        <a href="#valor">Valor</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+      <a href="/proyectos/regenera/" class="regenera-nav__territorium">Proyecto Territorium</a>
+    </nav>
+
+    <header id="inicio" class="regenera-hero">
+      <div class="regenera-hero__videos" aria-hidden="true">
+        <video class="regenera-video is-active" muted playsinline autoplay loop preload="auto" poster="/imagenes/medidas/nuevas/paisaje-spain.jpg">
+          <source src="/videos/premium/hero-bosque-luz.mp4" type="video/mp4" />
+        </video>
+        <video class="regenera-video" muted playsinline loop preload="none" poster="/imagenes/fondo-3.webp">
+          <source data-src="/videos/premium/hero-montana-territorio.mp4" type="video/mp4" />
+        </video>
+        <video class="regenera-video" muted playsinline loop preload="none" poster="/imagenes/medidas/riesgo-seco.jpg">
+          <source data-src="/videos/premium/hero-ribera-seca.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="regenera-hero__veil" aria-hidden="true"></div>
+      <div class="regenera-hero__content">
+        <img class="regenera-hero__logo" src="/imagenes/regenera-logo-lockup.png" alt="REGENERA">
+        <span class="eyebrow">Natural Capital · Real Assets · Real Impact</span>
+        <h1>Conservar produciendo. Producir regenerando.</h1>
+        <p>
+          Gestión y regeneración integral de grandes activos rurales para convertir
+          territorio, resiliencia y capital natural en valor patrimonial de largo plazo.
+        </p>
+        <div class="hero-actions">
+          <a href="#contacto">Analizar un activo</a>
+          <a href="#que-es">Ver enfoque</a>
+        </div>
+      </div>
+      <div class="regenera-hero__cards" aria-label="Pilares REGENERA">
+        <article>
+          <span>Datos</span>
+          <p>Tecnología territorial para decidir con evidencia.</p>
+        </article>
+        <article>
+          <span>Método</span>
+          <p>Un proceso claro para comprar, gestionar y regenerar.</p>
+        </article>
+        <article>
+          <span>Cartera</span>
+          <p>Del activo único a una cartera rural gestionada.</p>
+        </article>
+      </div>
+    </header>
+
+    <main>
+      <section id="que-es" class="editorial-section intro-section reveal">
+        <div class="section-label">Qué es REGENERA</div>
+        <div class="intro-section__grid">
+          <h2>Una plataforma de gestión patrimonial para grandes activos rurales.</h2>
+          <div class="intro-section__copy">
+            <p>
+              REGENERA une mercado, ciencia y tecnología para ayudar a propietarios
+              e inversores a entender, comprar, gestionar, regenerar y hacer crecer
+              el valor de sus territorios.
+            </p>
+            <p>
+              No somos una inmobiliaria rural, ni una consultora ambiental genérica,
+              ni un software sin ejecución. Somos un equipo que convierte datos del
+              territorio en decisiones de gestión, inversión y regeneración.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="partners-band reveal" aria-label="Capacidades de la colaboración">
+        <div class="partners-band__visual">
+          <img src="/imagenes/servicio-diagnostico-capas.png" alt="Capas de análisis territorial">
+        </div>
+        <div class="partners-band__content">
+          <span class="section-label">Territorium × GestLand</span>
+          <h2>Mercado rural, capital natural y medición bajo una misma tesis de valor.</h2>
+          <div class="partners-band__cards">
+            <article>
+              <img src="/imagenes/Territorium_Capital_logo.png" alt="Territorium Capital">
+              <p>Capital natural, tecnología territorial, mapas, indicadores y estrategia de resiliencia.</p>
+            </article>
+            <article>
+              <img src="/imagenes/gestland-logo.png" alt="GestLand">
+              <p>Conocimiento del activo rural, valoración, mercado y acceso a oportunidades.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="image-triptych reveal" aria-label="Ámbitos de REGENERA">
+        <a href="#metodo" class="image-triptych__item image-triptych__item--left">
+          <img src="/imagenes/medidas/nuevas/paisaje-spain.jpg" alt="Paisaje rural de gran escala">
+          <span>Territorio</span>
+        </a>
+        <a href="#valor" class="image-triptych__item image-triptych__item--center">
+          <img src="/imagenes/medidas/nuevas/capital-natural-rural.jpg" alt="Mosaico rural y capital natural">
+          <span>Capital natural</span>
+        </a>
+        <a href="#datos" class="image-triptych__item image-triptych__item--right">
+          <img src="/imagenes/servicio-diagnostico-capas.png" alt="Mapa de diagnóstico territorial con capas">
+          <span>Datos</span>
+        </a>
+      </section>
+
+      <section id="valor" class="value-section reveal">
+        <div class="value-section__image" aria-hidden="true">
+          <img src="/imagenes/territorio-legado.jpg" alt="">
+        </div>
+        <div class="value-section__content">
+          <span class="section-label">Creación de valor</span>
+          <h2>Del activo rural al patrimonio gestionado.</h2>
+          <p>
+            La lógica es sencilla: comprar mejor, ordenar lo existente, gestionar con
+            control, regenerar el capital natural y sostener una valoración más sólida.
+          </p>
+          <div class="value-timeline">
+            {valueSteps.map(([number, heading, text]) => (
+              <article>
+                <span>{number}</span>
+                <h3>{heading}</h3>
+                <p>{text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="metodo" class="method-section reveal">
+        <div class="method-section__header">
+          <span class="section-label">Método REGENERA</span>
+          <h2>Un ciclo completo, del análisis a la gestión.</h2>
+          <p>
+            Cada activo se decide individualmente, pero se gestiona con una disciplina
+            común: información comparable, hipótesis claras y seguimiento.
+          </p>
+        </div>
+        <div class="method-track">
+          {method.map(([heading, text], index) => (
+            <article>
+              <span>{String(index + 1).padStart(2, '0')}</span>
+              <h3>{heading}</h3>
+              <p>{text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section id="datos" class="index-section reveal">
+        <video class="index-section__video" data-lazy-video muted playsinline loop preload="none" poster="/imagenes/medidas/fauna-salvaje.jpg">
+          <source data-src="/videos/buitre-leonado-vuelo.mp4" type="video/mp4" />
+        </video>
+        <div class="index-section__overlay" aria-hidden="true"></div>
+        <div class="index-section__content">
+          <span class="section-label section-label--light">REGENERA Index</span>
+          <h2>Primero medimos. Luego afirmamos.</h2>
+          <p>
+            El territorio se lee como un activo vivo: agua, suelo, arbolado,
+            biodiversidad, rentas, riesgos, CAPEX y potencial de regeneración.
+          </p>
+          <div class="indicator-cloud">
+            {indicators.map((indicator) => <span>{indicator}</span>)}
+          </div>
+        </div>
+      </section>
+
+      <section class="portfolio-section reveal">
+        <div>
+          <span class="section-label">Cartera patrimonial</span>
+          <h2>Del activo único a una cartera rural con criterio común.</h2>
+        </div>
+        <div class="portfolio-section__body">
+          <p>
+            REGENERA permite comparar fincas, inversiones, proveedores, riesgos,
+            rentas, actuaciones y métricas de capital natural. Cada territorio mantiene
+            su autonomía, pero la gestión se profesionaliza bajo una visión común.
+          </p>
+          <div class="portfolio-metrics" aria-label="Criterios de gestión">
+            <article><strong>SPV</strong><span>por activo</span></article>
+            <article><strong>KPIs</strong><span>de gestión</span></article>
+            <article><strong>CAPEX</strong><span>priorizado</span></article>
+            <article><strong>MRV</strong><span>medición y seguimiento</span></article>
+          </div>
+        </div>
+      </section>
+
+      <section id="contacto" class="closing-section reveal">
+        <div class="closing-section__inner">
+          <span class="section-label section-label--light">Siguiente paso</span>
+          <h2>Analicemos si su territorio puede funcionar mejor.</h2>
+          <p>
+            Si gestiona, compra o quiere poner en valor un gran activo rural,
+            REGENERA puede ayudarle a ordenar la decisión antes de invertir.
+          </p>
+          <div class="closing-actions">
+            <a href="mailto:blanca@territorium.capital?subject=REGENERA%20-%20Analizar%20activo%20rural">blanca@territorium.capital</a>
+            <a href="/proyectos/regenera/">Ver ficha en Territorium</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="regenera-footer">
+      <span>REGENERA</span>
+      <p>Natural Capital · Real Assets · Real Impact</p>
+      <p>Proyecto impulsado por Territorium Capital y GestLand.</p>
+    </footer>
+
+    <script>
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      document.querySelectorAll('.reveal').forEach((element) => revealObserver.observe(element));
+
+      const lazyVideoObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const video = entry.target;
+          video.querySelectorAll('source[data-src]').forEach((source) => {
+            source.src = source.dataset.src;
+            source.removeAttribute('data-src');
+          });
+          video.load();
+          video.play().catch(() => {});
+          lazyVideoObserver.unobserve(video);
+        });
+      }, { rootMargin: '240px 0px' });
+
+      document.querySelectorAll('[data-lazy-video]').forEach((video) => lazyVideoObserver.observe(video));
+
+      const heroVideos = Array.from(document.querySelectorAll('.regenera-video'));
+      let activeVideo = 0;
+
+      const loadHeroVideo = (video) => {
+        video.querySelectorAll('source[data-src]').forEach((source) => {
+          source.src = source.dataset.src;
+          source.removeAttribute('data-src');
+        });
+        if (!video.dataset.loaded) {
+          video.load();
+          video.dataset.loaded = 'true';
+        }
+      };
+
+      heroVideos.forEach((video, index) => {
+        if (index < 2) loadHeroVideo(video);
+        video.play().catch(() => {});
+      });
+
+      window.setInterval(() => {
+        if (heroVideos.length < 2) return;
+        const previous = heroVideos[activeVideo];
+        activeVideo = (activeVideo + 1) % heroVideos.length;
+        const next = heroVideos[activeVideo];
+        loadHeroVideo(next);
+        next.currentTime = 0;
+        next.play().catch(() => {});
+        previous.classList.remove('is-active');
+        next.classList.add('is-active');
+      }, 5200);
+    </script>
+  </body>
+</html>
+
+<style>
+  :root {
+    --green-deep: #0e2018;
+    --green-brand: #1f4433;
+    --green-live: #2f6650;
+    --gold: #c9a24a;
+    --bone: #efe7d6;
+    --bone-soft: #f7f1e5;
+    --ink: #17241d;
+    --muted: rgba(23, 36, 29, 0.68);
+    --white: #fffaf0;
+    --line: rgba(14, 32, 24, 0.16);
+    --display: Georgia, 'Times New Roman', serif;
+    --sans: 'Segoe UI', Helvetica, Arial, sans-serif;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    background: var(--bone);
+    color: var(--ink);
+    font-family: var(--sans);
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    overflow-x: hidden;
+  }
+
+  body::selection {
+    background: var(--gold);
+    color: var(--green-deep);
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  img,
+  video {
+    display: block;
+    max-width: 100%;
+  }
+
+  .regenera-nav {
+    align-items: center;
+    background: rgba(239, 231, 214, 0.88);
+    border-bottom: 1px solid rgba(14, 32, 24, 0.12);
+    backdrop-filter: blur(16px);
+    display: grid;
+    grid-template-columns: minmax(130px, 190px) 1fr auto;
+    gap: clamp(1rem, 3vw, 3rem);
+    left: 0;
+    padding: 1rem clamp(1rem, 4vw, 3.5rem);
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 20;
+  }
+
+  .regenera-nav__brand img {
+    height: auto;
+    max-height: 38px;
+    object-fit: contain;
+    object-position: left center;
+    width: min(190px, 42vw);
+  }
+
+  .regenera-nav__links {
+    align-items: center;
+    display: flex;
+    gap: clamp(0.9rem, 2vw, 2rem);
+    justify-content: center;
+  }
+
+  .regenera-nav a {
+    color: var(--green-deep);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+  }
+
+  .regenera-nav__territorium {
+    border: 1px solid rgba(14, 32, 24, 0.22);
+    padding: 0.8rem 1rem;
+  }
+
+  .regenera-hero {
+    background: var(--green-deep);
+    color: var(--white);
+    min-height: 100svh;
+    overflow: hidden;
+    padding: clamp(8rem, 13vw, 11rem) clamp(1.25rem, 6vw, 5.5rem) clamp(2rem, 5vw, 4rem);
+    position: relative;
+  }
+
+  .regenera-hero__videos,
+  .regenera-video,
+  .regenera-hero__veil {
+    inset: 0;
+    position: absolute;
+  }
+
+  .regenera-video {
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transform: scale(1.02);
+    transition: opacity 1.6s ease;
+    width: 100%;
+  }
+
+  .regenera-video.is-active {
+    animation: heroDrift 5.6s linear forwards;
+    opacity: 1;
+  }
+
+  @keyframes heroDrift {
+    from { transform: scale(1.015) translate3d(0, 0, 0); }
+    to { transform: scale(1.055) translate3d(-0.7%, -0.45%, 0); }
+  }
+
+  .regenera-hero__veil {
+    background:
+      linear-gradient(90deg, rgba(14, 32, 24, 0.92), rgba(14, 32, 24, 0.54) 48%, rgba(14, 32, 24, 0.16)),
+      linear-gradient(180deg, rgba(14, 32, 24, 0.24), rgba(14, 32, 24, 0.72));
+  }
+
+  .regenera-hero__content {
+    max-width: 66rem;
+    padding-bottom: clamp(9rem, 14vw, 13rem);
+    position: relative;
+    z-index: 2;
+  }
+
+  .regenera-hero__logo {
+    background: rgba(239, 231, 214, 0.9);
+    height: auto;
+    margin-bottom: clamp(2rem, 5vw, 4rem);
+    max-width: min(520px, 82vw);
+    padding: 1rem 1.2rem;
+  }
+
+  .eyebrow,
+  .section-label {
+    color: var(--gold);
+    display: block;
+    font-size: 0.76rem;
+    font-weight: 900;
+    letter-spacing: 0.18em;
+    margin-bottom: 1.1rem;
+    text-transform: uppercase;
+  }
+
+  .section-label--light {
+    color: rgba(255, 250, 240, 0.76);
+  }
+
+  h1,
+  h2,
+  h3,
+  p {
+    margin: 0;
+  }
+
+  h1,
+  h2 {
+    font-family: var(--display);
+    font-weight: 400;
+    letter-spacing: 0;
+  }
+
+  .regenera-hero h1 {
+    font-size: clamp(3.4rem, 8vw, 9rem);
+    line-height: 0.94;
+    max-width: 58rem;
+  }
+
+  .regenera-hero p {
+    color: rgba(255, 250, 240, 0.84);
+    font-size: clamp(1.05rem, 2vw, 1.38rem);
+    line-height: 1.62;
+    margin-top: 1.8rem;
+    max-width: 44rem;
+  }
+
+  .hero-actions,
+  .closing-actions {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2.5rem;
+  }
+
+  .hero-actions a,
+  .closing-actions a {
+    border: 1px solid rgba(255, 250, 240, 0.72);
+    color: var(--white);
+    display: inline-flex;
+    font-size: 0.82rem;
+    font-weight: 900;
+    justify-content: center;
+    letter-spacing: 0.16em;
+    min-width: 13rem;
+    padding: 1rem 1.25rem;
+    text-transform: uppercase;
+  }
+
+  .hero-actions a:first-child,
+  .closing-actions a:first-child {
+    background: var(--bone);
+    border-color: var(--bone);
+    color: var(--green-deep);
+  }
+
+  .regenera-hero__cards {
+    bottom: 2rem;
+    display: grid;
+    gap: 1px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    max-width: 56rem;
+    position: absolute;
+    right: clamp(1.25rem, 6vw, 5.5rem);
+    width: min(56rem, calc(100% - 2.5rem));
+    z-index: 2;
+  }
+
+  .regenera-hero__cards article {
+    background: rgba(239, 231, 214, 0.92);
+    color: var(--green-deep);
+    min-height: 9rem;
+    padding: 1.3rem;
+  }
+
+  .regenera-hero__cards span {
+    color: var(--green-brand);
+    display: block;
+    font-family: var(--display);
+    font-size: 1.45rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .regenera-hero__cards p {
+    color: var(--muted);
+    font-size: 0.92rem;
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  .editorial-section,
+  .method-section,
+  .portfolio-section {
+    background: var(--bone);
+    padding: clamp(5rem, 10vw, 9rem) clamp(1.25rem, 6vw, 5.5rem);
+  }
+
+  .intro-section__grid,
+  .portfolio-section {
+    display: grid;
+    gap: clamp(2rem, 6vw, 7rem);
+    grid-template-columns: minmax(0, 0.95fr) minmax(280px, 0.85fr);
+  }
+
+  .intro-section h2,
+  .partners-band h2,
+  .value-section h2,
+  .method-section h2,
+  .index-section h2,
+  .portfolio-section h2,
+  .closing-section h2 {
+    color: var(--green-deep);
+    font-size: clamp(2.4rem, 5.4vw, 5.8rem);
+    line-height: 1.02;
+  }
+
+  .intro-section__copy {
+    display: grid;
+    gap: 1.4rem;
+  }
+
+  .intro-section__copy p,
+  .portfolio-section__body p,
+  .method-section__header p {
+    color: var(--muted);
+    font-size: clamp(1rem, 1.4vw, 1.2rem);
+    line-height: 1.8;
+  }
+
+  .partners-band {
+    background: var(--green-deep);
+    color: var(--white);
+    display: grid;
+    grid-template-columns: minmax(0, 0.8fr) minmax(320px, 1fr);
+    min-height: 42rem;
+  }
+
+  .partners-band__visual {
+    background: #d6cdae;
+    min-height: 34rem;
+    overflow: hidden;
+  }
+
+  .partners-band__visual img {
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  .partners-band__content {
+    display: grid;
+    align-content: center;
+    padding: clamp(4rem, 8vw, 8rem) clamp(1.25rem, 6vw, 5.5rem);
+  }
+
+  .partners-band h2,
+  .index-section h2,
+  .closing-section h2 {
+    color: var(--white);
+  }
+
+  .partners-band__cards {
+    display: grid;
+    gap: 1px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-top: 3rem;
+  }
+
+  .partners-band__cards article {
+    background: rgba(255, 250, 240, 0.08);
+    border: 1px solid rgba(255, 250, 240, 0.16);
+    min-height: 15rem;
+    padding: 1.4rem;
+  }
+
+  .partners-band__cards img {
+    background: rgba(255, 250, 240, 0.94);
+    height: 4.8rem;
+    margin-bottom: 1.5rem;
+    max-width: 13rem;
+    object-fit: contain;
+    padding: 0.7rem;
+    width: 100%;
+  }
+
+  .partners-band__cards p {
+    color: rgba(255, 250, 240, 0.76);
+    line-height: 1.65;
+  }
+
+  .image-triptych {
+    align-items: center;
+    background: #e7dec9;
+    display: grid;
+    gap: clamp(1.2rem, 3vw, 3.5rem);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    padding: clamp(4rem, 8vw, 8rem) clamp(1.25rem, 4vw, 3.5rem);
+  }
+
+  .image-triptych__item {
+    color: var(--white);
+    min-height: 31rem;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .image-triptych__item--center {
+    min-height: 42rem;
+  }
+
+  .image-triptych__item::after {
+    background: linear-gradient(180deg, rgba(14, 32, 24, 0.08), rgba(14, 32, 24, 0.54));
+    content: "";
+    inset: 0;
+    position: absolute;
+  }
+
+  .image-triptych__item img {
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    transition: transform 0.9s ease;
+    width: 100%;
+  }
+
+  .image-triptych__item:hover img {
+    transform: scale(1.055);
+  }
+
+  .image-triptych__item span {
+    align-items: center;
+    bottom: 2rem;
+    display: flex;
+    font-family: var(--display);
+    font-size: clamp(1.5rem, 2.6vw, 2.6rem);
+    font-style: italic;
+    gap: 1rem;
+    left: 2rem;
+    position: absolute;
+    z-index: 2;
+  }
+
+  .image-triptych__item span::before {
+    background: currentColor;
+    content: "";
+    height: 1px;
+    width: 3rem;
+  }
+
+  .value-section {
+    background: var(--bone-soft);
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(320px, 1fr);
+  }
+
+  .value-section__image {
+    min-height: 56rem;
+    position: sticky;
+    top: 0;
+  }
+
+  .value-section__image img {
+    height: 100svh;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  .value-section__content {
+    padding: clamp(5rem, 10vw, 9rem) clamp(1.25rem, 6vw, 5.5rem);
+  }
+
+  .value-section__content > p {
+    color: var(--muted);
+    font-size: clamp(1rem, 1.4vw, 1.2rem);
+    line-height: 1.75;
+    margin-top: 1.5rem;
+    max-width: 40rem;
+  }
+
+  .value-timeline {
+    display: grid;
+    margin-top: 4rem;
+  }
+
+  .value-timeline article {
+    border-top: 1px solid var(--line);
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 4rem minmax(0, 0.42fr) minmax(0, 1fr);
+    padding: 1.6rem 0;
+  }
+
+  .value-timeline span {
+    color: var(--gold);
+    font-weight: 900;
+    letter-spacing: 0.14em;
+  }
+
+  .value-timeline h3,
+  .method-track h3 {
+    color: var(--green-deep);
+    font-family: var(--display);
+    font-size: clamp(1.35rem, 2vw, 2rem);
+    font-weight: 400;
+  }
+
+  .value-timeline p,
+  .method-track p {
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  .method-section__header {
+    margin-bottom: 4rem;
+    max-width: 60rem;
+  }
+
+  .method-section__header p {
+    margin-top: 1.4rem;
+    max-width: 40rem;
+  }
+
+  .method-track {
+    display: grid;
+    gap: 1px;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .method-track article {
+    background: var(--bone-soft);
+    border: 1px solid var(--line);
+    min-height: 23rem;
+    padding: 1.6rem;
+  }
+
+  .method-track span {
+    color: var(--gold);
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 0.16em;
+    margin-bottom: 7rem;
+  }
+
+  .method-track h3 {
+    margin-bottom: 1rem;
+  }
+
+  .index-section {
+    align-items: center;
+    background: var(--green-deep);
+    color: var(--white);
+    display: grid;
+    min-height: 92svh;
+    overflow: hidden;
+    padding: clamp(5rem, 10vw, 9rem) clamp(1.25rem, 6vw, 5.5rem);
+    position: relative;
+  }
+
+  .index-section__video,
+  .index-section__overlay {
+    height: 100%;
+    inset: 0;
+    object-fit: cover;
+    position: absolute;
+    width: 100%;
+  }
+
+  .index-section__overlay {
+    background:
+      linear-gradient(90deg, rgba(14, 32, 24, 0.9), rgba(14, 32, 24, 0.52), rgba(14, 32, 24, 0.34)),
+      linear-gradient(180deg, rgba(14, 32, 24, 0.24), rgba(14, 32, 24, 0.7));
+  }
+
+  .index-section__content {
+    max-width: 60rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .index-section p,
+  .closing-section p {
+    color: rgba(255, 250, 240, 0.78);
+    font-size: clamp(1rem, 1.5vw, 1.28rem);
+    line-height: 1.75;
+    margin-top: 1.5rem;
+    max-width: 42rem;
+  }
+
+  .indicator-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 2.6rem;
+    max-width: 48rem;
+  }
+
+  .indicator-cloud span {
+    border: 1px solid rgba(255, 250, 240, 0.28);
+    color: rgba(255, 250, 240, 0.86);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.11em;
+    padding: 0.75rem 0.95rem;
+    text-transform: uppercase;
+  }
+
+  .portfolio-section__body {
+    display: grid;
+    gap: 2rem;
+  }
+
+  .portfolio-metrics {
+    display: grid;
+    gap: 1px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .portfolio-metrics article {
+    background: var(--green-deep);
+    color: var(--white);
+    min-height: 9rem;
+    padding: 1.2rem;
+  }
+
+  .portfolio-metrics strong {
+    color: var(--gold);
+    display: block;
+    font-family: var(--display);
+    font-size: clamp(1.8rem, 3vw, 3rem);
+    font-weight: 400;
+  }
+
+  .portfolio-metrics span {
+    color: rgba(255, 250, 240, 0.72);
+    display: block;
+    line-height: 1.45;
+    margin-top: 0.8rem;
+  }
+
+  .closing-section {
+    background:
+      linear-gradient(90deg, rgba(14, 32, 24, 0.94), rgba(14, 32, 24, 0.54)),
+      url('/imagenes/medidas/nuevas/conectividad-bosque.jpg') center / cover;
+    color: var(--white);
+    padding: clamp(6rem, 12vw, 11rem) clamp(1.25rem, 6vw, 5.5rem);
+  }
+
+  .closing-section__inner {
+    max-width: 62rem;
+  }
+
+  .regenera-footer {
+    align-items: center;
+    background: var(--green-deep);
+    border-top: 1px solid rgba(255, 250, 240, 0.14);
+    color: rgba(255, 250, 240, 0.62);
+    display: grid;
+    gap: 0.75rem;
+    grid-template-columns: 1fr auto auto;
+    padding: 1.5rem clamp(1.25rem, 6vw, 5.5rem);
+  }
+
+  .regenera-footer span {
+    color: var(--gold);
+    font-weight: 900;
+    letter-spacing: 0.16em;
+  }
+
+  .regenera-footer p {
+    font-size: 0.82rem;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (max-width: 1120px) {
+    .regenera-nav {
+      grid-template-columns: 1fr auto;
+    }
+
+    .regenera-nav__links {
+      display: none;
+    }
+
+    .regenera-hero__cards,
+    .method-track,
+    .portfolio-metrics {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .method-track article {
+      min-height: 18rem;
+    }
+
+    .method-track span {
+      margin-bottom: 4rem;
+    }
+  }
+
+  @media (max-width: 820px) {
+    .regenera-nav {
+      padding: 0.85rem 1rem;
+    }
+
+    .regenera-nav__territorium {
+      display: none;
+    }
+
+    .regenera-hero {
+      min-height: auto;
+      padding: 7rem 1.15rem 2rem;
+    }
+
+    .regenera-hero__logo {
+      margin-bottom: 2rem;
+      max-width: 92vw;
+      padding: 0.75rem;
+    }
+
+    .regenera-hero__content {
+      padding-bottom: 0;
+    }
+
+    .regenera-hero h1 {
+      font-size: clamp(3rem, 15vw, 5.2rem);
+    }
+
+    .regenera-hero p {
+      font-size: 1rem;
+      line-height: 1.62;
+    }
+
+    .hero-actions a,
+    .closing-actions a {
+      width: 100%;
+    }
+
+    .regenera-hero__cards {
+      margin-top: 3rem;
+      position: relative;
+      right: auto;
+      width: 100%;
+    }
+
+    .regenera-hero__cards,
+    .intro-section__grid,
+    .partners-band,
+    .partners-band__cards,
+    .image-triptych,
+    .value-section,
+    .value-timeline article,
+    .method-track,
+    .portfolio-section,
+    .portfolio-metrics,
+    .regenera-footer {
+      grid-template-columns: 1fr;
+    }
+
+    .editorial-section,
+    .method-section,
+    .portfolio-section,
+    .value-section__content,
+    .partners-band__content,
+    .closing-section {
+      padding-left: 1.15rem;
+      padding-right: 1.15rem;
+    }
+
+    .partners-band__visual,
+    .value-section__image {
+      min-height: 24rem;
+      position: relative;
+    }
+
+    .value-section__image img {
+      height: 100%;
+    }
+
+    .image-triptych {
+      gap: 1rem;
+      padding-bottom: 4rem;
+      padding-top: 4rem;
+    }
+
+    .image-triptych__item,
+    .image-triptych__item--center {
+      min-height: 24rem;
+    }
+
+    .image-triptych__item span {
+      bottom: 1.3rem;
+      left: 1.3rem;
+    }
+
+    .value-timeline article {
+      gap: 0.65rem;
+      padding: 1.35rem 0;
+    }
+
+    .method-track article {
+      min-height: auto;
+    }
+
+    .method-track span {
+      margin-bottom: 3rem;
+    }
+
+    .index-section {
+      min-height: 86svh;
+    }
+
+    .regenera-footer {
+      gap: 0.45rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+</style>
