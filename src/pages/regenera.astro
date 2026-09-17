@@ -1,6 +1,6 @@
 ---
 const title = 'REGENERA | Natural Capital Asset Management';
-const description = 'REGENERA convierte grandes activos rurales en patrimonios mejor entendidos, gestionados y regenerados, uniendo mercado, ciencia, tecnología y visión de largo plazo.';
+const description = 'REGENERA integra capital natural, gestión especializada y regeneración productiva para preservar y crear valor a largo plazo en grandes dehesas y activos rurales singulares.';
 
 const valueSteps = [
   ['01', 'Comprar bien', 'Identificar activos con encaje real antes de comprometer capital, tiempo y estructura.'],
@@ -27,6 +27,29 @@ const indicators = [
   'CAPEX',
   'Riesgo climático',
   'Valor patrimonial',
+];
+
+const regeneraModel = [
+  {
+    title: 'Selección estratégica',
+    text: 'Identificamos grandes dehesas, activos agroforestales, oportunidades singulares y territorios con potencial de mejora.',
+    items: ['Grandes dehesas', 'Activos agroforestales', 'Operaciones reservadas', 'Alto valor ecológico'],
+  },
+  {
+    title: 'Regeneración productiva',
+    text: 'Diseñamos planes de medio y largo plazo para mejorar el funcionamiento ecológico y operativo del activo.',
+    items: ['Restauración ecológica', 'Protección del arbolado', 'Mejora de suelos', 'Custodia del territorio'],
+  },
+  {
+    title: 'Gestión especializada',
+    text: 'Acompañamos la dirección técnica y patrimonial del territorio con una lectura completa de usos, rentas y riesgos.',
+    items: ['Ganadería extensiva', 'Agua y recursos hídricos', 'Corcho y montanera', 'Biodiversidad y resiliencia'],
+  },
+  {
+    title: 'Creación de valor',
+    text: 'Seguimos el activo con métricas financieras, operativas, ambientales y territoriales para decidir con evidencia.',
+    items: ['Indicadores financieros', 'KPIs operativos', 'Métricas ambientales', 'Seguimiento institucional'],
+  },
 ];
 ---
 
@@ -82,8 +105,8 @@ const indicators = [
     <section class="hero-summary" aria-label="Enfoque REGENERA">
       <div class="hero-summary__intro">
         <p>
-          Gestión y regeneración integral de grandes activos rurales para convertir
-          territorio, resiliencia y capital natural en valor patrimonial de largo plazo.
+          Una visión institucional para los activos rurales del futuro:
+          capital natural, gestión especializada y regeneración productiva.
         </p>
         <div class="hero-actions hero-summary__actions">
           <a href="#contacto">Analizar un activo</a>
@@ -92,16 +115,16 @@ const indicators = [
       </div>
       <div class="regenera-hero__cards" aria-label="Pilares REGENERA">
         <article>
-          <span>Datos</span>
-          <p>Tecnología territorial para decidir con evidencia.</p>
+          <span>Acceso</span>
+          <p>Grandes dehesas y activos rurales singulares con lectura patrimonial.</p>
         </article>
         <article>
-          <span>Método</span>
-          <p>Un proceso claro para comprar, gestionar y regenerar.</p>
+          <span>Experiencia</span>
+          <p>Capital natural, gestión patrimonial y operaciones reservadas.</p>
         </article>
         <article>
-          <span>Cartera</span>
-          <p>Del activo único a una cartera rural gestionada.</p>
+          <span>Administración</span>
+          <p>Gestión orientada a preservar y crear valor a largo plazo.</p>
         </article>
       </div>
     </section>
@@ -110,17 +133,17 @@ const indicators = [
       <section id="que-es" class="editorial-section intro-section reveal">
         <div class="section-label">Qué es REGENERA</div>
         <div class="intro-section__grid">
-          <h2>Una plataforma de gestión patrimonial para grandes activos rurales.</h2>
+          <h2>Una plataforma institucional para preservar, regenerar y transmitir capital natural.</h2>
           <div class="intro-section__copy">
             <p>
-              REGENERA une mercado, ciencia y tecnología para ayudar a propietarios
-              e inversores a entender, comprar, gestionar, regenerar y hacer crecer
-              el valor de sus territorios.
+              REGENERA integra capital natural, gestión especializada y regeneración
+              productiva para preservar y crear valor a largo plazo en grandes
+              dehesas y activos rurales singulares.
             </p>
             <p>
-              No somos una inmobiliaria rural, ni una consultora ambiental genérica,
-              ni un software sin ejecución. Somos un equipo que convierte datos del
-              territorio en decisiones de gestión, inversión y regeneración.
+              Entendemos la dehesa como un patrimonio vivo: un activo real que debe
+              equilibrar rentabilidad, biodiversidad, impacto territorial y legado
+              bajo una visión profesional de largo plazo.
             </p>
           </div>
         </div>
@@ -161,6 +184,25 @@ const indicators = [
         </a>
       </section>
 
+      <section class="model-section reveal" aria-label="Modelo REGENERA">
+        <div class="model-section__header">
+          <span class="section-label">El modelo REGENERA</span>
+          <h2>Preservamos ecosistemas excepcionales. Creamos valor para las próximas generaciones.</h2>
+        </div>
+        <div class="model-grid">
+          {regeneraModel.map((block, index) => (
+            <article>
+              <span>{String(index + 1).padStart(2, '0')}</span>
+              <h3>{block.title}</h3>
+              <p>{block.text}</p>
+              <ul>
+                {block.items.map((item) => <li>{item}</li>)}
+              </ul>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <section id="valor" class="value-section reveal">
         <div class="value-section__image" aria-hidden="true">
           <img src="/imagenes/territorio-legado.jpg" alt="">
@@ -169,8 +211,8 @@ const indicators = [
           <span class="section-label">Creación de valor</span>
           <h2>Del activo rural al patrimonio gestionado.</h2>
           <p>
-            La lógica es sencilla: comprar mejor, ordenar lo existente, gestionar con
-            control, regenerar el capital natural y sostener una valoración más sólida.
+            La lógica es sencilla: seleccionar mejor, ordenar lo existente, gestionar
+            con control, regenerar el capital natural y sostener una valoración más sólida.
           </p>
           <div class="value-timeline">
             {valueSteps.map(([number, heading, text]) => (
@@ -214,7 +256,8 @@ const indicators = [
           <h2>Primero medimos. Luego afirmamos.</h2>
           <p>
             El territorio se lee como un activo vivo: agua, suelo, arbolado,
-            biodiversidad, rentas, riesgos, CAPEX y potencial de regeneración.
+            biodiversidad, rentas, riesgos, CAPEX y potencial de regeneración,
+            siempre con métricas financieras, operativas y ambientales.
           </p>
           <div class="indicator-cloud">
             {indicators.map((indicator) => <span>{indicator}</span>)}
@@ -247,8 +290,8 @@ const indicators = [
           <span class="section-label section-label--light">Siguiente paso</span>
           <h2>Analicemos si su territorio puede funcionar mejor.</h2>
           <p>
-            Si gestiona, compra o quiere poner en valor un gran activo rural,
-            REGENERA puede ayudarle a ordenar la decisión antes de invertir.
+            Contacto reservado para propietarios, family offices y organizaciones
+            que quieran preservar, regenerar o poner en valor un gran activo rural.
           </p>
           <div class="closing-actions">
             <a href="mailto:blanca@territorium.capital?subject=REGENERA%20-%20Analizar%20activo%20rural">blanca@territorium.capital</a>
@@ -760,6 +803,81 @@ const indicators = [
     width: 3rem;
   }
 
+  .model-section {
+    background: var(--green-deep);
+    color: var(--white);
+    padding: clamp(5rem, 10vw, 9rem) clamp(1.25rem, 6vw, 5.5rem);
+  }
+
+  .model-section__header {
+    display: grid;
+    gap: clamp(1.5rem, 5vw, 6rem);
+    grid-template-columns: minmax(0, 0.95fr) minmax(280px, 0.7fr);
+    margin-bottom: clamp(3rem, 6vw, 5rem);
+  }
+
+  .model-section__header h2 {
+    color: var(--white);
+    font-size: clamp(2.3rem, 5vw, 5.4rem);
+    line-height: 1.02;
+    max-width: 58rem;
+  }
+
+  .model-grid {
+    display: grid;
+    gap: 1px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .model-grid article {
+    background: rgba(255, 250, 240, 0.075);
+    border: 1px solid rgba(255, 250, 240, 0.16);
+    display: grid;
+    grid-template-rows: auto auto minmax(7rem, auto) 1fr;
+    min-height: 31rem;
+    padding: clamp(1.25rem, 2vw, 1.7rem);
+  }
+
+  .model-grid article > span {
+    color: var(--gold);
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 0.16em;
+    margin-bottom: 4rem;
+  }
+
+  .model-grid h3 {
+    color: var(--white);
+    font-family: var(--display);
+    font-size: clamp(1.4rem, 2vw, 2.25rem);
+    font-weight: 400;
+    line-height: 1.08;
+    margin-bottom: 1rem;
+  }
+
+  .model-grid p {
+    color: rgba(255, 250, 240, 0.72);
+    line-height: 1.65;
+  }
+
+  .model-grid ul {
+    align-self: end;
+    border-top: 1px solid rgba(255, 250, 240, 0.16);
+    display: grid;
+    gap: 0.6rem;
+    list-style: none;
+    margin: 1.6rem 0 0;
+    padding: 1.1rem 0 0;
+  }
+
+  .model-grid li {
+    color: rgba(255, 250, 240, 0.86);
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
   .value-section {
     background: var(--bone-soft);
     display: grid;
@@ -1057,6 +1175,8 @@ const indicators = [
     .partners-band,
     .partners-band__cards,
     .image-triptych,
+    .model-section__header,
+    .model-grid,
     .value-section,
     .value-timeline article,
     .method-track,
