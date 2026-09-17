@@ -157,11 +157,11 @@ const regeneraModel = [
           <h2>Mercado rural, capital natural y medición bajo una misma tesis de valor.</h2>
           <div class="partners-band__cards">
             <article>
-              <img src="/imagenes/Territorium_Capital_logo.png" alt="Territorium Capital">
+              <img src="/imagenes/territorium-logo-light-transparent.png" alt="Territorium Capital">
               <p>Capital natural, tecnología territorial, mapas, indicadores y estrategia de resiliencia.</p>
             </article>
             <article>
-              <img src="/imagenes/gestland-logo.png" alt="GestLand">
+              <img src="/imagenes/gestland-logo-light-transparent.png" alt="GestLand">
               <p>Conocimiento del activo rural, valoración, mercado y acceso a oportunidades.</p>
             </article>
           </div>
@@ -724,13 +724,22 @@ const regeneraModel = [
   }
 
   .partners-band__cards img {
-    background: rgba(255, 250, 240, 0.94);
-    height: 4.8rem;
+    display: block;
+    filter: drop-shadow(0 12px 20px rgba(0, 0, 0, 0.26));
+    height: 4.6rem;
     margin-bottom: 1.5rem;
-    max-width: 13rem;
+    max-width: 14rem;
     object-fit: contain;
-    padding: 0.7rem;
+    object-position: left center;
     width: 100%;
+  }
+
+  .partners-band__cards article:first-child img {
+    max-width: 12rem;
+  }
+
+  .partners-band__cards article:nth-child(2) img {
+    max-width: 10rem;
   }
 
   .partners-band__cards p {
