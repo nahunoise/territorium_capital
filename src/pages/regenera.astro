@@ -64,14 +64,14 @@ const regeneraModel = [
     <meta property="og:image" content="/imagenes/medidas/nuevas/paisaje-spain.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="preload" as="image" href="/imagenes/regenera-logo-lockup-transparent.png" />
+    <link rel="preload" as="image" href="/imagenes/regenera-logo-lockup-light-strong.png" />
     <link rel="preload" as="video" href="/videos/premium/hero-bosque-luz.mp4" />
     <title>{title}</title>
   </head>
   <body>
     <nav class="regenera-nav" aria-label="Navegación REGENERA">
       <a href="#inicio" class="regenera-nav__brand" aria-label="REGENERA inicio">
-        <img src="/imagenes/regenera-logo-lockup-transparent.png" alt="REGENERA">
+        <img src="/imagenes/regenera-logo-lockup.png" alt="REGENERA">
       </a>
       <div class="regenera-nav__links">
         <a href="#que-es">Qué es</a>
@@ -96,7 +96,7 @@ const regeneraModel = [
       </div>
       <div class="regenera-hero__veil" aria-hidden="true"></div>
       <div class="regenera-hero__content">
-        <img class="regenera-hero__logo" src="/imagenes/regenera-logo-lockup-light.png" alt="REGENERA">
+        <img class="regenera-hero__logo" src="/imagenes/regenera-logo-lockup-light-strong.png" alt="REGENERA">
         <span class="eyebrow">Natural Capital · Real Assets · Real Impact</span>
         <h1>Conservar produciendo. Producir regenerando.</h1>
       </div>
@@ -419,7 +419,7 @@ const regeneraModel = [
 
   .regenera-nav {
     align-items: center;
-    background: rgba(239, 231, 214, 0.88);
+    background: rgba(239, 231, 214, 0.96);
     border-bottom: 1px solid rgba(14, 32, 24, 0.12);
     backdrop-filter: blur(16px);
     display: grid;
@@ -435,10 +435,10 @@ const regeneraModel = [
 
   .regenera-nav__brand img {
     height: auto;
-    max-height: 38px;
+    max-height: 54px;
     object-fit: contain;
     object-position: left center;
-    width: min(190px, 42vw);
+    width: min(280px, 52vw);
   }
 
   .regenera-nav__links {
@@ -1139,6 +1139,11 @@ const regeneraModel = [
   @media (max-width: 820px) {
     .regenera-nav {
       padding: 0.85rem 1rem;
+    }
+
+    .regenera-nav__brand img {
+      max-height: 42px;
+      width: min(220px, 72vw);
     }
 
     .regenera-nav__territorium {
