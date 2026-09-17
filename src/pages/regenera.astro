@@ -76,11 +76,16 @@ const indicators = [
         <img class="regenera-hero__logo" src="/imagenes/regenera-logo-lockup-light.png" alt="REGENERA">
         <span class="eyebrow">Natural Capital · Real Assets · Real Impact</span>
         <h1>Conservar produciendo. Producir regenerando.</h1>
+      </div>
+    </header>
+
+    <section class="hero-summary" aria-label="Enfoque REGENERA">
+      <div class="hero-summary__intro">
         <p>
           Gestión y regeneración integral de grandes activos rurales para convertir
           territorio, resiliencia y capital natural en valor patrimonial de largo plazo.
         </p>
-        <div class="hero-actions">
+        <div class="hero-actions hero-summary__actions">
           <a href="#contacto">Analizar un activo</a>
           <a href="#que-es">Ver enfoque</a>
         </div>
@@ -99,7 +104,7 @@ const indicators = [
           <p>Del activo único a una cartera rural gestionada.</p>
         </article>
       </div>
-    </header>
+    </section>
 
     <main>
       <section id="que-es" class="editorial-section intro-section reveal">
@@ -418,7 +423,7 @@ const indicators = [
     color: var(--white);
     min-height: 100svh;
     overflow: hidden;
-    padding: clamp(8rem, 13vw, 11rem) clamp(1.25rem, 6vw, 5.5rem) clamp(3rem, 6vw, 5rem);
+    padding: clamp(8rem, 13vw, 11rem) clamp(1.25rem, 6vw, 5.5rem) clamp(6rem, 10vw, 9rem);
     position: relative;
   }
 
@@ -456,7 +461,6 @@ const indicators = [
 
   .regenera-hero__content {
     max-width: min(62rem, calc(100vw - clamp(2.5rem, 12vw, 11rem)));
-    padding-bottom: clamp(13rem, 18vw, 18rem);
     position: relative;
     z-index: 2;
   }
@@ -504,14 +508,6 @@ const indicators = [
     max-width: 52rem;
   }
 
-  .regenera-hero p {
-    color: rgba(255, 250, 240, 0.84);
-    font-size: clamp(1.05rem, 2vw, 1.38rem);
-    line-height: 1.62;
-    margin-top: 1.8rem;
-    max-width: 38rem;
-  }
-
   .hero-actions,
   .closing-actions {
     align-items: center;
@@ -543,15 +539,10 @@ const indicators = [
   }
 
   .regenera-hero__cards {
-    bottom: clamp(1.5rem, 3.2vw, 3.2rem);
     display: grid;
     gap: 1px;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    max-width: 52rem;
-    position: absolute;
-    right: clamp(1.25rem, 6vw, 5.5rem);
-    width: min(52rem, calc(100% - clamp(2.5rem, 12vw, 11rem)));
-    z-index: 2;
+    width: 100%;
   }
 
   .regenera-hero__cards article {
@@ -574,6 +565,40 @@ const indicators = [
     font-size: 0.92rem;
     line-height: 1.55;
     margin: 0;
+  }
+
+  .hero-summary {
+    align-items: stretch;
+    background: var(--bone);
+    border-bottom: 1px solid var(--line);
+    display: grid;
+    gap: clamp(2rem, 5vw, 6rem);
+    grid-template-columns: minmax(0, 0.74fr) minmax(360px, 1fr);
+    padding: clamp(2.4rem, 6vw, 5.5rem) clamp(1.25rem, 6vw, 5.5rem);
+  }
+
+  .hero-summary__intro {
+    align-content: center;
+    display: grid;
+  }
+
+  .hero-summary__intro p {
+    color: var(--green-deep);
+    font-family: var(--display);
+    font-size: clamp(1.8rem, 3.3vw, 3.5rem);
+    line-height: 1.08;
+    max-width: 43rem;
+  }
+
+  .hero-summary__actions a {
+    border-color: var(--green-deep);
+    color: var(--green-deep);
+  }
+
+  .hero-summary__actions a:first-child {
+    background: var(--green-deep);
+    border-color: var(--green-deep);
+    color: var(--white);
   }
 
   .editorial-section,
@@ -1004,7 +1029,7 @@ const indicators = [
 
     .regenera-hero {
       min-height: auto;
-      padding: 7rem 1.15rem 2rem;
+      padding: 7rem 1.15rem 4rem;
     }
 
     .regenera-hero__logo {
@@ -1021,24 +1046,13 @@ const indicators = [
       font-size: clamp(3rem, 15vw, 5.2rem);
     }
 
-    .regenera-hero p {
-      font-size: 1rem;
-      line-height: 1.62;
-    }
-
     .hero-actions a,
     .closing-actions a {
       width: 100%;
     }
 
-    .regenera-hero__cards {
-      margin-top: 3rem;
-      position: relative;
-      right: auto;
-      width: 100%;
-    }
-
     .regenera-hero__cards,
+    .hero-summary,
     .intro-section__grid,
     .partners-band,
     .partners-band__cards,
@@ -1050,6 +1064,14 @@ const indicators = [
     .portfolio-metrics,
     .regenera-footer {
       grid-template-columns: 1fr;
+    }
+
+    .hero-summary {
+      padding: 2rem 1.15rem 3rem;
+    }
+
+    .hero-summary__intro p {
+      font-size: clamp(1.75rem, 9vw, 2.55rem);
     }
 
     .editorial-section,
