@@ -79,7 +79,6 @@ const regeneraModel = [
         <a href="#valor">Valor</a>
         <a href="#contacto">Contacto</a>
       </div>
-      <a href="/proyectos/regenera/" class="regenera-nav__territorium">Proyecto Territorium</a>
     </nav>
 
     <header id="inicio" class="regenera-hero">
@@ -423,7 +422,7 @@ const regeneraModel = [
     border-bottom: 1px solid rgba(14, 32, 24, 0.12);
     backdrop-filter: blur(16px);
     display: grid;
-    grid-template-columns: minmax(130px, 190px) 1fr auto;
+    grid-template-columns: minmax(160px, 280px) 1fr minmax(160px, 280px);
     gap: clamp(1rem, 3vw, 3rem);
     left: 0;
     padding: 1rem clamp(1rem, 4vw, 3.5rem);
@@ -454,11 +453,6 @@ const regeneraModel = [
     font-weight: 800;
     letter-spacing: 0.13em;
     text-transform: uppercase;
-  }
-
-  .regenera-nav__territorium {
-    border: 1px solid rgba(14, 32, 24, 0.22);
-    padding: 0.8rem 1rem;
   }
 
   .regenera-hero {
@@ -1114,7 +1108,7 @@ const regeneraModel = [
 
   @media (max-width: 1120px) {
     .regenera-nav {
-      grid-template-columns: 1fr auto;
+      grid-template-columns: 1fr;
     }
 
     .regenera-nav__links {
@@ -1144,10 +1138,6 @@ const regeneraModel = [
     .regenera-nav__brand img {
       max-height: 42px;
       width: min(220px, 72vw);
-    }
-
-    .regenera-nav__territorium {
-      display: none;
     }
 
     .regenera-hero {
