@@ -41,14 +41,14 @@ const indicators = [
     <meta property="og:image" content="/imagenes/medidas/nuevas/paisaje-spain.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="preload" as="image" href="/imagenes/regenera-logo-lockup.png" />
+    <link rel="preload" as="image" href="/imagenes/regenera-logo-lockup-transparent.png" />
     <link rel="preload" as="video" href="/videos/premium/hero-bosque-luz.mp4" />
     <title>{title}</title>
   </head>
   <body>
     <nav class="regenera-nav" aria-label="Navegación REGENERA">
       <a href="#inicio" class="regenera-nav__brand" aria-label="REGENERA inicio">
-        <img src="/imagenes/regenera-logo-lockup.png" alt="REGENERA">
+        <img src="/imagenes/regenera-logo-lockup-transparent.png" alt="REGENERA">
       </a>
       <div class="regenera-nav__links">
         <a href="#que-es">Qué es</a>
@@ -73,7 +73,7 @@ const indicators = [
       </div>
       <div class="regenera-hero__veil" aria-hidden="true"></div>
       <div class="regenera-hero__content">
-        <img class="regenera-hero__logo" src="/imagenes/regenera-logo-lockup.png" alt="REGENERA">
+        <img class="regenera-hero__logo" src="/imagenes/regenera-logo-lockup-transparent.png" alt="REGENERA">
         <span class="eyebrow">Natural Capital · Real Assets · Real Impact</span>
         <h1>Conservar produciendo. Producir regenerando.</h1>
         <p>
@@ -418,7 +418,7 @@ const indicators = [
     color: var(--white);
     min-height: 100svh;
     overflow: hidden;
-    padding: clamp(8rem, 13vw, 11rem) clamp(1.25rem, 6vw, 5.5rem) clamp(2rem, 5vw, 4rem);
+    padding: clamp(8rem, 13vw, 11rem) clamp(1.25rem, 6vw, 5.5rem) clamp(3rem, 6vw, 5rem);
     position: relative;
   }
 
@@ -455,18 +455,18 @@ const indicators = [
   }
 
   .regenera-hero__content {
-    max-width: 66rem;
-    padding-bottom: clamp(9rem, 14vw, 13rem);
+    max-width: min(62rem, calc(100vw - clamp(2.5rem, 12vw, 11rem)));
+    padding-bottom: clamp(13rem, 18vw, 18rem);
     position: relative;
     z-index: 2;
   }
 
   .regenera-hero__logo {
-    background: rgba(239, 231, 214, 0.9);
     height: auto;
-    margin-bottom: clamp(2rem, 5vw, 4rem);
-    max-width: min(520px, 82vw);
-    padding: 1rem 1.2rem;
+    filter: drop-shadow(0 14px 26px rgba(0, 0, 0, 0.34));
+    margin-bottom: clamp(2.3rem, 5vw, 4.4rem);
+    max-width: min(500px, 72vw);
+    width: 100%;
   }
 
   .eyebrow,
@@ -499,9 +499,9 @@ const indicators = [
   }
 
   .regenera-hero h1 {
-    font-size: clamp(3.4rem, 8vw, 9rem);
-    line-height: 0.94;
-    max-width: 58rem;
+    font-size: clamp(3.1rem, 7.2vw, 8rem);
+    line-height: 0.96;
+    max-width: 52rem;
   }
 
   .regenera-hero p {
@@ -509,7 +509,7 @@ const indicators = [
     font-size: clamp(1.05rem, 2vw, 1.38rem);
     line-height: 1.62;
     margin-top: 1.8rem;
-    max-width: 44rem;
+    max-width: 38rem;
   }
 
   .hero-actions,
@@ -518,7 +518,7 @@ const indicators = [
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
-    margin-top: 2.5rem;
+    margin-top: 2.8rem;
   }
 
   .hero-actions a,
@@ -543,14 +543,14 @@ const indicators = [
   }
 
   .regenera-hero__cards {
-    bottom: 2rem;
+    bottom: clamp(1.5rem, 3.2vw, 3.2rem);
     display: grid;
     gap: 1px;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    max-width: 56rem;
+    max-width: 52rem;
     position: absolute;
     right: clamp(1.25rem, 6vw, 5.5rem);
-    width: min(56rem, calc(100% - 2.5rem));
+    width: min(52rem, calc(100% - clamp(2.5rem, 12vw, 11rem)));
     z-index: 2;
   }
 
@@ -1008,9 +1008,9 @@ const indicators = [
     }
 
     .regenera-hero__logo {
-      margin-bottom: 2rem;
-      max-width: 92vw;
-      padding: 0.75rem;
+      filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.32));
+      margin-bottom: 2.2rem;
+      max-width: 86vw;
     }
 
     .regenera-hero__content {
