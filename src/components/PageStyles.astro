@@ -2432,6 +2432,78 @@
     margin-top: var(--space-4);
   }
 
+  .impact-photo-strip {
+    background: #ede8dd;
+    padding-block: clamp(var(--space-10), 6vw, var(--space-16));
+  }
+
+  .impact-photo-strip__grid {
+    display: grid;
+    gap: clamp(var(--space-4), 3vw, var(--space-8));
+    grid-template-columns: 0.9fr 1.2fr 0.9fr;
+  }
+
+  .impact-photo-strip figure {
+    margin: 0;
+    position: relative;
+  }
+
+  .impact-photo-strip img {
+    aspect-ratio: 4 / 5;
+    display: block;
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  .impact-photo-strip figure:nth-child(2) {
+    transform: translateY(clamp(-2rem, -3vw, -1rem));
+  }
+
+  .impact-photo-strip figcaption {
+    bottom: var(--space-5);
+    color: var(--color-white);
+    font-family: var(--font-display);
+    font-size: clamp(var(--text-xl), 3vw, var(--text-2xl));
+    left: var(--space-5);
+    position: absolute;
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.42);
+  }
+
+  .impact-image-callout {
+    background: #102719;
+    color: var(--color-white);
+    padding-block: clamp(var(--space-12), 7vw, var(--space-18));
+  }
+
+  .impact-image-callout__grid {
+    align-items: center;
+    display: grid;
+    gap: clamp(var(--space-8), 6vw, var(--space-14));
+    grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+  }
+
+  .impact-image-callout img {
+    aspect-ratio: 16 / 10;
+    display: block;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  .impact-image-callout h2 {
+    color: var(--color-white);
+    font-size: clamp(var(--text-3xl), 5vw, var(--text-5xl));
+    font-weight: 400;
+    line-height: 1.05;
+  }
+
+  .impact-image-callout p {
+    color: rgba(255, 250, 240, 0.76);
+    font-size: var(--text-base);
+    line-height: 1.75;
+    margin-top: var(--space-6);
+  }
+
   .seo-faq {
     display: grid;
     gap: var(--space-6);
@@ -2500,6 +2572,8 @@
     .resilience-flow,
     .seo-two-col,
     .seo-card-grid,
+    .impact-photo-strip__grid,
+    .impact-image-callout__grid,
     .home-project,
     .projects-hero__grid,
     .project-feature-card,
@@ -2549,6 +2623,14 @@
 
     .project-feature-card--reverse .project-feature-card__copy {
       order: 2;
+    }
+
+    .impact-photo-strip figure:nth-child(2) {
+      transform: none;
+    }
+
+    .impact-photo-strip img {
+      aspect-ratio: 16 / 11;
     }
 
     .regenera-hero__content {
