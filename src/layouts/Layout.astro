@@ -52,6 +52,7 @@ const nav = isEn
       home: 'Home',
       services: 'Services',
       projects: 'Projects',
+      opportunities: 'Opportunities',
       about: 'About',
       analyze: 'Contact',
     }
@@ -59,7 +60,8 @@ const nav = isEn
       home: 'Inicio',
       services: 'Servicios',
       projects: 'Proyectos',
-      about: 'Sobre Territorium',
+      opportunities: 'Oportunidades',
+      about: 'Sobre',
       analyze: 'Contacto',
     };
 
@@ -68,6 +70,7 @@ const navLinks = isEn
       home: '/en/',
       services: '/en/#servicios',
       projects: '/proyectos/',
+      opportunities: '/en/opportunities/',
       about: '/en/#por-que-nosotros',
       analyze: '/contacto/',
     }
@@ -75,6 +78,7 @@ const navLinks = isEn
       home: '/',
       services: '/servicios/',
       projects: '/proyectos/',
+      opportunities: '/oportunidades/',
       about: '/sobre-territorium/',
       analyze: '/contacto/',
     };
@@ -142,6 +146,8 @@ const breadcrumbLabels: Record<string, string> = {
   '/proyectos/regenera/': 'REGENERA',
   '/proyectos/resiliencia-agricola/': 'Resiliencia agrícola',
   '/proyectos/viviendas-impacto-positivo/': 'Viviendas de impacto positivo en naturaleza',
+  '/oportunidades/': 'Oportunidades',
+  '/en/opportunities/': 'Opportunities',
   '/comprar-vender-territorio-alto-valor-ecologico/': 'Comprar o vender territorio de alto valor ecológico',
   '/restauracion-ecologica-llave-en-mano/': 'Restauración ecológica llave en mano',
   '/valor-ecologico-territorio/': 'Valor ecológico del territorio',
@@ -234,6 +240,7 @@ const breadcrumbSchema = breadcrumbPath === '/'
         <li><a href={navLinks.home} class="nav-link">{nav.home}</a></li>
         <li><a href={navLinks.services} class="nav-link">{nav.services}</a></li>
         {!isEn && <li><a href={navLinks.projects} class="nav-link">{nav.projects}</a></li>}
+        <li><a href={navLinks.opportunities} class="nav-link">{nav.opportunities}</a></li>
         <li><a href={navLinks.about} class="nav-link">{nav.about}</a></li>
         <li><a href={navLinks.analyze} class="nav-link">{nav.analyze}</a></li>
       </ul>
@@ -550,15 +557,16 @@ const breadcrumbSchema = breadcrumbPath === '/'
     .nav-list {
       grid-area: nav;
       justify-content: flex-start;
-      gap: var(--space-4);
+      gap: clamp(0.85rem, 3.6vw, var(--space-4));
       flex-wrap: nowrap;
       min-width: 0;
       max-width: 100%;
       overflow-x: auto;
-      padding: 0 0 var(--space-1);
+      padding: 0.1rem var(--space-2) var(--space-1) 0;
       scroll-padding-inline: var(--space-4);
       scrollbar-width: none;
       width: 100%;
+      -webkit-overflow-scrolling: touch;
     }
 
     .nav-list::-webkit-scrollbar {
@@ -567,7 +575,7 @@ const breadcrumbSchema = breadcrumbPath === '/'
 
     .nav-link {
       display: block;
-      font-size: 0.68rem;
+      font-size: clamp(0.6rem, 2.4vw, 0.68rem);
       padding-block: 0.35rem;
       white-space: nowrap;
     }
