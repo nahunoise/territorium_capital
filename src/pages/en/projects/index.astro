@@ -105,6 +105,18 @@ const projects = [
               </div>
             </a>
           ))}
+          <a class="project-slide project-slide--clone" href={projects[0].href} data-project-slide data-project-clone aria-label={`${projects[0].title}, carousel continuation`}>
+            <img src={projects[0].image} alt="" loading="lazy" decoding="async">
+            <div class="project-slide__shade"></div>
+            <div class="project-slide__copy">
+              <span>{projects[0].eyebrow}</span>
+              <small>01</small>
+              <h2>{projects[0].title}</h2>
+              <p class="project-slide__subtitle">{projects[0].subtitle}</p>
+              <p>{projects[0].body}</p>
+              <strong>View project</strong>
+            </div>
+          </a>
         </div>
 
         <div class="projects-carousel__dots" aria-label="Select project">
@@ -149,18 +161,25 @@ const projects = [
     let isPointerDown = false;
     let startX = 0;
     let startScroll = 0;
+    const realSlideCount = dots.length || slides.length;
 
     const getSlideLeft = (index: number) => slides[index]?.offsetLeft ?? 0;
+    const normalizeIndex = (index: number) => ((index % realSlideCount) + realSlideCount) % realSlideCount;
 
     const setActive = (index: number) => {
-      activeIndex = Math.max(0, Math.min(slides.length - 1, index));
+      activeIndex = normalizeIndex(index);
       dots.forEach((dot, dotIndex) => dot.classList.toggle("is-active", dotIndex === activeIndex));
     };
 
     const scrollToSlide = (index: number) => {
-      const nextIndex = (index + slides.length) % slides.length;
+      const nextIndex = index === realSlideCount ? realSlideCount : normalizeIndex(index);
       track.scrollTo({ left: getSlideLeft(nextIndex), behavior: "smooth" });
       setActive(nextIndex);
+      if (nextIndex === realSlideCount) {
+        window.setTimeout(() => {
+          track.scrollTo({ left: getSlideLeft(0), behavior: "auto" });
+        }, 620);
+      }
     };
 
     const syncActiveFromScroll = () => {
@@ -172,6 +191,9 @@ const projects = [
         return currentDistance < bestDistance ? index : bestIndex;
       }, 0);
       setActive(closest);
+      if (closest === realSlideCount && Math.abs(track.scrollLeft - getSlideLeft(closest)) < 8) {
+        window.requestAnimationFrame(() => track.scrollTo({ left: getSlideLeft(0), behavior: "auto" }));
+      }
     };
 
     const stopAuto = () => {
