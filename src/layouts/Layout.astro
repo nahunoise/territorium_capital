@@ -68,8 +68,8 @@ const nav = isEn
 const navLinks = isEn
   ? {
       home: '/en/',
-      services: '/en/#servicios',
-      projects: '/proyectos/',
+      services: '/en/services/',
+      projects: '/en/projects/',
       opportunities: '/en/opportunities/',
       about: '/en/#por-que-nosotros',
       analyze: '/contacto/',
@@ -149,6 +149,8 @@ const breadcrumbLabels: Record<string, string> = {
   '/proyectos/viviendas-impacto-positivo/': 'Viviendas de impacto positivo en naturaleza',
   '/oportunidades/': 'Oportunidades',
   '/en/opportunities/': 'Opportunities',
+  '/en/services/': 'Services',
+  '/en/projects/': 'Projects',
   '/comprar-vender-territorio-alto-valor-ecologico/': 'Comprar o vender territorio de alto valor ecológico',
   '/restauracion-ecologica-llave-en-mano/': 'Restauración ecológica llave en mano',
   '/valor-ecologico-territorio/': 'Valor ecológico del territorio',
@@ -240,7 +242,7 @@ const breadcrumbSchema = breadcrumbPath === '/'
       <ul class="nav-list">
         <li><a href={navLinks.home} class="nav-link">{nav.home}</a></li>
         <li><a href={navLinks.services} class="nav-link">{nav.services}</a></li>
-        {!isEn && <li><a href={navLinks.projects} class="nav-link">{nav.projects}</a></li>}
+        <li><a href={navLinks.projects} class="nav-link">{nav.projects}</a></li>
         <li><a href={navLinks.opportunities} class="nav-link">{nav.opportunities}</a></li>
         <li><a href={navLinks.about} class="nav-link">{nav.about}</a></li>
         <li><a href={navLinks.analyze} class="nav-link">{nav.analyze}</a></li>

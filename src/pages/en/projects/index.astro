@@ -1,61 +1,62 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import PageStyles from '../components/PageStyles.astro';
+import Layout from '../../../layouts/Layout.astro';
+import PageStyles from '../../../components/PageStyles.astro';
 
 const projects = [
   {
-    href: '/proyectos/living-lab-restauracion-ecologica/',
+    href: '/en/projects/ecological-restoration-living-lab/',
     image: '/imagenes/living-lab-ndvi-estacional.png',
-    alt: 'Mapas NDVI estacionales para medir condición del ecosistema',
-    eyebrow: 'Proyecto destacado',
-    title: 'Living Lab de restauración ecológica',
-    subtitle: 'Infraestructura de evidencia para condición del ecosistema',
-    body: 'Un laboratorio territorial para co-diseñar, ensayar y medir intervenciones de restauración con teledetección, modelización ecológica, cámaras trampa, ecoacústica y seguimiento periódico.',
+    alt: 'Seasonal NDVI maps used to measure ecosystem condition',
+    eyebrow: 'Featured project',
+    title: 'Ecological restoration Living Lab',
+    subtitle: 'Evidence infrastructure for ecosystem condition',
+    body: 'A territorial lab to co-design, test and measure restoration interventions with remote sensing, ecological modelling, camera trapping, ecoacoustics and periodic monitoring.',
   },
   {
     href: '/proyectos/sistema-alerta-temprana-arbolado/',
     image: '/imagenes/medidas/nuevas/conectividad-bosque.jpg',
-    alt: 'Arbolado monitorizado como infraestructura natural y activo de gestión preventiva',
-    eyebrow: 'Línea de trabajo',
-    title: 'Sistema de alerta temprana del arbolado',
-    subtitle: 'Sensores, datos y gestión preventiva',
-    body: 'Medición continua para detectar anomalías, priorizar inspecciones y activar actuaciones antes de que el riesgo del arbolado se convierta en incidente.',
+    alt: 'Trees monitored as natural infrastructure and preventive management assets',
+    eyebrow: 'Workstream',
+    title: 'Early warning tree system',
+    subtitle: 'Sensors, data and preventive management',
+    body: 'Continuous monitoring to detect anomalies, prioritise inspections and activate measures before tree risk becomes an incident.',
   },
   {
     href: '/proyectos/resiliencia-agricola/',
     image: '/imagenes/medidas/nuevas/riesgo-climatico-sequia.jpg',
-    alt: 'Territorio agrícola afectado por estrés hídrico',
-    eyebrow: 'Línea de trabajo',
-    title: 'Resiliencia agrícola',
-    subtitle: 'Infraestructura natural frente al clima',
-    body: 'Medimos cómo suelo, agua, cubierta vegetal, biodiversidad y conectividad pueden ayudar a reducir vulnerabilidad agrícola ante sequías, calor, lluvias intensas y otros eventos climáticos.',
+    alt: 'Agricultural land affected by water stress',
+    eyebrow: 'Workstream',
+    title: 'Agricultural resilience',
+    subtitle: 'Natural infrastructure against climate risk',
+    body: 'We measure how soil, water, vegetation cover, biodiversity and ecological connectivity can help reduce agricultural vulnerability to drought, heat and intense rainfall.',
   },
   {
     href: '/proyectos/viviendas-impacto-positivo/',
     image: '/imagenes/territorio-urbano-analisis.jpg',
-    alt: 'Análisis de infraestructura verde aplicado a un entorno urbano',
-    eyebrow: 'Línea de trabajo',
-    title: 'Viviendas de impacto positivo en naturaleza',
-    subtitle: 'BNG voluntario, reducción y restauración',
-    body: 'Aplicamos una lógica inspirada en Biodiversity Net Gain para medir línea base, reducir impactos, evitar daños y generar mejora positiva en naturaleza con actuaciones in situ y restauración ex situ.',
+    alt: 'Green infrastructure analysis applied to an urban environment',
+    eyebrow: 'Workstream',
+    title: 'Nature-positive housing',
+    subtitle: 'Voluntary BNG, reduction and restoration',
+    body: 'We apply a logic inspired by Biodiversity Net Gain to measure baselines, reduce impacts, avoid damage and generate positive nature outcomes through on-site and off-site restoration.',
   },
   {
     href: '/proyectos/regenera/',
     image: '/imagenes/regenera-dehesa-camino.jpg',
-    alt: 'Dehesa mediterránea gestionada como activo rural de largo plazo',
-    eyebrow: 'Proyecto destacado',
+    alt: 'Mediterranean dehesa managed as a long-term rural asset',
+    eyebrow: 'Featured project',
     title: 'REGENERA',
-    subtitle: 'Conservar produciendo. Producir regenerando.',
-    body: 'Iniciativa de Territorium Capital y GestLand para gestionar y regenerar grandes activos rurales con datos, criterio patrimonial y ejecución sobre el terreno.',
+    subtitle: 'Conserving by producing. Producing by regenerating.',
+    body: 'A Territorium Capital and GestLand initiative to manage and regenerate large rural assets with data, patrimonial criteria and execution on the ground.',
   },
 ];
 ---
 
 <Layout
-  title="Proyectos | Territorium Capital"
-  description="Proyectos e iniciativas de Territorium Capital en gestión patrimonial territorial, capital natural, validación de activos rurales y restauración."
-  canonicalPath="/proyectos/"
-  alternateEnPath="/en/projects/"
+  title="Projects | Territorium Capital"
+  description="Territorium Capital projects in territorial asset management, natural capital, rural asset validation, resilience and restoration."
+  canonicalPath="/en/projects/"
+  alternateEsPath="/proyectos/"
+  lang="en"
 >
   <PageStyles />
 
@@ -63,29 +64,29 @@ const projects = [
     <section class="projects-hero page-first-section reveal">
       <div class="container projects-hero__grid">
         <div>
-          <span class="section-kicker">Proyectos</span>
-          <h1>Evidencia territorial, metodología y colaboración.</h1>
+          <span class="section-kicker">Projects</span>
+          <h1>Territorial evidence, methodology and collaboration.</h1>
         </div>
         <div class="projects-hero__copy">
           <p>
-            Seleccionamos iniciativas que muestran cómo Territorium convierte
-            territorio, datos y criterio patrimonial en decisiones de gestión,
-            regeneración e inversión a largo plazo.
+            We select initiatives that show how Territorium turns land, data
+            and patrimonial criteria into decisions for management,
+            regeneration and long-term investment.
           </p>
         </div>
       </div>
     </section>
 
-    <section class="projects-carousel-section" aria-label="Carrusel de proyectos">
+    <section class="projects-carousel-section" aria-label="Project carousel">
       <div class="projects-carousel-shell" data-projects-carousel>
         <div class="projects-carousel__top">
           <div>
-            <span class="section-kicker">Trabajos en curso</span>
-            <h2>Proyectos que convierten el capital natural en decisiones.</h2>
+            <span class="section-kicker">Work in progress</span>
+            <h2>Projects that turn natural capital into decisions.</h2>
           </div>
-          <div class="projects-carousel__controls" aria-label="Controles del carrusel">
-            <button type="button" data-project-prev aria-label="Proyecto anterior">←</button>
-            <button type="button" data-project-next aria-label="Proyecto siguiente">→</button>
+          <div class="projects-carousel__controls" aria-label="Carousel controls">
+            <button type="button" data-project-prev aria-label="Previous project">←</button>
+            <button type="button" data-project-next aria-label="Next project">→</button>
           </div>
         </div>
 
@@ -100,18 +101,18 @@ const projects = [
                 <h2>{project.title}</h2>
                 <p class="project-slide__subtitle">{project.subtitle}</p>
                 <p>{project.body}</p>
-                <strong>Ver proyecto</strong>
+                <strong>View project</strong>
               </div>
             </a>
           ))}
         </div>
 
-        <div class="projects-carousel__dots" aria-label="Seleccionar proyecto">
+        <div class="projects-carousel__dots" aria-label="Select project">
           {projects.map((project, index) => (
             <button
               type="button"
               data-project-dot={index}
-              aria-label={`Ir a ${project.title}`}
+              aria-label={`Go to ${project.title}`}
               class:list={[index === 0 && 'is-active']}
             ></button>
           ))}

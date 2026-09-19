@@ -1,0 +1,161 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageStyles from '../../components/PageStyles.astro';
+---
+
+<Layout
+  title="Territorial asset management services | Territorium Capital"
+  description="Territorium Capital services for landowners, asset managers, companies and institutions: diagnosis, natural capital, climate resilience, restoration and measurable territorial projects."
+  canonicalPath="/en/services/"
+  alternateEsPath="/servicios/"
+  lang="en"
+>
+  <PageStyles />
+
+  <main>
+    <section id="servicios" class="section-axes page-first-section reveal">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-kicker section-kicker--light">Services</span>
+          <h1>From land as surface to land as strategic asset.</h1>
+          <p>
+            We help public and private landowners and asset managers increase
+            the resilience and profitability of their land through natural
+            capital, restoration, risk reduction and measurable projects. We
+            also support companies and institutions that want to invest in
+            territorial impact with rigour.
+          </p>
+        </div>
+
+        <div class="axes-showcase">
+          <article class="axes-feature">
+            <span class="axes-feature__eyebrow">Territorium method</span>
+            <h3>Measure. Prioritise. Activate. Accompany.</h3>
+            <p>
+              We combine environmental analysis, territorial technology and
+              patrimonial criteria so that every decision can become an action,
+              an investment, a project or a communicable metric.
+            </p>
+            <div class="axes-feature__actions">
+              <a href="/contacto/" class="axes-feature__cta">Discuss an opportunity</a>
+              <a href="/en/projects/" class="axes-feature__cta">View projects</a>
+            </div>
+          </article>
+
+          <div class="axes-grid" aria-label="Territorium work lines">
+            <article class="card-axis">
+              <span class="card-axis__number">01</span>
+              <div class="card-axis__content">
+                <h3 class="card-axis__name">Territorial diagnosis</h3>
+                <p class="card-axis__tag">Understand before deciding</p>
+                <p class="card-axis__body">Ecological, patrimonial and risk analysis to understand potential, constraints and opportunities.</p>
+              </div>
+            </article>
+
+            <article class="card-axis">
+              <span class="card-axis__number">02</span>
+              <div class="card-axis__content">
+                <h3 class="card-axis__name">Strategy</h3>
+                <p class="card-axis__tag">A patrimonial roadmap</p>
+                <p class="card-axis__body">We prioritise decisions for landowners, companies and institutions with value, risk and impact objectives.</p>
+              </div>
+            </article>
+
+            <article class="card-axis">
+              <span class="card-axis__number">03</span>
+              <div class="card-axis__content">
+                <h3 class="card-axis__name">Projects</h3>
+                <p class="card-axis__tag">From plan to land</p>
+                <p class="card-axis__body">Restoration, climate resilience, biodiversity, natural infrastructure and measurable corporate projects.</p>
+              </div>
+            </article>
+
+            <article class="card-axis">
+              <span class="card-axis__number">04</span>
+              <div class="card-axis__content">
+                <h3 class="card-axis__name">Natural capital</h3>
+                <p class="card-axis__tag">Measurable value</p>
+                <p class="card-axis__body">Clear indicators for investment, risk management, communication, due diligence and ESG criteria.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="services-editorial reveal" aria-label="Territorium core services">
+      <div class="services-editorial__intro">
+        <span class="section-kicker">Capabilities</span>
+        <h2>Integrated services for different decisions.</h2>
+      </div>
+
+      <div class="services-editorial__rail">
+        <a class="services-editorial__item services-editorial__item--left" href="/valor-ecologico-territorio/">
+          <img src="/imagenes/servicio-diagnostico-capas.png" alt="Territorial analysis with environmental layers">
+          <span>Measurement and diagnosis</span>
+        </a>
+        <a class="services-editorial__item services-editorial__item--center" href="/clientes/">
+          <img src="/imagenes/servicio-capital-natural.jpg" alt="Mountain and forest landscape considered as natural capital">
+          <span>Corporate strategy</span>
+        </a>
+        <a class="services-editorial__item services-editorial__item--right" href="/restauracion-ecologica-llave-en-mano/">
+          <img src="/imagenes/restauracion-despues.webp" alt="Restored wetland with biodiversity">
+          <span>Restoration and resilience</span>
+        </a>
+      </div>
+
+      <div class="services-editorial__arrow" aria-hidden="true"></div>
+    </section>
+
+    <section class="seo-section seo-section--white reveal">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-kicker">Applications</span>
+          <h2>One criterion for different kinds of decisions.</h2>
+          <p>
+            Territorium does not simply broker land. We translate the natural
+            functioning of an asset into management, investment, resilience and
+            responsible communication decisions.
+          </p>
+        </div>
+
+        <div class="seo-card-grid">
+          <article class="seo-card">
+            <span>01</span>
+            <h3>Landowners and families</h3>
+            <p>Understand, manage, regenerate or transfer land with a clear value thesis.</p>
+          </article>
+          <article class="seo-card">
+            <span>02</span>
+            <h3>Companies and corporations</h3>
+            <p>Invest in natural capital, reduce climate vulnerability and build traceable territorial projects.</p>
+          </article>
+          <article class="seo-card">
+            <span>03</span>
+            <h3>Developers and institutions</h3>
+            <p>Integrate biodiversity, water, soil and restoration into projects with measurable positive impact.</p>
+          </article>
+          <article class="seo-card">
+            <span>04</span>
+            <h3>Asset managers</h3>
+            <p>Evaluate assets, risks and opportunities linked to land, resilience and natural capital.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const observer = new IntersectionObserver((entries, currentObserver) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+          currentObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+  });
+</script>
