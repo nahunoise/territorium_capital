@@ -5,8 +5,8 @@ import PageStyles from '../../components/PageStyles.astro';
 
 <Layout
   lang="en"
-  title="Opportunities Radar | Territorium Capital"
-  description="A funding and profitability opportunities radar for landowners and asset managers, matching land data with open and upcoming funding calls."
+  title="Natural capital opportunities | Territorium Capital"
+  description="Opportunities to increase territorial profitability through funding, carbon markets and biodiversity markets."
   canonicalPath="/en/opportunities/"
   alternateEsPath="/oportunidades/"
 >
@@ -16,23 +16,56 @@ import PageStyles from '../../components/PageStyles.astro';
     <section class="seo-page-hero seo-page-hero--opportunities">
       <div class="seo-page-hero__inner">
         <span class="section-kicker section-kicker--light">Opportunities</span>
-        <h1>Identify funding and profitability opportunities.</h1>
+        <h1>Opportunities to increase territorial profitability.</h1>
         <p>
-          We match your land data with open and upcoming funding calls to assess
-          eligibility, estimated value and next steps.
+          We assess whether a territory can access funding, carbon markets or
+          biodiversity markets through a clear view of eligibility, potential
+          value and next steps.
         </p>
         <div class="seo-page-hero__actions">
-          <a class="seo-cta seo-cta--solid" href="mailto:blanca@territorium.capital">Request an assessment</a>
-          <a class="seo-cta" href="/en/">Back to Territorium</a>
+          <a class="seo-cta seo-cta--solid" href="#funding">View opportunities</a>
+          <a class="seo-cta" href="/en/services/">View services</a>
         </div>
       </div>
     </section>
 
     <section class="seo-section seo-section--white">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-kicker">Three pathways</span>
+          <h2>From territorial data to a defensible opportunity.</h2>
+          <p>
+            Not every territory fits every pathway. Our work is to identify
+            where a real opportunity exists, what it requires and whether it is
+            worth pursuing.
+          </p>
+        </div>
+
+        <div class="seo-card-grid">
+          <a class="seo-card" href="#funding">
+            <span>01</span>
+            <h3>Access to funding</h3>
+            <p>Your territory may be leaving public funding on the table.</p>
+          </a>
+          <a class="seo-card" href="#carbon">
+            <span>02</span>
+            <h3>Access to carbon markets</h3>
+            <p>We assess eligibility, technical potential, risks and financial viability.</p>
+          </a>
+          <a class="seo-card" href="#biodiversity">
+            <span>03</span>
+            <h3>Access to biodiversity markets</h3>
+            <p>We identify whether the territory can generate measurable, defensible improvement.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="seo-section" id="funding">
       <div class="container seo-two-col">
         <div>
-          <span class="section-kicker">The problem</span>
-          <h2>Funding is often lost because there is no radar.</h2>
+          <span class="section-kicker">01 · Funding</span>
+          <h2>Your territory may be leaving public funding on the table.</h2>
         </div>
         <div class="seo-copy">
           <p>
@@ -50,7 +83,7 @@ import PageStyles from '../../components/PageStyles.astro';
       </div>
     </section>
 
-    <section class="seo-section">
+    <section class="seo-section seo-section--white">
       <div class="container">
         <div class="section-heading">
           <span class="section-kicker">What you receive</span>
@@ -81,38 +114,38 @@ import PageStyles from '../../components/PageStyles.astro';
       </div>
     </section>
 
-    <section class="regenera-analysis">
+    <section class="regenera-analysis" id="carbon">
       <div class="container regenera-analysis__grid">
         <div class="regenera-analysis__media">
-          <img src="/imagenes/medidas/nuevas/capital-natural-rural.jpg" alt="Rural land assessed for profitability and natural capital opportunities">
+          <img src="/imagenes/medidas/nuevas/conectividad-bosque.jpg" alt="Forest territory assessed for carbon market opportunities">
         </div>
         <div class="regenera-analysis__copy">
-          <span class="section-kicker">Opportunities Radar</span>
-          <h2>Land data, funding calls and decision-making in one view.</h2>
+          <span class="section-kicker">02 · Carbon</span>
+          <h2>Access to carbon markets with technical and financial discipline.</h2>
           <p>
-            The objective is not to apply to everything. It is to identify the
-            opportunities that fit the territory and discard quickly those that
-            consume time without a reasonable probability of return.
+            We assess whether a territory may fit carbon schemes linked to
+            restoration, forest management, soil or improved practices, avoiding
+            claims that cannot be technically supported.
           </p>
           <ul>
-            <li><strong>Asset data.</strong> Surface area, uses, location, crops, restrictions and potential.</li>
-            <li><strong>Funding calls.</strong> Open, upcoming and recurring opportunities by category.</li>
-            <li><strong>Decision.</strong> Eligibility, estimated value, documentation effort and recommendation.</li>
+            <li><strong>Compliance and eligibility.</strong> We review fit, additionality, permanence, risks and measurement requirements.</li>
+            <li><strong>Financial projections.</strong> We estimate order of magnitude, costs, timing and return sensitivity.</li>
+            <li><strong>Support.</strong> We prepare the roadmap to structure, measure and present the project.</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <section class="seo-section seo-section--white">
+    <section class="seo-section seo-section--white" id="biodiversity">
       <div class="container seo-two-col">
         <div>
-          <span class="section-kicker">Model</span>
-          <h2>Territorial profitability with discipline.</h2>
+          <span class="section-kicker">03 · Biodiversity</span>
+          <h2>Access to biodiversity markets when real improvement can be measured.</h2>
         </div>
         <ul class="seo-list">
-          <li><strong>Initial assessment.</strong> We review the asset, its basic data and the opportunities that may make sense before proposing any application work.</li>
-          <li><strong>Periodic monitoring.</strong> We prioritise open, upcoming and recurring calls so the landowner is not dependent on finding them by chance.</li>
-          <li><strong>Support when it is worth it.</strong> When an opportunity fits, we help prepare the decision, the documentation and the application follow-up.</li>
+          <li><strong>Compliance and eligibility.</strong> We analyse baseline, improvement potential, constraints and fit with emerging methodologies.</li>
+          <li><strong>Financial projections.</strong> We estimate restoration, monitoring and maintenance costs, as well as the potential value of generated improvement.</li>
+          <li><strong>Support.</strong> We design the technical and commercial route to turn ecological improvement into communicable evidence.</li>
         </ul>
       </div>
     </section>
@@ -120,11 +153,12 @@ import PageStyles from '../../components/PageStyles.astro';
     <section class="regenera-disclaimer">
       <div class="container">
         <p>
-          The Opportunities Radar does not guarantee funding approval. Its role
-          is to detect fit, prioritise calls and reduce the opportunity cost of
-          arriving late or applying to what does not match the asset.
+          Territorium does not guarantee funding approval or monetisation in
+          environmental markets. Its role is to detect fit, prioritise
+          opportunities and build a technically and financially responsible
+          decision.
         </p>
-        <a href="mailto:blanca@territorium.capital" class="seo-cta">Request an assessment</a>
+        <a href="/contacto/" class="seo-cta">Discuss an opportunity</a>
       </div>
     </section>
   </main>
