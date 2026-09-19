@@ -5,141 +5,193 @@ import PageStyles from '../components/PageStyles.astro';
 
 <Layout
   title="Servicios de gestión territorial | Territorium Capital"
-  description="Servicios de gestión patrimonial territorial para propietarios, empresas e instituciones: diagnóstico, capital natural, resiliencia climática, restauración y proyectos medibles."
+  description="Servicios de gestión patrimonial territorial para propietarios, empresas e instituciones: diagnóstico, estrategia de capital natural, resiliencia climática, restauración, oportunidades y proyectos medibles."
   canonicalPath="/servicios/"
   alternateEnPath="/en/services/"
 >
   <PageStyles />
 
   <main>
-    <section id="servicios" class="section-axes page-first-section reveal">
-      <div class="container">
-        <div class="section-heading">
+    <section class="services-hero page-first-section reveal">
+      <div class="container services-hero__grid">
+        <div class="services-hero__copy">
           <span class="section-kicker section-kicker--light">Servicios</span>
-          <h1>Del territorio como superficie al territorio como activo estratégico.</h1>
+          <h1>Capital natural para gestionar mejor el territorio.</h1>
           <p>
-            Ayudamos a propietarios y gestores de terrenos públicos y privados
-            a aumentar la resiliencia y rentabilidad de sus activos mediante
-            capital natural, restauración, reducción de riesgos y proyectos
-            medibles. También acompañamos a empresas e instituciones que quieren
-            invertir en impacto territorial con rigor.
+            Ayudamos a propietarios de terrenos públicos y privados, gestores,
+            empresas e instituciones a aumentar la resiliencia y rentabilidad de
+            sus activos territoriales mediante ciencia ambiental, tecnología
+            propia y ejecución sobre el terreno.
+          </p>
+          <div class="services-hero__actions">
+            <a href="/contacto/" class="seo-cta seo-cta--solid">Plantear una oportunidad</a>
+            <a href="/proyectos/" class="seo-cta">Ver proyectos</a>
+          </div>
+        </div>
+
+        <aside class="services-hero__panel" aria-label="Sistema Territorium">
+          <img src="/imagenes/medidas/nuevas/capital-natural-rural.jpg" alt="Territorio rural gestionado como activo natural">
+          <div>
+            <span>Sistema Territorium</span>
+            <p>
+              De la lectura ecológica y patrimonial del activo a una hoja de
+              ruta accionable: gestionar, regenerar, invertir, comunicar o
+              activar nuevas oportunidades.
+            </p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="services-operating reveal" aria-label="Cómo trabajamos">
+      <div class="container">
+        <div class="section-heading section-heading--left">
+          <span class="section-kicker">Cómo trabajamos</span>
+          <h2>Un sistema operativo para tomar decisiones sobre territorio.</h2>
+          <p>
+            No empezamos por una actuación aislada. Primero entendemos el
+            activo, la decisión y el objetivo económico, ambiental o
+            reputacional que hay detrás.
           </p>
         </div>
 
-        <div class="axes-showcase">
-          <article class="axes-feature">
-            <span class="axes-feature__eyebrow">Método Territorium</span>
-            <h3>Medir. Priorizar. Activar. Acompañar.</h3>
-            <p>
-              Unimos análisis ambiental, tecnología territorial y criterio
-              patrimonial para que cada decisión pueda convertirse en actuación,
-              inversión, proyecto o métrica comunicable.
-            </p>
-            <div class="axes-feature__actions">
-              <a href="/contacto/" class="axes-feature__cta">Plantear una oportunidad</a>
-              <a href="/proyectos/" class="axes-feature__cta">Ver proyectos</a>
-            </div>
+        <div class="services-operating__grid">
+          <article>
+            <span>01</span>
+            <h3>Entender</h3>
+            <p>Leemos biodiversidad, agua, suelo, paisaje, riesgos, usos, restricciones y potencial patrimonial.</p>
           </article>
-
-          <div class="axes-grid" aria-label="Líneas de trabajo Territorium">
-            <article class="card-axis">
-              <span class="card-axis__number">01</span>
-              <div class="card-axis__content">
-                <h3 class="card-axis__name">Diagnóstico territorial</h3>
-                <p class="card-axis__tag">Conocer antes de decidir</p>
-                <p class="card-axis__body">Lectura ecológica, patrimonial y de riesgo para entender potencial, límites y oportunidades.</p>
-              </div>
-            </article>
-
-            <article class="card-axis">
-              <span class="card-axis__number">02</span>
-              <div class="card-axis__content">
-                <h3 class="card-axis__name">Estrategia</h3>
-                <p class="card-axis__tag">Hoja de ruta patrimonial</p>
-                <p class="card-axis__body">Priorizamos decisiones para propietarios, corporaciones e instituciones con objetivos de valor, riesgo e impacto.</p>
-              </div>
-            </article>
-
-            <article class="card-axis">
-              <span class="card-axis__number">03</span>
-              <div class="card-axis__content">
-                <h3 class="card-axis__name">Proyectos</h3>
-                <p class="card-axis__tag">Del plan al terreno</p>
-                <p class="card-axis__body">Restauración, resiliencia climática, biodiversidad, infraestructura natural y proyectos corporativos medibles.</p>
-              </div>
-            </article>
-
-            <article class="card-axis">
-              <span class="card-axis__number">04</span>
-              <div class="card-axis__content">
-                <h3 class="card-axis__name">Capital natural</h3>
-                <p class="card-axis__tag">Valor medible</p>
-                <p class="card-axis__body">Indicadores claros para inversión, gestión de riesgos, comunicación, debida diligencia y criterios ambientales, sociales y de gobernanza.</p>
-              </div>
-            </article>
-          </div>
+          <article>
+            <span>02</span>
+            <h3>Priorizar</h3>
+            <p>Traducimos datos y criterio técnico en decisiones: qué conviene hacer, cuándo y con qué retorno esperado.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Activar</h3>
+            <p>Diseñamos proyectos de resiliencia, restauración, oportunidades, impacto positivo o gestión preventiva.</p>
+          </article>
+          <article>
+            <span>04</span>
+            <h3>Medir</h3>
+            <p>Convertimos el avance en evidencia: indicadores, seguimiento, línea base y comunicación responsable.</p>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="services-editorial reveal" aria-label="Servicios principales Territorium">
-      <div class="services-editorial__intro">
-        <span class="section-kicker">Servicios</span>
-        <h2>Capacidades integradas para distintos objetivos.</h2>
-      </div>
+    <section class="services-capabilities reveal" aria-label="Capacidades Territorium">
+      <div class="container">
+        <div class="section-heading section-heading--left">
+          <span class="section-kicker">Capacidades</span>
+          <h2>Una misma lógica para valor, resiliencia y rentabilidad.</h2>
+        </div>
 
-      <div class="services-editorial__rail">
-        <a class="services-editorial__item services-editorial__item--left" href="/valor-ecologico-territorio/">
-          <img src="/imagenes/servicio-diagnostico-capas.png" alt="Análisis territorial con capas ambientales">
-          <span>Medición y diagnóstico</span>
-        </a>
-        <a class="services-editorial__item services-editorial__item--center" href="/clientes/">
-          <img src="/imagenes/servicio-capital-natural.jpg" alt="Paisaje natural de montaña y bosque como capital natural">
-          <span>Estrategia corporativa</span>
-        </a>
-        <a class="services-editorial__item services-editorial__item--right" href="/restauracion-ecologica-llave-en-mano/">
-          <img src="/imagenes/restauracion-despues.webp" alt="Humedal restaurado con biodiversidad">
-          <span>Restauración y resiliencia</span>
-        </a>
-      </div>
+        <div class="services-capabilities__grid">
+          <a class="services-capability" href="/valor-ecologico-territorio/">
+            <img src="/imagenes/servicio-diagnostico-capas.png" alt="Análisis territorial con capas ambientales">
+            <div>
+              <span>01</span>
+              <h3>Diagnóstico y valor ecológico</h3>
+              <p>Medir el estado del territorio y entender qué valor natural, patrimonial y estratégico puede activar.</p>
+            </div>
+          </a>
 
-      <div class="services-editorial__arrow" aria-hidden="true"></div>
+          <a class="services-capability" href="/proyectos/living-lab-restauracion-ecologica/">
+            <img src="/imagenes/medidas/nuevas/biodiversidad-ciervo.jpg" alt="Fauna salvaje como indicador de biodiversidad">
+            <div>
+              <span>02</span>
+              <h3>Evidencia y seguimiento ecológico</h3>
+              <p>Líneas base, indicadores y medición continua para demostrar mejora real, no solo intención.</p>
+            </div>
+          </a>
+
+          <a class="services-capability" href="/proyectos/resiliencia-agricola/">
+            <img src="/imagenes/medidas/nuevas/riesgo-climatico-sequia.jpg" alt="Territorio agrícola afectado por sequía">
+            <div>
+              <span>03</span>
+              <h3>Resiliencia climática y agrícola</h3>
+              <p>Analizar cómo suelo, agua, vegetación y biodiversidad reducen vulnerabilidad ante eventos climáticos.</p>
+            </div>
+          </a>
+
+          <a class="services-capability" href="/oportunidades/">
+            <img src="/imagenes/medidas/nuevas/paisaje-spain.jpg" alt="Paisaje rural evaluado para oportunidades">
+            <div>
+              <span>04</span>
+              <h3>Oportunidades y rentabilidad</h3>
+              <p>Cruzar datos del activo con ayudas, convocatorias y vías de financiación que sí encajan.</p>
+            </div>
+          </a>
+
+          <a class="services-capability" href="/proyectos/viviendas-impacto-positivo/">
+            <img src="/imagenes/territorio-urbano-analisis.jpg" alt="Análisis de infraestructura verde en entorno urbano">
+            <div>
+              <span>05</span>
+              <h3>Impacto positivo en naturaleza</h3>
+              <p>Aplicar lógica de reducción, evitación, mejora in situ y restauración ex situ en proyectos transformadores.</p>
+            </div>
+          </a>
+
+          <a class="services-capability" href="/proyectos/sistema-alerta-temprana-arbolado/">
+            <img src="/imagenes/medidas/nuevas/conectividad-bosque.jpg" alt="Bosque y arbolado como infraestructura natural">
+            <div>
+              <span>06</span>
+              <h3>Alerta temprana y gestión preventiva</h3>
+              <p>Sistemas de seguimiento para anticipar riesgos, priorizar inspecciones y actuar antes del incidente.</p>
+            </div>
+          </a>
+        </div>
+      </div>
     </section>
 
     <section class="seo-section seo-section--white reveal">
       <div class="container">
         <div class="section-heading">
           <span class="section-kicker">Aplicaciones</span>
-          <h2>Un mismo criterio para decisiones distintas.</h2>
+          <h2>Del activo rural al proyecto corporativo.</h2>
           <p>
-            Territorium no se limita a intermediar territorios. Ayudamos a
-            traducir el funcionamiento natural de un activo en decisiones de
-            gestión, inversión, resiliencia y comunicación responsable.
+            Territorium trabaja donde el territorio necesita convertirse en
+            decisión: gestión patrimonial, resiliencia climática, inversión en
+            capital natural, restauración medible o comunicación con evidencia.
           </p>
         </div>
 
-        <div class="seo-card-grid">
+        <div class="seo-card-grid seo-card-grid--four">
           <article class="seo-card">
             <span>01</span>
-            <h3>Propietarios y patrimonios</h3>
-            <p>Conocer, gestionar, regenerar o transmitir un territorio con una tesis clara de valor.</p>
+            <h3>Propietarios y gestores</h3>
+            <p>Aumentar resiliencia, rentabilidad y valor patrimonial del terreno con una hoja de ruta clara.</p>
           </article>
           <article class="seo-card">
             <span>02</span>
-            <h3>Empresas y corporaciones</h3>
-            <p>Invertir en capital natural, reducir vulnerabilidad climática y construir proyectos territoriales trazables.</p>
+            <h3>Empresas</h3>
+            <p>Construir proyectos locales, trazables y medibles ligados a naturaleza, clima y territorio.</p>
           </article>
           <article class="seo-card">
             <span>03</span>
             <h3>Promotoras e instituciones</h3>
-            <p>Integrar biodiversidad, agua, suelo y restauración en proyectos con impacto positivo medible.</p>
+            <p>Integrar biodiversidad, agua, suelo y restauración en decisiones de proyecto e impacto positivo.</p>
           </article>
           <article class="seo-card">
             <span>04</span>
-            <h3>Inversores</h3>
-            <p>Evaluar activos, riesgos y oportunidades ligados a tierra, resiliencia y capital natural.</p>
+            <h3>Patrimonios e inversores</h3>
+            <p>Evaluar activos, riesgos y oportunidades vinculadas a tierra, resiliencia y capital natural.</p>
           </article>
         </div>
+      </div>
+    </section>
+
+    <section class="services-final-cta reveal">
+      <div class="container services-final-cta__inner">
+        <span class="section-kicker section-kicker--light">Siguiente paso</span>
+        <h2>Definir bien el alcance evita proyectos débiles.</h2>
+        <p>
+          Cuéntenos qué decisión necesita tomar: mejorar una finca, estructurar
+          un proyecto corporativo, medir resiliencia o detectar oportunidades de
+          rentabilidad vinculadas al territorio.
+        </p>
+        <a href="/contacto/" class="seo-cta seo-cta--solid">Hablar con Territorium</a>
       </div>
     </section>
   </main>
