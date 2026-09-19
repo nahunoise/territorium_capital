@@ -2616,6 +2616,7 @@
     background: var(--color-white);
     display: flex;
     flex-direction: column;
+    gap: var(--space-5);
     justify-content: center;
     padding: clamp(var(--space-8), 6vw, var(--space-16));
   }
@@ -2624,7 +2625,14 @@
     display: grid;
     gap: var(--space-4);
     list-style: none;
-    margin-top: var(--space-8);
+    margin-top: var(--space-3);
+  }
+
+  .regenera-analysis__copy p {
+    color: var(--color-body);
+    font-size: var(--text-lg);
+    line-height: 1.75;
+    margin: 0;
   }
 
   .regenera-analysis__copy li {
@@ -2633,6 +2641,11 @@
     font-size: var(--text-base);
     line-height: 1.65;
     padding-top: var(--space-4);
+  }
+
+  .regenera-analysis__copy .seo-cta {
+    align-self: flex-start;
+    margin-top: var(--space-3);
   }
 
   .regenera-value {
