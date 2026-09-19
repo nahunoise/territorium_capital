@@ -360,7 +360,7 @@
 
   .services-hero {
     background:
-      linear-gradient(120deg, rgba(10, 20, 32, 0.95), rgba(24, 43, 73, 0.86)),
+      linear-gradient(120deg, rgba(10, 20, 32, 0.96), rgba(24, 43, 73, 0.78)),
       url('/imagenes/medidas/nuevas/paisaje-spain.jpg');
     background-position: center;
     background-size: cover;
@@ -369,23 +369,21 @@
     padding: clamp(var(--space-16), 11vw, var(--space-24)) 0;
   }
 
-  .services-hero__grid {
-    align-items: end;
+  .services-hero__inner {
     display: grid;
-    gap: clamp(var(--space-10), 6vw, var(--space-20));
-    grid-template-columns: minmax(0, 1fr) minmax(320px, 0.56fr);
+    gap: clamp(var(--space-10), 6vw, var(--space-16));
   }
 
   .services-hero__copy {
-    max-width: 58rem;
+    max-width: 76rem;
   }
 
   .services-hero__copy h1 {
     color: var(--color-white);
-    font-size: clamp(3.4rem, 8vw, 7.8rem);
+    font-size: clamp(3.4rem, 7vw, 7.2rem);
     font-weight: 400;
     letter-spacing: 0;
-    line-height: 0.92;
+    line-height: 0.94;
     margin: var(--space-5) 0 var(--space-6);
     text-wrap: balance;
   }
@@ -404,40 +402,43 @@
     margin-top: var(--space-8);
   }
 
-  .services-hero__panel {
-    background: rgba(255, 255, 255, 0.08);
+  .services-hero__proof {
     border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 30px 90px rgba(0, 0, 0, 0.26);
     display: grid;
-    min-height: 32rem;
-    overflow: hidden;
+    gap: 1px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    max-width: 86rem;
   }
 
-  .services-hero__panel img {
-    height: 21rem;
-    object-fit: cover;
-    width: 100%;
-  }
-
-  .services-hero__panel div {
-    align-content: end;
+  .services-hero__proof article {
+    background: rgba(10, 20, 32, 0.48);
     display: grid;
     gap: var(--space-3);
-    padding: var(--space-6);
+    min-height: 13rem;
+    padding: clamp(var(--space-5), 3vw, var(--space-7));
   }
 
-  .services-hero__panel span {
+  .services-hero__proof span {
     color: var(--color-gold);
     font-size: var(--text-xs);
     font-weight: 800;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
   }
 
-  .services-hero__panel p {
+  .services-hero__proof strong {
+    color: var(--color-white);
+    font-family: var(--font-heading);
+    font-size: clamp(var(--text-2xl), 2vw, var(--text-4xl));
+    font-weight: 400;
+    line-height: 1.05;
+  }
+
+  .services-hero__proof p {
+    align-self: end;
     color: rgba(255, 255, 255, 0.82);
     font-size: var(--text-base);
-    line-height: 1.7;
+    line-height: 1.6;
   }
 
   .services-operating {
@@ -445,26 +446,48 @@
     padding: clamp(var(--space-16), 9vw, var(--space-24)) 0;
   }
 
-  .services-operating__grid {
+  .services-operating__layout {
+    align-items: start;
+    display: grid;
+    gap: clamp(var(--space-8), 6vw, var(--space-16));
+    grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr);
+  }
+
+  .services-operating__intro {
+    display: grid;
+    gap: var(--space-5);
+    max-width: 42rem;
+  }
+
+  .services-operating__intro h2 {
+    color: var(--color-indigo);
+    font-size: clamp(var(--text-4xl), 5vw, var(--text-6xl));
+    font-weight: 400;
+    line-height: 1;
+    text-wrap: balance;
+  }
+
+  .services-operating__intro p {
+    color: var(--color-body);
+    font-size: clamp(var(--text-base), 1.4vw, var(--text-xl));
+    line-height: 1.75;
+  }
+
+  .services-operating__steps {
+    border-top: 1px solid var(--color-border);
+    display: grid;
+  }
+
+  .services-operating__steps article {
+    align-items: start;
     border-bottom: 1px solid var(--color-border);
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    margin-top: var(--space-10);
+    gap: clamp(var(--space-4), 3vw, var(--space-8));
+    grid-template-columns: 4.5rem minmax(10rem, 0.45fr) minmax(0, 1fr);
+    padding: clamp(var(--space-5), 3.5vw, var(--space-7)) 0;
   }
 
-  .services-operating__grid article {
-    border-left: 1px solid var(--color-border);
-    display: grid;
-    gap: var(--space-4);
-    min-height: 22rem;
-    padding: clamp(var(--space-6), 4vw, var(--space-9));
-  }
-
-  .services-operating__grid article:last-child {
-    border-right: 1px solid var(--color-border);
-  }
-
-  .services-operating__grid span,
+  .services-operating__steps span,
   .services-capability span {
     color: var(--color-gold);
     font-size: var(--text-xs);
@@ -473,18 +496,17 @@
     text-transform: uppercase;
   }
 
-  .services-operating__grid h3 {
+  .services-operating__steps h3 {
     color: var(--color-indigo);
-    font-size: clamp(var(--text-3xl), 3vw, var(--text-5xl));
+    font-size: clamp(var(--text-2xl), 2.6vw, var(--text-4xl));
     font-weight: 400;
-    line-height: 1;
+    line-height: 1.05;
   }
 
-  .services-operating__grid p {
-    align-self: end;
+  .services-operating__steps p {
     color: var(--color-body);
-    font-size: var(--text-sm);
-    line-height: 1.75;
+    font-size: var(--text-base);
+    line-height: 1.68;
   }
 
   .services-capabilities {
@@ -3344,9 +3366,8 @@
       padding-block: var(--space-14);
     }
 
-    .services-hero__grid {
+    .services-hero__inner {
       gap: var(--space-8);
-      grid-template-columns: 1fr;
     }
 
     .services-hero__copy h1 {
@@ -3368,12 +3389,13 @@
       width: 100%;
     }
 
-    .services-hero__panel {
-      min-height: 0;
+    .services-hero__proof {
+      grid-template-columns: 1fr;
     }
 
-    .services-hero__panel img {
-      height: 17rem;
+    .services-hero__proof article {
+      min-height: 0;
+      padding: var(--space-5);
     }
 
     .services-operating,
@@ -3382,25 +3404,19 @@
       padding-block: var(--space-12);
     }
 
-    .services-operating__grid,
+    .services-operating__layout,
     .services-capabilities__grid {
       grid-template-columns: 1fr;
     }
 
-    .services-operating__grid article {
-      border-left: 0;
-      border-top: 1px solid var(--color-border);
-      min-height: 0;
-      padding: var(--space-6);
+    .services-operating__steps article {
+      gap: var(--space-3);
+      grid-template-columns: 1fr;
+      padding: var(--space-6) 0;
     }
 
-    .services-operating__grid article:last-child {
-      border-right: 0;
-      border-bottom: 1px solid var(--color-border);
-    }
-
-    .services-operating__grid p {
-      align-self: auto;
+    .services-operating__intro h2 {
+      font-size: clamp(var(--text-4xl), 12vw, var(--text-5xl));
     }
 
     .services-capability {
