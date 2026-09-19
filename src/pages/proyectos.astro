@@ -1,6 +1,45 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import PageStyles from '../components/PageStyles.astro';
+
+const projects = [
+  {
+    href: '/proyectos/living-lab-restauracion-ecologica/',
+    image: '/imagenes/living-lab-ndvi-estacional.png',
+    alt: 'Mapas NDVI estacionales para medir condición del ecosistema',
+    eyebrow: 'Proyecto destacado',
+    title: 'Living Lab de restauración ecológica',
+    subtitle: 'Infraestructura de evidencia para condición del ecosistema',
+    body: 'Un laboratorio territorial para co-diseñar, ensayar y medir intervenciones de restauración con teledetección, modelización ecológica, cámaras trampa, ecoacústica y seguimiento periódico.',
+  },
+  {
+    href: '/proyectos/regenera/',
+    image: '/imagenes/regenera-dehesa-camino.jpg',
+    alt: 'Dehesa mediterránea gestionada como activo rural de largo plazo',
+    eyebrow: 'Proyecto destacado',
+    title: 'REGENERA',
+    subtitle: 'Conservar produciendo. Producir regenerando.',
+    body: 'Iniciativa de Territorium Capital y GestLand para gestionar y regenerar grandes activos rurales con datos, criterio patrimonial y ejecución sobre el terreno.',
+  },
+  {
+    href: '/proyectos/resiliencia-agricola/',
+    image: '/imagenes/medidas/nuevas/riesgo-climatico-sequia.jpg',
+    alt: 'Territorio agrícola afectado por estrés hídrico',
+    eyebrow: 'Línea de trabajo',
+    title: 'Resiliencia agrícola',
+    subtitle: 'Infraestructura natural frente al clima',
+    body: 'Medimos cómo suelo, agua, cubierta vegetal, biodiversidad y conectividad pueden ayudar a reducir vulnerabilidad agrícola ante sequías, calor, lluvias intensas y otros eventos climáticos.',
+  },
+  {
+    href: '/proyectos/viviendas-impacto-positivo/',
+    image: '/imagenes/territorio-urbano-analisis.jpg',
+    alt: 'Análisis de infraestructura verde aplicado a un entorno urbano',
+    eyebrow: 'Línea de trabajo',
+    title: 'Viviendas de impacto positivo en naturaleza',
+    subtitle: 'BNG voluntario, reducción y restauración',
+    body: 'Aplicamos una lógica inspirada en Biodiversity Net Gain para medir línea base, reducir impactos, evitar daños y generar mejora positiva en naturaleza con actuaciones in situ y restauración ex situ.',
+  },
+];
 ---
 
 <Layout
@@ -27,76 +66,46 @@ import PageStyles from '../components/PageStyles.astro';
       </div>
     </section>
 
-    <section class="projects-list reveal">
-      <div class="container projects-list__grid">
-        <a class="project-feature-card project-feature-card--long-title" href="/proyectos/living-lab-restauracion-ecologica/">
-          <div class="project-feature-card__media">
-            <img src="/imagenes/medidas/nuevas/biodiversidad-ciervo.jpg" alt="Fauna salvaje como indicador de biodiversidad y respuesta ecológica">
+    <section class="projects-carousel-section" aria-label="Carrusel de proyectos">
+      <div class="projects-carousel-shell" data-projects-carousel>
+        <div class="projects-carousel__top">
+          <div>
+            <span class="section-kicker">Trabajos en curso</span>
+            <h2>Proyectos que convierten el capital natural en decisiones.</h2>
           </div>
-          <div class="project-feature-card__copy">
-            <span>Proyecto destacado</span>
-            <h2>Living Lab de restauración ecológica</h2>
-            <p class="project-feature-card__subtitle">Infraestructura de evidencia para condición del ecosistema</p>
-            <p>
-              Un laboratorio territorial para co-diseñar, ensayar y medir
-              intervenciones de restauración con teledetección, modelización
-              ecológica, cámaras trampa, ecoacústica y seguimiento periódico.
-            </p>
-            <strong>Ver proyecto</strong>
+          <div class="projects-carousel__controls" aria-label="Controles del carrusel">
+            <button type="button" data-project-prev aria-label="Proyecto anterior">←</button>
+            <button type="button" data-project-next aria-label="Proyecto siguiente">→</button>
           </div>
-        </a>
+        </div>
 
-        <a class="project-feature-card" href="/proyectos/regenera/">
-          <div class="project-feature-card__media">
-            <img src="/imagenes/medidas/nuevas/paisaje-spain.jpg" alt="Paisaje rural con alto valor natural y patrimonial">
-          </div>
-          <div class="project-feature-card__copy">
-            <span>Proyecto destacado</span>
-            <h2>REGENERA</h2>
-            <p class="project-feature-card__subtitle">Conservar produciendo. Producir regenerando.</p>
-            <p>
-              Iniciativa de Territorium Capital y GestLand para gestionar y
-              regenerar grandes activos rurales con datos, criterio patrimonial
-              y ejecución sobre el terreno.
-            </p>
-            <strong>Ver proyecto</strong>
-          </div>
-        </a>
+        <div class="projects-carousel" data-projects-track tabindex="0">
+          {projects.map((project, index) => (
+            <a class="project-slide" href={project.href} data-project-slide>
+              <img src={project.image} alt={project.alt} loading={index === 0 ? 'eager' : 'lazy'} decoding="async">
+              <div class="project-slide__shade"></div>
+              <div class="project-slide__copy">
+                <span>{project.eyebrow}</span>
+                <small>{String(index + 1).padStart(2, '0')}</small>
+                <h2>{project.title}</h2>
+                <p class="project-slide__subtitle">{project.subtitle}</p>
+                <p>{project.body}</p>
+                <strong>Ver proyecto</strong>
+              </div>
+            </a>
+          ))}
+        </div>
 
-        <a class="project-feature-card project-feature-card--reverse" href="/proyectos/resiliencia-agricola/">
-          <div class="project-feature-card__media">
-            <img src="/imagenes/medidas/nuevas/riesgo-climatico-sequia.jpg" alt="Territorio agrícola afectado por estrés hídrico">
-          </div>
-          <div class="project-feature-card__copy">
-            <span>Línea de trabajo</span>
-            <h2>Resiliencia agrícola</h2>
-            <p class="project-feature-card__subtitle">Infraestructura natural frente al clima</p>
-            <p>
-              Medimos cómo suelo, agua, cubierta vegetal, biodiversidad y
-              conectividad pueden ayudar a reducir vulnerabilidad agrícola ante
-              sequías, calor, lluvias intensas y otros eventos climáticos.
-            </p>
-            <strong>Ver proyecto</strong>
-          </div>
-        </a>
-
-        <a class="project-feature-card project-feature-card--long-title" href="/proyectos/viviendas-impacto-positivo/">
-          <div class="project-feature-card__media">
-            <img src="/imagenes/territorio-urbano-analisis.jpg" alt="Análisis de infraestructura verde aplicado a un entorno urbano">
-          </div>
-          <div class="project-feature-card__copy">
-            <span>Línea de trabajo</span>
-            <h2>Viviendas de impacto positivo en naturaleza</h2>
-            <p class="project-feature-card__subtitle">BNG voluntario, reducción y restauración</p>
-            <p>
-              Aplicamos una lógica inspirada en Biodiversity Net Gain para
-              medir línea base, reducir impactos, evitar daños y generar una
-              mejora positiva en naturaleza mediante actuaciones in situ y
-              restauración ex situ cuando sea necesario.
-            </p>
-            <strong>Ver proyecto</strong>
-          </div>
-        </a>
+        <div class="projects-carousel__dots" aria-label="Seleccionar proyecto">
+          {projects.map((project, index) => (
+            <button
+              type="button"
+              data-project-dot={index}
+              aria-label={`Ir a ${project.title}`}
+              class:list={[index === 0 && 'is-active']}
+            ></button>
+          ))}
+        </div>
       </div>
     </section>
   </main>
@@ -113,5 +122,103 @@ import PageStyles from '../components/PageStyles.astro';
       });
     }, { threshold: 0.1 });
     document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+    const carousel = document.querySelector("[data-projects-carousel]");
+    const track = carousel?.querySelector("[data-projects-track]") as HTMLElement | null;
+    const slides = Array.from(carousel?.querySelectorAll("[data-project-slide]") ?? []) as HTMLElement[];
+    const dots = Array.from(carousel?.querySelectorAll("[data-project-dot]") ?? []) as HTMLButtonElement[];
+    const prev = carousel?.querySelector("[data-project-prev]") as HTMLButtonElement | null;
+    const next = carousel?.querySelector("[data-project-next]") as HTMLButtonElement | null;
+
+    if (!track || slides.length === 0) return;
+
+    let activeIndex = 0;
+    let autoTimer: number | undefined;
+    let resumeTimer: number | undefined;
+    let isPointerDown = false;
+    let startX = 0;
+    let startScroll = 0;
+
+    const getSlideLeft = (index: number) => slides[index]?.offsetLeft ?? 0;
+
+    const setActive = (index: number) => {
+      activeIndex = Math.max(0, Math.min(slides.length - 1, index));
+      dots.forEach((dot, dotIndex) => dot.classList.toggle("is-active", dotIndex === activeIndex));
+    };
+
+    const scrollToSlide = (index: number) => {
+      const nextIndex = (index + slides.length) % slides.length;
+      track.scrollTo({ left: getSlideLeft(nextIndex), behavior: "smooth" });
+      setActive(nextIndex);
+    };
+
+    const syncActiveFromScroll = () => {
+      const center = track.scrollLeft + track.clientWidth / 2;
+      const closest = slides.reduce((bestIndex, slide, index) => {
+        const currentDistance = Math.abs(slide.offsetLeft + slide.clientWidth / 2 - center);
+        const bestSlide = slides[bestIndex];
+        const bestDistance = Math.abs(bestSlide.offsetLeft + bestSlide.clientWidth / 2 - center);
+        return currentDistance < bestDistance ? index : bestIndex;
+      }, 0);
+      setActive(closest);
+    };
+
+    const stopAuto = () => {
+      if (autoTimer) window.clearInterval(autoTimer);
+      autoTimer = undefined;
+    };
+
+    const startAuto = () => {
+      stopAuto();
+      autoTimer = window.setInterval(() => scrollToSlide(activeIndex + 1), 4200);
+    };
+
+    const pauseThenResume = () => {
+      stopAuto();
+      if (resumeTimer) window.clearTimeout(resumeTimer);
+      resumeTimer = window.setTimeout(startAuto, 5500);
+    };
+
+    prev?.addEventListener("click", () => {
+      scrollToSlide(activeIndex - 1);
+      pauseThenResume();
+    });
+
+    next?.addEventListener("click", () => {
+      scrollToSlide(activeIndex + 1);
+      pauseThenResume();
+    });
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener("click", () => {
+        scrollToSlide(index);
+        pauseThenResume();
+      });
+    });
+
+    track.addEventListener("scroll", () => window.requestAnimationFrame(syncActiveFromScroll), { passive: true });
+    track.addEventListener("mouseenter", stopAuto);
+    track.addEventListener("mouseleave", startAuto);
+    track.addEventListener("focusin", stopAuto);
+    track.addEventListener("focusout", startAuto);
+    track.addEventListener("pointerdown", (event) => {
+      isPointerDown = true;
+      startX = event.clientX;
+      startScroll = track.scrollLeft;
+      track.classList.add("is-dragging");
+      pauseThenResume();
+    });
+    track.addEventListener("pointermove", (event) => {
+      if (!isPointerDown) return;
+      track.scrollLeft = startScroll - (event.clientX - startX);
+    });
+    window.addEventListener("pointerup", () => {
+      isPointerDown = false;
+      track.classList.remove("is-dragging");
+    });
+
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      startAuto();
+    }
   });
 </script>
