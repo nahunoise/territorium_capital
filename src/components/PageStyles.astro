@@ -113,13 +113,12 @@
 
   .service-finder .container {
     display: grid;
-    grid-template-columns: auto minmax(0, 1fr);
-    gap: var(--space-8);
+    gap: var(--space-5);
     align-items: stretch;
     background: var(--color-white);
     border: 1px solid var(--color-border);
     box-shadow: 0 18px 55px rgba(24, 43, 73, 0.08);
-    max-width: 72rem;
+    max-width: 84rem;
     padding: clamp(var(--space-5), 3vw, var(--space-8));
   }
 
@@ -134,7 +133,7 @@
 
   .service-finder__grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(12.5rem, 1fr));
     gap: var(--space-3);
     background: transparent;
   }
@@ -143,8 +142,8 @@
     background: var(--color-white);
     border: 1px solid var(--color-border);
     display: grid;
-    gap: var(--space-3);
-    min-height: 112px;
+    gap: var(--space-4);
+    min-height: 124px;
     padding: var(--space-5);
     transition: background-color 0.2s ease, transform 0.2s ease;
   }
@@ -165,8 +164,9 @@
     display: block;
     color: var(--color-indigo);
     font-family: var(--font-display);
-    font-size: clamp(1rem, 1.4vw, 1.18rem);
-    line-height: 1.15;
+    font-size: clamp(1.05rem, 1.2vw, 1.22rem);
+    line-height: 1.22;
+    text-wrap: balance;
   }
 
   .section-kicker {
@@ -3160,7 +3160,6 @@
     }
 
     .service-finder .container {
-      grid-template-columns: 1fr;
       gap: var(--space-5);
       box-shadow: 0 18px 48px rgba(24, 43, 73, 0.1);
       padding: var(--space-5);
@@ -3169,7 +3168,7 @@
 
     .service-finder__item {
       border-left: none;
-      min-height: 104px;
+      min-height: 0;
     }
 
     .estate-section__header,
@@ -3190,9 +3189,11 @@
 
     .service-finder__grid {
       gap: var(--space-3);
+      grid-template-columns: 1fr;
     }
 
     .service-finder__item {
+      min-height: 0;
       padding: var(--space-5);
     }
 
