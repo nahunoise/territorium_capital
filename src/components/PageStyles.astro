@@ -2700,6 +2700,68 @@
     padding: clamp(var(--space-7), 4vw, var(--space-10));
   }
 
+  .agri-proof {
+    background: #efe7d6;
+    padding-block: clamp(var(--space-10), 7vw, var(--space-16));
+  }
+
+  .agri-proof__grid {
+    align-items: center;
+    display: grid;
+    gap: clamp(var(--space-7), 5vw, var(--space-12));
+    grid-template-columns: minmax(0, 0.95fr) minmax(320px, 0.9fr);
+    max-width: min(76rem, calc(100% - clamp(2rem, 7vw, 6rem)));
+  }
+
+  .agri-proof__media {
+    background: #d8cfbd;
+    overflow: hidden;
+  }
+
+  .agri-proof__media img {
+    aspect-ratio: 16 / 10;
+    display: block;
+    height: auto;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  .agri-proof__copy {
+    display: grid;
+    gap: var(--space-5);
+  }
+
+  .agri-proof__copy h2 {
+    color: var(--color-indigo);
+    font-size: clamp(var(--text-3xl), 4.5vw, var(--text-5xl));
+    font-weight: 400;
+    line-height: 1.05;
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  .agri-proof__copy p {
+    color: var(--color-body);
+    font-size: var(--text-lg);
+    line-height: 1.72;
+    margin: 0;
+  }
+
+  .agri-proof__copy ul {
+    display: grid;
+    gap: var(--space-3);
+    list-style: none;
+    margin-top: var(--space-2);
+  }
+
+  .agri-proof__copy li {
+    border-top: 1px solid rgba(24, 43, 73, 0.14);
+    color: var(--color-body);
+    font-size: var(--text-base);
+    line-height: 1.55;
+    padding-top: var(--space-3);
+  }
+
   .regenera-value {
     background: #efe7d6;
   }
@@ -3027,6 +3089,7 @@
     .seo-card-grid,
     .impact-photo-strip__grid,
     .impact-image-callout__grid,
+    .agri-proof__grid,
     .home-project,
     .projects-hero__grid,
     .project-feature-card,
@@ -3072,6 +3135,10 @@
     .regenera-analysis--compact .regenera-analysis__media img {
       aspect-ratio: 16 / 10;
       height: auto;
+    }
+
+    .agri-proof__grid {
+      max-width: min(100%, calc(100% - var(--space-6)));
     }
 
     .science-card {
