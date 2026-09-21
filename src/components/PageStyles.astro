@@ -2681,6 +2681,25 @@
     margin-top: var(--space-3);
   }
 
+  .regenera-analysis--compact {
+    padding-block: clamp(var(--space-10), 7vw, var(--space-16));
+  }
+
+  .regenera-analysis--compact .regenera-analysis__grid {
+    max-width: min(72rem, calc(100% - clamp(2rem, 7vw, 6rem)));
+  }
+
+  .regenera-analysis--compact .regenera-analysis__media img {
+    aspect-ratio: 4 / 3;
+    height: 100%;
+    min-height: 0;
+  }
+
+  .regenera-analysis--compact .regenera-analysis__copy {
+    justify-content: center;
+    padding: clamp(var(--space-7), 4vw, var(--space-10));
+  }
+
   .regenera-value {
     background: #efe7d6;
   }
@@ -3044,6 +3063,15 @@
     .regenera-steps,
     .regenera-value__grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .regenera-analysis--compact .regenera-analysis__grid {
+      max-width: min(100%, calc(100% - var(--space-6)));
+    }
+
+    .regenera-analysis--compact .regenera-analysis__media img {
+      aspect-ratio: 16 / 10;
+      height: auto;
     }
 
     .science-card {
