@@ -1,0 +1,155 @@
+---
+interface Props {
+  lang?: 'es' | 'en';
+}
+
+const { lang = 'es' } = Astro.props;
+
+const items = {
+  es: [
+    { href: '/valor-ecologico-territorio/', title: 'Valorar un territorio', text: 'Conocer su valor natural, riesgos, potencial y prioridades.', img: '/imagenes/medidas/paisaje.jpg' },
+    { href: '/servicios/', title: 'Regenerar un territorio', text: 'Aumentar resiliencia, rentabilidad y valor patrimonial.', img: '/imagenes/restauracion-despues.webp' },
+    { href: '/clientes/', title: 'Medición de mi impacto positivo', text: 'Crear impacto medible en naturaleza, clima y territorio.', img: '/imagenes/territorio-urbano-analisis.jpg' },
+    { href: '/oportunidades/', title: 'Ayudas e ingresos', text: 'Detectar subvenciones, mercados y oportunidades de rentabilidad.', img: '/imagenes/regenera-dehesa-camino.jpg' },
+  ],
+  en: [
+    { href: '/valor-ecologico-territorio/', title: 'Assess a territory', text: 'Understand natural value, risks, potential and priorities.', img: '/imagenes/medidas/paisaje.jpg' },
+    { href: '/en/services/', title: 'Regenerate a territory', text: 'Increase resilience, profitability and patrimonial value.', img: '/imagenes/restauracion-despues.webp' },
+    { href: '/clientes/', title: 'Measuring my positive impact', text: 'Create measurable impact in nature, climate and territory.', img: '/imagenes/territorio-urbano-analisis.jpg' },
+    { href: '/en/opportunities/', title: 'Funding and income', text: 'Identify grants, markets and profitability opportunities.', img: '/imagenes/regenera-dehesa-camino.jpg' },
+  ],
+}[lang];
+---
+
+<section class="need-cards reveal" aria-label={lang === 'en' ? 'Main needs' : 'Necesidades principales'}>
+  <div class="need-cards__grid">
+    {items.map((item) => (
+      <a href={item.href} class="need-card">
+        <img src={item.img} alt="" loading="lazy" decoding="async" />
+        <span class="need-card__body">
+          <span class="need-card__title">{item.title}</span>
+          <span class="need-card__text">{item.text}</span>
+        </span>
+        <span class="need-card__arrow" aria-hidden="true">→</span>
+      </a>
+    ))}
+  </div>
+</section>
+
+<style>
+  .need-cards {
+    padding: clamp(2rem, 5vw, 3rem) 1.5rem;
+    position: relative;
+    z-index: 5;
+  }
+
+  .need-cards__grid {
+    display: grid;
+    gap: 0.75rem;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    margin-inline: auto;
+    max-width: 82rem;
+  }
+
+  .need-card {
+    aspect-ratio: 3 / 4;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
+    padding: clamp(1.1rem, 1.6vw, 1.6rem);
+    position: relative;
+    text-decoration: none;
+  }
+
+  .need-card img {
+    height: 100%;
+    inset: 0;
+    object-fit: cover;
+    position: absolute;
+    transition: transform 0.6s ease;
+    width: 100%;
+  }
+
+  .need-card::before {
+    background: linear-gradient(180deg, rgba(18, 32, 54, 0.05) 0%, rgba(18, 32, 54, 0.45) 40%, rgba(18, 32, 54, 0.82) 70%, rgba(14, 26, 44, 0.94) 100%);
+    content: "";
+    inset: 0;
+    position: absolute;
+    z-index: 1;
+  }
+
+  .need-card__body,
+  .need-card__arrow {
+    position: relative;
+    z-index: 2;
+  }
+
+  .need-card__body {
+    text-shadow: 0 1px 12px rgba(0, 0, 0, 0.35);
+    display: grid;
+    gap: 0.6rem;
+  }
+
+  .need-card__title {
+    font-family: var(--font-display);
+    font-size: clamp(1.35rem, 1.75vw, 1.75rem);
+    line-height: 1.1;
+    text-wrap: balance;
+  }
+
+  .need-card__text {
+    color: rgba(255, 255, 255, 0.86);
+    font-size: 0.875rem;
+    line-height: 1.55;
+  }
+
+  .need-card__arrow {
+    color: var(--color-gold, #9B7B4F);
+    filter: brightness(1.6);
+    font-size: 1.25rem;
+    margin-top: 0.9rem;
+    transition: transform 0.25s ease;
+  }
+
+  .need-card:hover img,
+  .need-card:focus-visible img {
+    transform: scale(1.05);
+  }
+
+  .need-card:hover .need-card__arrow,
+  .need-card:focus-visible .need-card__arrow {
+    transform: translateX(6px);
+  }
+
+  .need-card:focus-visible {
+    outline: 2px solid var(--color-gold, #9B7B4F);
+    outline-offset: 3px;
+  }
+
+  @media (max-width: 1100px) {
+    .need-cards__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .need-card {
+      aspect-ratio: 16 / 10;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .need-cards {
+      padding-inline: 1rem;
+    }
+
+    .need-cards__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .need-card {
+      aspect-ratio: auto;
+      min-height: 200px;
+    }
+  }
+</style>

@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import PageStyles from '../components/PageStyles.astro';
+import NeedCards from '../components/NeedCards.astro';
 ---
 
 <Layout
@@ -48,38 +49,7 @@ import PageStyles from '../components/PageStyles.astro';
   </header>
 
   <main>
-    <section class="service-finder reveal" aria-label="Necesidades principales">
-      <div class="container">
-        <span class="service-finder__label">Qué necesita</span>
-        <div class="service-finder__grid">
-          <a href="/valor-ecologico-territorio/" class="service-finder__item">
-            <small>01</small>
-            <h3>Valorar un territorio</h3>
-            <p>Conocer su valor natural, riesgos, potencial y prioridades.</p>
-          </a>
-          <a href="/servicios/" class="service-finder__item">
-            <small>02</small>
-            <h3>Mejorar un territorio</h3>
-            <p>Aumentar resiliencia, rentabilidad y valor patrimonial.</p>
-          </a>
-          <a href="/clientes/" class="service-finder__item">
-            <small>03</small>
-            <h3>Proyecto para mi empresa</h3>
-            <p>Crear impacto medible en naturaleza, clima y territorio.</p>
-          </a>
-          <a href="/proyectos/" class="service-finder__item">
-            <small>04</small>
-            <h3>Soluciones aplicables</h3>
-            <p>Explorar líneas de trabajo ya testadas en proyectos reales.</p>
-          </a>
-          <a href="/oportunidades/" class="service-finder__item">
-            <small>05</small>
-            <h3>Ayudas e ingresos</h3>
-            <p>Detectar subvenciones, mercados y oportunidades de rentabilidad.</p>
-          </a>
-        </div>
-      </div>
-    </section>
+    <NeedCards lang="es" />
 
     <section class="positioning-section reveal">
       <div class="container positioning-section__grid">

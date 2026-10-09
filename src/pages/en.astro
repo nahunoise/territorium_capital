@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import PageStyles from '../components/PageStyles.astro';
+import NeedCards from '../components/NeedCards.astro';
 ---
 
 <Layout
@@ -43,38 +44,7 @@ import PageStyles from '../components/PageStyles.astro';
   </header>
 
   <main>
-    <section class="service-finder reveal" aria-label="Main needs">
-      <div class="container">
-        <span class="service-finder__label">What you need</span>
-        <div class="service-finder__grid">
-          <a href="/valor-ecologico-territorio/" class="service-finder__item">
-            <small>01</small>
-            <h3>Assess a territory</h3>
-            <p>Understand natural value, risks, potential and priorities.</p>
-          </a>
-          <a href="/en/services/" class="service-finder__item">
-            <small>02</small>
-            <h3>Improve a territory</h3>
-            <p>Increase resilience, profitability and patrimonial value.</p>
-          </a>
-          <a href="/clientes/" class="service-finder__item">
-            <small>03</small>
-            <h3>Project for my company</h3>
-            <p>Create measurable impact in nature, climate and territory.</p>
-          </a>
-          <a href="/en/projects/" class="service-finder__item">
-            <small>04</small>
-            <h3>Applicable solutions</h3>
-            <p>Explore workstreams already tested in real projects.</p>
-          </a>
-          <a href="/en/opportunities/" class="service-finder__item">
-            <small>05</small>
-            <h3>Funding and income</h3>
-            <p>Identify grants, markets and profitability opportunities.</p>
-          </a>
-        </div>
-      </div>
-    </section>
+    <NeedCards lang="en" />
 
     <section class="manifesto-section reveal">
       <div class="manifesto-section__image">
