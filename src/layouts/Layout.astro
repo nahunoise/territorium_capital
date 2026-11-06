@@ -23,7 +23,7 @@ const {
 } = Astro.props;
 
 const isEn = lang === 'en';
-const canonicalUrl = `https://territorium.capital${canonicalPath ?? (isEn ? '/en/' : '/')}`;
+const canonicalUrl = `https://www.territorium.capital${canonicalPath ?? (isEn ? '/en/' : '/')}`;
 const esPath = alternateEsPath ?? (isEn ? '/' : (canonicalPath ?? '/'));
 const enPath = alternateEnPath ?? (isEn ? (canonicalPath ?? '/en/') : '/en/');
 const gaMeasurementId = import.meta.env.PUBLIC_GA_MEASUREMENT_ID;
@@ -119,13 +119,13 @@ const footer = isEn
       submit: 'Enviar consulta',
     };
 
-const formNextUrl = isEn ? 'https://territorium.capital/en/thanks/' : 'https://territorium.capital/gracias/';
+const formNextUrl = isEn ? 'https://www.territorium.capital/en/thanks/' : 'https://www.territorium.capital/gracias/';
 const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: 'Territorium Capital',
-  url: 'https://territorium.capital/',
-  logo: 'https://territorium.capital/Territorium_Capital_logo.png',
+  url: 'https://www.territorium.capital/',
+  logo: 'https://www.territorium.capital/Territorium_Capital_logo.png',
   email: 'blanca@territorium.capital',
   sameAs: [],
   description: 'Gestora patrimonial territorial especializada en capital natural, restauración ecológica y resiliencia del territorio.'
@@ -134,7 +134,7 @@ const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   name: 'Territorium Capital',
-  url: 'https://territorium.capital/',
+  url: 'https://www.territorium.capital/',
   inLanguage: isEn ? 'en' : 'es'
 };
 const breadcrumbLabels: Record<string, string> = {
@@ -173,7 +173,7 @@ const breadcrumbSchema = breadcrumbPath === '/'
           '@type': 'ListItem',
           position: 1,
           name: 'Territorium Capital',
-          item: 'https://territorium.capital/'
+          item: 'https://www.territorium.capital/'
         },
         {
           '@type': 'ListItem',
@@ -194,13 +194,13 @@ const breadcrumbSchema = breadcrumbPath === '/'
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalUrl} />
-    <link rel="alternate" hreflang="es" href={`https://territorium.capital${esPath}`} />
-    <link rel="alternate" hreflang="en" href={`https://territorium.capital${enPath}`} />
-    <link rel="alternate" hreflang="x-default" href={`https://territorium.capital${esPath}`} />
+    <link rel="alternate" hreflang="es" href={`https://www.territorium.capital${esPath}`} />
+    <link rel="alternate" hreflang="en" href={`https://www.territorium.capital${enPath}`} />
+    <link rel="alternate" hreflang="x-default" href={`https://www.territorium.capital${esPath}`} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalUrl} />
-    <meta property="og:image" content="https://territorium.capital/imagenes/fondo-1.webp" />
+    <meta property="og:image" content="https://www.territorium.capital/imagenes/fondo-1.webp" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
     {gtmId && <script is:inline set:html={gtmScript}></script>}
